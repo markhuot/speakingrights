@@ -1,0 +1,27 @@
+.crumbs {
+    content: "";
+    display: table;
+    clear: both;
+    color: #90278E;
+    font-weight: 100;
+    font-size: 14px;
+}
+
+.crumbs li {
+    list-style: none;
+    float: left;
+}
+
+.crumbs li:after {
+    content: ">";
+    margin: 0 5px;
+}
+
+.crumbs li:last-child:after {
+    content: "";
+    display: none;
+}
+
+.crumbs a {
+    text-transform: uppercase;
+}

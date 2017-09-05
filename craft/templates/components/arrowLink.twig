@@ -1,0 +1,6 @@
+{% set styles = styles("components/arrowLink.css.json") %}
+
+<a class="{{ styles.link }}" href="{{ href }}">
+    {{ label }}
+    <i class="{{ styles.icon }} fa fa-chevron-right" aria-hidden="true"></i>
+</a>

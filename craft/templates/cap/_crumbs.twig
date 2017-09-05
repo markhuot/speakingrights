@@ -1,0 +1,10 @@
+{% set styles = styles("cap/crumbs.css.json") %}
+
+{% if cap %}
+<ul class="{{ styles.crumbs }}">
+    <li><a href="{{ cap.url }}">{{ cap.title }}</a></li>
+    {% for tail in tails|default([]) %}
+        <li><a href="{{ cap.url }}/{{ tail.uri }}">{{ tail.label }}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}

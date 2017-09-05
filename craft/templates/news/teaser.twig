@@ -1,0 +1,21 @@
+{% set styles = styles("news/teaser.css.json") %}
+{% set spacing = styles("layouts/spacing.css.json") %}
+
+<a href="{{ entry.url }}">
+    <div class="{{ spacing.small }}">
+        <a href="{{ entry.url }}" class="{{ spacing.small }}">
+            <div>
+                <p class="{{ styles.image }}">
+                    {% include "news/_image" with {"image": entry.image, "transform": {"mode": "crop", "width": 600, "height": 360}} only %}
+                </p>
+                {% if entry.communityActionProject.total %}
+                    <p class="{{ styles.projectName }}">{{ entry.communityActionProject.first.title }}</p>
+                {% endif %}
+            </div>
+            <p class="{{ styles.heading }}"><strong>{{ entry.title }}</strong></p>
+        </a>
+        <div class="{{ styles.summary }}">
+            {{ entry.excerpt }}
+        </div>
+    </div>
+</a>

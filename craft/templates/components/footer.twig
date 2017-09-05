@@ -1,0 +1,32 @@
+{% set styles = styles("components/footer.css.json") %}
+
+<footer class="{{ styles.gradient }}">
+    <div class="{{ styles.container }}">
+        <div>
+            {% include "blocks/logo" %}
+        </div>
+        <div>
+            <address>
+                Main office<br>
+                666 Sherbrooke Street West, <br>
+                Suite 1100, Montréal, Québec, <br>
+                H3A 1E7
+            </address>
+            <address>
+                Regional British Columbia Office<br>
+                #726 – 736 Granville Street<br>
+                Vancouver, BC<br>
+                V6Z 1E4
+            </address>
+        </div>
+        <div>
+            <ul>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Equitas.org </a></li>
+                <li><a href="#">Site map</a></li>
+                <li><a href="#">Privacy statement</a></li>
+            </ul>
+        </div>
+    </div>
+    <p class="{{ styles.copyright }}">Copyright © Equitas - International Centre for Human Rights Education / Centre international d’éducation aux droits humains</p>
+</footer>

@@ -1,0 +1,19 @@
+.container {
+    padding: 20px;
+    background: #FFDD15;
+}
+
+.heading {
+    font-family: Oswald, sans-serif;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.item {
+    list-style: none;
+}
+
+.subheading {
+    font-family: Oswald, sans-serif;
+    font-size: 18px;
+}

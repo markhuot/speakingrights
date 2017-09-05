@@ -1,0 +1,10 @@
+{% set styles = styles("events/listing.css.json") %}
+{% set spacing = styles("layouts/spacing.css.json") %}
+
+<ul class="{{ styles.container }} {{ spacing.default }}">
+    {% for item in items %}
+        <li>
+            {% include "events/teaser" with {"entry": item} only %}
+        </li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,22 @@
+.container {
+    composes: clearfix from '../global.css';
+}
+
+.container > li {
+    list-style: none;
+}
+
+.container > * {
+    margin-bottom: 20px;
+    margin-right: 20px;
+    width: calc(25% - 15px);
+    float: left;
+}
+
+.container > *:nth-child(4n+4) {
+    margin-right: 0;
+}
+
+.image {
+    border: 6px solid black;
+}

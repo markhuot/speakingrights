@@ -1,0 +1,20 @@
+{% extends "layouts/default" %}
+
+{% set styles = styles("resources/entry.css.json") %}
+{% set spacing = styles("layouts/spacing.css.json") %}
+{% set shortHero = true %}
+{% set heroLabel = "News" %}
+{% set perPage = 6 %}
+{% paginate craft.entries.section('news').limit(perPage) as pageInfo, news %}
+
+{% use "cap/hero" %}
+
+{% block main %}
+    {% include "news/_listing" with {"items": news} only %}
+    {% include "components/pagination" with {"pageInfo": pageInfo} only %}
+{% endblock %}
+
+{% block sidebar %}
+    {% include "blocks/topics" with {"blockTitle": "Find news by", "type": "news"} only %}
+    {% include "blocks/signup" %}
+{% endblock %}

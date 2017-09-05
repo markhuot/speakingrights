@@ -1,0 +1,84 @@
+.header {
+    composes: clearfix from '../global.css';
+    background: url(/images/dots.svg);
+    background-size: 1024px 130px;
+    padding: 32px 0 25px;
+    overflow: hidden;
+}
+
+.container {
+    composes: container from '../global.css';
+    composes: clearfix from '../global.css';
+    position: relative;
+}
+
+.logo {
+    max-width: 266px;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+}
+
+.navigationContainer {
+    float: right;
+    width: 65.89% /* 8 columns, 7 gutters */;
+    text-align: right;
+}
+
+.navigation {
+    background: #ffdd15;
+    padding: 8px 0 3px 15px;
+    border-radius: 4px 0 0 4px;
+    position: relative;
+    float: right;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.navigation:before {
+    content: "";
+    position: absolute;
+    width: 100vw;
+    right: -100vw;
+    top: 0;
+    height: 100%;
+    background: #ffdd15;
+}
+
+.navigation li {
+    list-style: none;
+    float: left;
+}
+
+.navigation li + li {
+    margin-left: 30px;
+}
+
+nav.utilityNavigation,
+.utilityNavigation ul,
+.utilityNavigation li {
+    display: inline-block;
+}
+
+.utilityNavigation {
+    text-transform: uppercase;
+    margin-left: 20px;
+    font-weight: 100;
+    font-size: 13px;
+}
+
+.utilityNavigation li + li {
+    list-style: none;
+    margin-left: 6px;
+}
+
+.socialNavigation li + li {
+    margin-left: 13px;
+}
+
+.socialNavigation i {
+    font-size: 21px;
+    color: #90278E;
+    position: relative;
+    bottom: -0.1em;
+}

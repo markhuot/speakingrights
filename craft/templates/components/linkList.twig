@@ -1,0 +1,17 @@
+{% set styles = styles("components/linkList.css.json") %}
+
+<div data-ajax-container>
+    <input type="hidden" name="page" value="{{ pageInfo.currentPage }}">
+    <table class="{{ styles.table }}">
+        {% for link in links %}
+            <tr>
+                <td><strong><a href="{{ link.linkUrl }}">{{ link.title }}</a></strong></td>
+                <td>
+                    {{ link.tactics|join(',') }}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    {% include "components/pagination" with {"pageInfo": pageInfo, "ajax": true} only %}
+</div>

@@ -1,0 +1,17 @@
+{% set styles = styles('blocks/imageQuote.css.json') %}
+{% set spacing = styles('layouts/spacing.css.json') %}
+
+<blockquote class="{{ styles.container }}">
+    <div>
+        {% if block.image.count %}
+            <img class="{{ styles.image }}" src="{{ block.image.first.url }}">
+        {% endif %}
+    </div>
+    <div>
+        <div class="{{ styles.quote }}">{{ block.quote }}</div>
+        <p class="{{ styles.meta }}">
+            <cite class="{{ styles.citation }}">&mdash;{{ block.citation }}</cite>
+            {% include "components/arrowLink" with {"href": block.linkEntries.count ? block.linkEntries.first.url : block.linkUrl, "label": block.linkText} only %}
+        </p>
+    </div>
+</blockquote>

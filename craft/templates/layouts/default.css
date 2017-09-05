@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('/fonts/oswald-bold-webfont.woff2') format('woff2'),
+         url('/fonts/oswald-bold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('/fonts/quicksand-bold-webfont.woff2') format('woff2'),
+         url('/fonts/quicksand-bold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('/fonts/quicksand-light-webfont.woff2') format('woff2'),
+         url('/fonts/quicksand-light-webfont.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('/fonts/quicksand-regular-webfont.woff2') format('woff2'),
+         url('/fonts/quicksand-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: Quicksand, sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    composes: container from '../global.css';
+    composes: clearfix from '../global.css';
+    position: relative;
+}
+
+.page {
+    overflow: hidden;
+}
+
+@media screen and (width >= 700px) {
+    .main {
+        float: left;
+        width: calc(66.6666% - 10px);
+        margin-right: 20px;
+        margin-top: 0px;
+    }
+
+    .sidebar {
+        float: right;
+        width: calc(25% - 10px);
+        margin-top: 0px;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.spec {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -512px;
+    width: 1024px;
+    z-index: 1000;
+    opacity: 0;
+}

@@ -1,0 +1,8 @@
+{% set styles = styles("blocks/mailingListSignup.css.json") %}
+{% set spacing = styles("layouts/spacing.css.json") %}
+
+<div class="{{ styles.background }} {{ spacing.providesOwnSpacing }}">
+    <div class="{{ styles.container }}">
+        {{ block.heading }}
+    </div>
+</div>

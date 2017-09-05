@@ -1,0 +1,19 @@
+{% set styles = styles("blocks/imageList.css.json") %}
+
+<div class="{{ styles.container }}">
+    <div>
+        {% if block.image.count %}
+            <img src="{{ block.image.first.url }}">
+        {% endif %}
+    </div>
+    <div>
+        <p class="{{ styles.heading }}">
+            <strong>
+                <a href="{{ block.linkEntries.count ? block.linkEntries.first.url : block.linkUrl }}">
+                    {{ block.heading }}
+                </a>
+            </strong>
+        </p>
+        {{ block.blockContent }}
+    </div>
+</div>

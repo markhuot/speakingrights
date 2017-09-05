@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "autoprefixer": "^7.1.2",
+    "axios": "^0.16.2",
+    "baguettebox.js": "^1.8.2",
+    "css-loader": "^0.28.7",
+    "element-closest": "^2.0.2",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "postcss-import": "^10.0.0",
+    "postcss-loader": "^2.0.6",
+    "postcss-media-minmax": "^3.0.0",
+    "postcss-modules": "^0.8.0",
+    "reframe.js": "^2.1.13",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.5.4"
+  },
+  "scripts": {
+    "dev": "webpack"
+  }
+}

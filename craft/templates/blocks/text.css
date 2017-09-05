@@ -1,0 +1,3 @@
+.container {
+    composes: longform from '../global.css';
+}

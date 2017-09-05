@@ -1,0 +1,14 @@
+.background {
+    background: url(/images/dots-mail.svg) repeat center center;
+    background-size: 1024px 340px;
+    padding: 30px;
+}
+
+.container {
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    background: linear-gradient(90deg, #90278E, #5C23A1);
+    padding: 40px;
+    color: #fff;
+}

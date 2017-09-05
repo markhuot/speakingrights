@@ -1,0 +1,8 @@
+{% set styles = styles('blocks/statement.css.json') %}
+{% set spacing = styles('layouts/spacing.css.json') %}
+
+<div class="{{ styles.background }} {{ spacing.providesOwnSpacing }}">
+    <div class="{{ styles.container }}">
+        {{ block.blockContent }}
+    </div>
+</div>

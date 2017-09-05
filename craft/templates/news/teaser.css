@@ -1,0 +1,17 @@
+.image img {
+    border: 6px solid #000;
+}
+
+.heading {
+    font-family: Oswald, sans-serif;
+    font-size: 20px;
+}
+
+.summary {
+    composes: summary from '../global.css';
+}
+
+.projectName {
+    font-size: 14px;
+    color: #90278E;
+}

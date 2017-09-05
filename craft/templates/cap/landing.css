@@ -1,0 +1,76 @@
+.header {
+    padding: 40px;
+    position: relative;
+}
+
+.header.dots {
+    background: url(/images/dots-motivate.svg) no-repeat 0 60px;
+}
+
+@media screen and (940px > width >= 700px) {
+    .header {
+        padding: 40px 0 0;
+    }
+}
+
+@media screen and (width >= 940px) {
+    .header {
+        padding: 104px 0 100px 160px;
+    }
+}
+
+.header:before {
+    content: "";
+    position: absolute;
+    width: 200vw;
+    height: calc(100% + 100px);
+    top: 0;
+    left: -50vw;
+    background: #FFDD15;
+    z-index: -1;
+}
+
+.heading {
+    font-size: 72px;
+    font-family: Oswald, sans-serif;
+    line-height: 1.2;
+    color: #90278E;
+}
+
+.introduction {
+    composes: longform from '../global.css';
+}
+
+.stepText {
+    color: #4A4A4A;
+    margin-bottom: -10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+@media screen and (width < 940px) {
+    .stepNumber {
+        display: none;
+    }
+}
+
+.stepNumber.one {
+    width: 90px;
+    position: absolute;
+    top: 130px;
+    left: 20px;
+}
+
+.stepNumber.two {
+    width: 110px;
+    position: absolute;
+    top: 110px;
+    left: 0px;
+}
+
+.stepNumber.three {
+    width: 110px;
+    position: absolute;
+    top: 120px;
+    left: 10px;
+}

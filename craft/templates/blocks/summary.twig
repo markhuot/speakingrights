@@ -1,0 +1,9 @@
+{% set output = false %}
+<div>
+    {% for block in blocks.all %}
+        {% if block.type == 'text' and output == false %}
+            {% set output = true %}
+            {{ block.blockContent }}
+        {% endif %}
+    {% endfor %}
+</div>

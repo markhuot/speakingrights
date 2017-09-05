@@ -1,0 +1,9 @@
+{% set styles = styles("components/selectList.css.json") %}
+
+<span class="{{ styles.container }}">
+    <select name="{{ name|default('') }}" class="{{ styles.select }}">
+        {% for value, label in options %}
+            <option value="{{ value }}">{{ label }}</option>
+        {% endfor %}
+    </select>
+</span>

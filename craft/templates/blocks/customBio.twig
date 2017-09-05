@@ -1,0 +1,14 @@
+{% set styles = styles('blocks/userBio.css.json') %}
+{% set spacing = styles('layouts/spacing.css.json') %}
+
+<div class="{{ styles.container }}">
+    {% if block.image.total %}
+        <div class="{{ styles.image }}">
+            <img src="{{ block.image.first.url }}">
+        </div>
+    {% endif %}
+    <div class="{{ styles.text }} {{ spacing.small }}">
+        <h5 class="{{ styles.heading }}">{{ block.heading }}</h5>
+        {{ block.description }}
+    </div>
+</div>

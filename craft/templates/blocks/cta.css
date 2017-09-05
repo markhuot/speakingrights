@@ -1,0 +1,40 @@
+.container {
+    composes: container from '../global.css';
+}
+
+.image {
+    border: 6px solid black;
+}
+
+.play {
+    position: relative;
+    cursor: pointer;
+}
+
+.play:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\f04b";
+    font-size: 135px;
+}
+
+.meta {
+    display: flex;
+    justify-content: space-between;
+}
+
+.description {
+    font-family: Oswald, sans-serif;
+}
+
+.container iframe {
+    border: none;
+}

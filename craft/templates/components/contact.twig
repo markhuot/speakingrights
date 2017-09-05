@@ -1,0 +1,13 @@
+{% set styles = styles("components/contact.css.json") %}
+{% set spacing = styles("layouts/spacing.css.json") %}
+
+<div class="{{ styles.container }} {{ spacing.heading }}">
+    <h3 class="{{ styles.heading }}">Contact Us</h3>
+    {{ body }}
+
+    {% if socialUsernames.count %}
+        <ul class="{{ styles.social }}">
+            {% include "components/socialUsernameItems" with {"socialUsernames": socialUsernames} only %}
+        </ul>
+    {% endif %}
+</div>

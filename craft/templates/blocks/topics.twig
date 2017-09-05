@@ -1,0 +1,22 @@
+{% set styles = styles("blocks/topics.css.json") %}
+{% set spacing = styles("layouts/spacing.css.json") %}
+
+<div class="{{ styles.container }} {{ spacing.heading }} {{ white is defined and white ? styles.white }}">
+    <h3 class="{{ styles.heading }}">{{ blockTitle }}</h3>
+    <ul class="{{ styles.list }} {{ spacing.default }}">
+        <li><p class="{{ styles.subheading }}">Topic</p>
+            <ul>
+                {% for topic in craft.categories.group('topics').all %}
+                    <li><a class="{{ styles.tag }}" href="/search?{{ type is defined ? 'type=' ~ type }}&topic={{ topic.slug }}">{{ topic.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li><p class="{{ styles.subheading }}">Tactic</p>
+            <ul>
+                {% for tactic in craft.categories.group('tactics').all %}
+                    <li><a class="{{ styles.tag }}" href="/search?{{ type is defined ? 'type=' ~ type }}&tactic={{ tactic.slug }}">{{ tactic.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+    </ul>
+</div>

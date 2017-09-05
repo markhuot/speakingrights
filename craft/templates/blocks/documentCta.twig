@@ -1,0 +1,16 @@
+{% set styles = styles("blocks/documentCta.css.json") %}
+{% set spacing = styles("layouts/spacing.css.json") %}
+
+<div class="{{ styles.background }} {{ spacing.providesOwnSpacing }}">
+    <div class="{{ styles.container }} {{ spacing.default }}">
+        <p class="{{ styles.heading }}">{{ block.heading }}</p>
+        <div class="{{ styles.images }}">
+            {% for image in block.images %}
+                <img class="{{ styles.image }}" src="{{ image.url }}">
+            {% endfor %}
+        </div>
+        <div class="{{ styles.content }}">
+            {{ block.blockContent }}
+        </div>
+    </div>
+</div>

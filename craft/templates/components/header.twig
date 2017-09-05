@@ -1,0 +1,40 @@
+{% set styles = styles("components/header.css.json") %}
+{% set spacing = styles("layouts/spacing.css.json") %}
+
+<header class="{{ styles.header }}">
+    <div class="{{ styles.container }}">
+        <a href="/"><img class="{{ styles.logo }}" src="/images/logo-50-ans.png"></a>
+        <div class="{{ styles.navigationContainer }} {{ spacing.small }}">
+            <div>
+                <nav class="{{ styles.utilityNavigation }}">
+                    <ul>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                        {% if currentUser == null %}
+                            <li><a href="/signin">Sign In</a></li>
+                        {% else %}
+                            <li><a href="{{ logoutUrl }}">Sign Out</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+                <nav class="{{ styles.utilityNavigation }} {{ styles.socialNavigation }}">
+                    <ul>
+                        {% include "components/socialUsernameItems" with {"socialUsernames": utilities.socialUsernames} only %}
+                        <li><a href="/news" aria-label="search"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                        <li><a href="/news">FR</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <nav class="{{ styles.navigation }}">
+                <ul>
+                    <li><a href="/news">News</a></li>
+                    <li><a href="/motivate">Motivate</a></li>
+                    <li><a href="/investigate">Investigate</a></li>
+                    <li><a href="/take-action">Take Action</a></li>
+                    <li><a href="/community-action-projects">CAPs</a></li>
+                    <li><a href="/resources">Resources</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>

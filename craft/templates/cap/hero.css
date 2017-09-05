@@ -1,0 +1,56 @@
+.hero {
+    composes: gradientOverlay from '../global.css';
+    position: relative;
+    background-size: cover;
+    background-position: center center;
+    height: 360px;
+    display: flex;
+}
+
+.hero.short {
+    height: 250px;
+}
+
+.hero.short:before {
+    opacity: 1;
+}
+
+.heroContent {
+    composes: clearfix from '../global.css';
+    composes: container from '../global.css';
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+}
+
+.heroContent > * {
+    display: flex;
+    align-items: center;
+}
+
+.heroContent > *:first-child {
+    width: calc(75% - 10px);
+    margin-right: 20px;
+}
+
+.heroContent > *:last-child {
+    width: calc(25% - 10px);
+    flex-direction: column;
+    justify-content: center;
+}
+
+.heading {
+    font-family: Oswald, sans-serif;
+    font-size: 40px;
+    max-width: 10em;
+    line-height: 1.2em;
+    position: relative;
+    top: -25px;
+}
+
+.hero.short .heading {
+    top: 0;
+}

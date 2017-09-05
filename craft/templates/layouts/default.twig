@@ -1,0 +1,71 @@
+{% set layoutStyles = styles("layouts/default.css.json") %}
+{% set layoutSpacing = styles("layouts/spacing.css.json") %}
+<!doctype html>
+<html lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ entry.title is defined ? entry.title ~ ' – Speaking Rights' :'Speaking Rights' }}</title>
+</head>
+<body>
+    <div class="{{ layoutStyles.page }}">
+        {% include "components/header" %}
+        <div class="{{ disableSpacing is not defined or disableSpacing == false ? layoutSpacing.default }}">
+            {% block container %}
+                <div class="{{ layoutSpacing.large }}">
+                    {% block hero %}{% endblock %}
+                    <div class="{{ layoutStyles.container }} {{ layoutSpacing.default }}">
+                        {% block content %}
+                            <main class="{{ layoutStyles.main }} {{ layoutSpacing.huge }}">
+                                {% block main %}{% endblock %}
+                            </main>
+                            <div class="{{ layoutStyles.sidebar }} {{ layoutSpacing.sidebar }}">
+                                {% block sidebar %}{% endblock %}
+                            </div>
+                        {% endblock %}
+                    </div>
+                    {% block postscript %}{% endblock %}
+                </div>
+            {% endblock %}
+            {% include "components/footer" %}
+        </div>
+    </div>
+    {% if entry.type.handle is defined %}
+        {% if entry.type.handle == 'communityActionProject' %}
+            <img id="spec" src="/spec-cap.jpg" style="pointer-events: none;" class="{{ layoutStyles.spec }}">
+        {% elseif entry.type.handle == 'news' %}
+            <img id="spec" src="/spec-news-detail.jpg" style="pointer-events: none;" class="{{ layoutStyles.spec }}">
+        {% elseif entry.type.handle == 'capLanding' %}
+            <img id="spec" src="/spec-cap-landing.jpg" style="pointer-events: none;" class="{{ layoutStyles.spec }}">
+        {% elseif entry.type.handle == 'about' %}
+            <img id="spec" src="/spec-about.jpg" style="pointer-events: none;" class="{{ layoutStyles.spec }}">
+        {% elseif entry.type.handle == 'resources' %}
+            <img id="spec" src="/spec-resources.jpg" style="pointer-events: none;" class="{{ layoutStyles.spec }}">
+        {% elseif entry.type.handle == 'homepage' %}
+            <img id="spec" src="/spec-home.jpg" style="pointer-events: none;" class="{{ layoutStyles.spec }}">
+        {% elseif entry.type.handle == 'motivate' %}
+            <img id="spec" src="/spec-motivate.jpg" style="pointer-events: none;" class="{{ layoutStyles.spec }}">
+        {% endif %}
+        <script>
+            document.body.addEventListener('keyup', function (event) {
+                var el = document.getElementById('spec');
+                switch(event.keyCode) {
+                    case 49: el.style.opacity = '1.0'; break;
+                    case 50: el.style.opacity = '0.2'; break;
+                    case 51: el.style.opacity = '0.3'; break;
+                    case 52: el.style.opacity = '0.4'; break;
+                    case 53: el.style.opacity = '0.5'; break;
+                    case 54: el.style.opacity = '0.6'; break;
+                    case 55: el.style.opacity = '0.7'; break;
+                    case 56: el.style.opacity = '0.8'; break;
+                    case 57: el.style.opacity = '0.9'; break;
+                    case 48: el.style.opacity = '0.0'; break;
+                }
+            });
+        </script>
+    {% endif %}
+    <script src="/bundle.js"></script>
+</body>
+</html>

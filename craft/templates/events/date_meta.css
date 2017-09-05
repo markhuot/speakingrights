@@ -1,0 +1,15 @@
+.metaItem {
+    font-weight: 100;
+    font-size: 14px;
+}
+
+.icon {
+    float: left;
+    width: 1.9em;
+    position: relative;
+    bottom: -0.2em;
+}
+
+.location {
+    overflow: hidden;
+}

@@ -1,0 +1,23 @@
+{% extends "layouts/default" %}
+
+{% set styles = styles("cap/cap.css.json") %}
+{% set spacing = styles("layouts/spacing.css.json") %}
+{% set entry = craft.entries.slug(slug).first %}
+{% set heroLabel = 'News' %}
+{% set shortHero = true %}
+{% paginate craft.entries.section('news').relatedTo(entry).orderBy('entries.dateCreated desc').limit(6) as pageInfo, news %}
+
+{% use "cap/hero" %}
+
+{% block main %}
+    {% include "cap/_crumbs" with {
+        "cap": entry,
+    } %}
+    {% include "news/_listing" with {"items": news} only %}
+    {% include "components/pagination" with {"pageInfo": pageInfo} only %}
+{% endblock %}
+
+{% block sidebar %}
+    {% include "blocks/topics" with {"blockTitle": "Search by", "type": "news"} only %}
+    {% include "blocks/signup" %}
+{% endblock %}

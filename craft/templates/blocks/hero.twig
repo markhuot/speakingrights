@@ -1,0 +1,26 @@
+{% set styles = styles("blocks/hero.css.json") %}
+{% set spacing = styles("layouts/spacing.css.json") %}
+
+<div class="{{ styles.container }} {{ spacing.providesOwnSpacing }}"{% if block.image.count %}style="background-image: url({{ block.image.first.url }})"{% endif %}>
+    <div class="{{ styles.heroContent }}">
+        <div class="{{ styles.logo }}">
+            {% if block.includeLogo %}
+                {% include "blocks/logo" with {"white": true} only %}
+            {% endif %}
+        </div>
+        <div class="{{ styles.content }}">
+            <div class="{{ spacing.small }}">
+                <h1 class="{{ styles.heading }}">
+                    {{ block.blockTitle }}
+                </h1>
+                {% if block.linkText %}
+                    <p class="{{ styles.desktopCta }}">{% include "components/button" with {"href": block.linkEntries.count ? block.linkEntries.first.url : block.linkUrl, "label": block.linkText} %}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if block.linkText %}
+    <p class="{{ styles.mobileCta }}">{% include "components/button" with {"href": block.linkEntries.count ? block.linkEntries.first.url : block.linkUrl, "label": block.linkText} %}</p>
+{% endif %}

@@ -1,0 +1,14 @@
+{% set styles = styles("blocks/cta.css.json") %}
+{% set spacing = styles("layouts/spacing.css.json") %}
+
+{% if block.videoUrl %}
+<div class="{{ styles.container }} {{ spacing.small }}">
+    <div class="{{ styles.play }}" data-video-swap="{{ block.videoUrl|videoPlayerUrl }}">
+        <img class="{{ styles.image }}" src="{{ craft.embedder.url(block.videoUrl)['video_highres'] }}">
+    </div>
+    <div class="{{ styles.meta }}">
+        <div class="{{ styles.description }}">{{ block.caption }}</div>
+        {% include "components/arrowLink" with {"href": block.linkEntries.count ? block.linkEntries.first.url : block.linkUrl, "label": block.linkText} only %}
+    </div>
+</div>
+{% endif %}

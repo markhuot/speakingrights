@@ -1,0 +1,18 @@
+.main {
+    float: left;
+    width: calc(75% - 10px);
+    margin-right: 20px;
+}
+
+.sidebar {
+    float: left;
+    width: calc(25% - 10px);
+}
+
+.sectionHeading {
+    font-family: Oswald;
+}
+
+.sectionHeading small {
+    margin-left: 20px;
+}

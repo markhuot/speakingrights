@@ -1,0 +1,59 @@
+.background {
+    background: url(/images/dots-mail.svg) repeat center center;
+    background-size: 1024px 340px;
+    padding: 60px 0;
+}
+
+.container {
+    composes: container from '../global.css';
+    composes: clearfix from '../global.css';
+}
+
+@media screen and (width >= 940px) {
+    .container {
+        padding: 0 80px;
+    }
+}
+
+.heading {
+    color: #90278E;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.images {
+    text-align: center;
+}
+
+@media screen and (width >= 700px) {
+    .images {
+        text-align: left;
+        float: left;
+        margin-right: 20px;
+    }
+}
+
+.image {
+    max-width: 100px;
+}
+
+.image:nth-child(1) {
+    transform: rotateZ(-10deg);
+}
+
+.image:nth-child(2) {
+    transform: rotateZ(5deg);
+}
+
+.content {
+    composes: longform from '../global.css';
+    background: #fff;
+    padding: 15px;
+    overflow: hidden;
+}
+
+@media screen and (width >= 940px) {
+    .content {
+        max-width: 41.66666%;
+    }
+}

@@ -1,0 +1,37 @@
+.container {
+    background: #ffdd15;
+    padding: 20px;
+}
+
+.container.white {
+    background: #fff;
+    color: #231F20;
+}
+
+.heading {
+    font-size: 24px;
+    font-weight: normal;
+    font-family: Oswald;
+    text-transform: uppercase;
+}
+
+.list li {
+    list-style: none;
+}
+
+.list li li {
+    display: inline;
+}
+
+.list li li:not(:last-child):after {
+    content: ",";
+}
+
+.subheading {
+    font-size: 20px;
+    font-family: Oswald;
+}
+
+.tag {
+    font-size: 14px;
+}

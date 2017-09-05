@@ -1,0 +1,8 @@
+.tags {
+    color: #90278E;
+    font-size: 12px;
+}
+
+.tag:before {
+    content: "#";
+}

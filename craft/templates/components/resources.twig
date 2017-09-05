@@ -1,0 +1,15 @@
+{% set styles = styles("components/resources.css.json") %}
+{% set spacing = styles("layouts/spacing.css.json") %}
+
+<div class="{{ styles.container }} {{ spacing.heading }}">
+    <h3 class="{{ styles.heading }}">Resources</h3>
+    <ul class="{{ spacing.default }}">
+    {% for entry in craft.entries.section('downloads').limit(3) %}
+        <li class="{{ styles.item }}">
+            <a href="{{ entry.download.count ? entry.download.first.url }}">
+                <p class="{{ styles.subheading }}">{{ entry.title }}</p>
+            </a
+        </li>
+    {% endfor %}
+    </ul>
+</div>

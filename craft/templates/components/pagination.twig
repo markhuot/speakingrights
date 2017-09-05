@@ -1,0 +1,12 @@
+{% set styles = styles("components/pagination.css.json") %}
+
+{% if pageInfo.totalPages > 1 %}
+    <div class="{{ styles.container }}">
+        {% if pageInfo.currentPage != 1 %}
+            <a {{ ajax is defined and ajax ? 'data-ajax="-1"' }} class="{{ styles.link }} {{ styles.prev }}" href="{{ pageInfo.prevUrl }}"><i class="{{ styles.icon }} fa fa-chevron-left"></i> Previous</a>
+        {% endif %}
+        {% if pageInfo.currentPage != pageInfo.totalPages %}
+            <a {{ ajax is defined and ajax ? 'data-ajax="1"' }} class="{{ styles.link }} {{ styles.next }}" href="{{ pageInfo.nextUrl }}">Next <i class="{{ styles.icon }} fa fa-chevron-right"></i></a>
+        {% endif %}
+    </div>
+{% endif %}

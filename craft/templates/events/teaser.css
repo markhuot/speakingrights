@@ -1,0 +1,29 @@
+.container {
+    
+}
+
+.header a {
+    font-family: Oswald, sans-serif;
+    display: block;
+    background: #FFDD15 url(/images/dots-event.svg) no-repeat center center;
+    background-size: 643px 270px;
+    text-align: center;
+    font-size: 30px;
+    padding: 15px;
+}
+
+.split {
+}
+
+.split > * {
+    padding: 20px;
+}
+
+.split > *:first-child { 
+    background-color: #90278E;
+    color: #fff;
+}
+
+.split > *:last-child { 
+    
+}

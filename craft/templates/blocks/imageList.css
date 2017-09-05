@@ -1,0 +1,28 @@
+.container + .container {
+    margin-top: 0;
+}
+
+.container {
+    border-top: 1px solid #90278E;
+    display: flex;
+}
+
+.container > * {
+    padding: 15px;
+}
+
+.container > *:first-child {
+    width: 24.1935%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container > *:last-child {
+    width: 75.8065%;
+}
+
+.heading {
+    font-size: 18px;
+    color: #90278E;
+}

@@ -1,0 +1,41 @@
+.container {
+    composes: clearfix from '../global.css';
+    position: relative;
+}
+
+.container:before {
+    content: "";
+    position: absolute;
+    top: calc(50% + 1px);
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid #90278E;
+    z-index: -1;
+}
+
+.link {
+    background: #fff;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 100;
+    font-family: Quicksand;
+    color: #90278E;
+}
+
+.prev {
+    float: left;
+    border-right: 10px solid #fff;
+}
+
+.prev .icon {
+    margin-right: 10px;
+}
+
+.next {
+    float: right;
+    border-left: 10px solid #fff;
+}
+
+.next .icon {
+    margin-left: 10px;
+}

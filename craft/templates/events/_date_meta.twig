@@ -1,0 +1,19 @@
+{% set styles = styles("events/date_meta.css.json") %}
+{% set spacing = styles('layouts/spacing.css.json') %}
+
+<div class="{{ spacing.small }}">
+    <p class="{{ styles.metaItem }}">
+        <i class="{{ styles.icon }} fa fa-calendar" aria-hidden="true"></i>
+        {% include "events/_day" %}
+    </p>
+    <p class="{{ styles.metaItem }}">
+        <i class="{{ styles.icon }} fa fa-clock-o" aria-hidden="true"></i>
+        {% include "events/_time" %}
+    </p>
+    <div class="{{ styles.metaItem }}">
+        <i class="{{ styles.icon }} fa fa-map-marker" aria-hidden="true"></i>
+        <div class="{{ styles.location }}">
+            {{ entry.location }}
+        </div>
+    </div>
+</div>

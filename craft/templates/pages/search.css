@@ -1,0 +1,3 @@
+.container {
+    composes: splitInHalf from '../global.css';
+}

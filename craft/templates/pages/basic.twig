@@ -1,0 +1,19 @@
+{% extends "layouts/default" %}
+
+{% set spacing = styles("layouts/spacing.css.json") %}
+{% set shortHero = true %}
+
+{% use "cap/hero" %}
+
+{% block main %}
+    {% if entry.parent.type.handle is defined and entry.parent.type.handle == 'communityActionProject' %}
+        {% include "cap/_crumbs" with {
+            "cap": entry.parent,
+        } %}
+    {% endif %}
+    {% include "blocks/blocks" with {"blocks":entry.body} only %}
+{% endblock %}
+
+{% block sidebar %}
+    {% include "blocks/signup" %}
+{% endblock %}

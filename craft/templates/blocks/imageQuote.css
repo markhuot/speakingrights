@@ -1,0 +1,85 @@
+.container {
+    composes: container from '../global.css';
+    composes: clearfix from '../global.css';
+}
+
+@media screen and (width >= 940px) {
+    .container {
+        padding: 0 60px;
+    }
+}
+
+.container > *:first-child {
+    display: none;
+}
+
+@media screen and (width >= 500px) {
+    .container > *:first-child {
+        display: block;
+    }
+}
+
+@media screen and (500px <= width < 700px) {
+    .container > *:first-child {
+        float: left;
+        width: calc(20% - 10px);
+    }
+    
+    .container > *:last-child {
+        float: right;
+        width: calc(70% - 10px);
+    }
+}
+
+@media screen and (width >= 700px) {
+    .container > *:first-child {
+        float: left;
+        width: calc(40% - 10px);
+    }
+    .container > *:last-child {
+        float: right;
+        width: calc(50% - 10px);
+        margin-top: 30px;
+    }
+}
+
+.quote {
+    font-size: 30px;
+    font-weight: bold;
+    position: relative;
+}
+
+.quote > *:first-child:before {
+    content: '\201c';
+    position: absolute;
+    top: -25px;
+    left: -0.6em;
+    font-size: 60px;
+    color: #90278E;
+}
+.quote > *:last-child:after {
+    content: '\201d';
+    font-size: 60px;
+    color: #90278E;
+    line-height: 0;
+    position: relative;
+    top: 35px;
+    left: 20px;
+}
+
+.image {
+    border: 6px solid #000;
+    /* 289x355 */
+}
+
+.meta {
+    float: right;
+    text-align: right;
+}
+
+.citation {
+    text-transform: uppercase;
+    display: block;
+    color: #90278E;
+    font-weight: bold;
+}

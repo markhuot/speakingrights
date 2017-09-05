@@ -1,0 +1,24 @@
+.heading {
+    font-size: 36px;
+}
+
+.detail {
+    display: flex;
+}
+
+.detail > * {
+    width: 50%;
+    padding: 30px 20px;
+}
+
+.detail > *:first-child {
+    background-color: #90278E;
+    color: #fff;
+}
+
+.detail > *:last-child {
+    background-color: #FFDD15;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

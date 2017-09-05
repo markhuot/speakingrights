@@ -1,0 +1,137 @@
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (width < 980px) {
+    .container {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media screen and (width >= 980px) {
+    .container {
+        max-width: 940px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.longform {
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.longform * + * {
+    margin-top: 10px;
+}
+
+.longform h1,
+.longform h2,
+.longform h3, 
+.longform h4,
+.longform h5,
+.longform h6 {
+    font-family: Oswald;
+}
+
+.longform * + h1,
+.longform * + h2,
+.longform * + h3, 
+.longform * + h4,
+.longform * + h5,
+.longform * + h6 {
+    margin-top: 30px;
+}
+
+.longform h1 {
+    font-size: 42px;
+}
+.longform h2 {
+    font-size: 30px;
+}
+.longform h3 {
+    font-size: 24px;
+}
+.longform h4 {
+    font-size: 15px;
+}
+.longform h5 {
+    font-size: 10px;
+}
+.longform h6 {
+    font-size: 8px;
+}
+
+.longform a {
+    font-weight: bold;
+}
+
+.summary {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table > tbody > tr {
+    background-color: F5F5F5;
+    border-bottom: 5px solid #fff;
+}
+
+.table > tbody > tr > td {
+    padding: 8px;
+}
+
+.gradientOverlay:before {
+    content: "";
+    display: block;
+    background: linear-gradient(90deg, #90278E, #FFDD15);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.75;
+    z-index: 1;
+}
+
+@media screen and (width >= 940px) {
+    .gradientOverlay:before {
+        background: linear-gradient(90deg, #90278E calc(50% - 470px), #FFDD15 calc(50% + 470px));
+    }
+}
+
+.splitInHalf {
+    composes: clearfix;
+}
+
+.splitInHalf li {
+    list-style: none;
+}
+
+@media screen and (width >= 400px) {
+    .splitInHalf > * {
+        width: calc(50% - 10px);
+        float: left;
+    }
+
+    .splitInHalf > *:nth-child(1),
+    .splitInHalf > *:nth-child(2) {
+        margin-top: 0;
+    }
+    
+    .splitInHalf > *:nth-child(2n+1) {
+        clear: left;
+        margin-right: 10px;
+    }
+    
+    .splitInHalf > *:nth-child(2n+2) {
+        margin-left: 10px;
+    }
+}

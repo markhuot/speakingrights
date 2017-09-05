@@ -1,0 +1,16 @@
+.container {
+    background: #FFDD15;
+    display: flex;
+}
+
+.image {
+    max-width: 150px;
+}
+
+.text {
+    padding: 30px;
+}
+
+.heading {
+    text-transform: uppercase;
+}

@@ -1,0 +1,24 @@
+{% extends "layouts/default" %}
+
+{% set styles = styles("cap/cap.css.json") %}
+{% set spacing = styles("layouts/spacing.css.json") %}
+{% set entry = craft.entries.slug(slug).first %}
+{% set heroLabel = 'Events' %}
+{% set shortHero = true %}
+{% set perPage = 6 %}
+{% paginate craft.entries.section('events').relatedTo(entry).where(['>', 'content.field_startDate', now|date('Y-m-d H:i:s')]).orderBy('startDate asc').limit(perPage) as pageInfo, events %}
+
+{% use "cap/hero" %}
+
+{% block main %}
+    {% include "cap/_crumbs" with {
+        "cap": entry,
+    } %}
+    {% include "events/_listing" with {"items": events} only %}
+    {% include "components/pagination" with {"pageInfo": pageInfo} only %}
+{% endblock %}
+
+{% block sidebar %}
+    {% include "blocks/topics" with {"blockTitle": "Search by", "type": "events"} only %}
+    {% include "blocks/signup" %}
+{% endblock %}

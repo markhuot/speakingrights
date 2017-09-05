@@ -1,0 +1,5 @@
+{% set styles = styles("components/readmore.css.json") %}
+
+<p class="{{ styles.container }}">
+    {% include "components/arrowLink" with {"href": href, "label": label} only %}
+</p>

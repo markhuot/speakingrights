@@ -1,0 +1,15 @@
+.container {
+    max-width: 77%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 24px;
+    font-style: italic;
+    color: #90278E;
+}
+
+.container > *:first-child:before {
+    content: '\201c';
+}
+.container > *:last-child:after {
+    content: '\201d';
+}

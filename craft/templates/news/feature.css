@@ -1,0 +1,8 @@
+.heading {
+    font-size: 30px;
+    font-family: Oswald, sans-serif;
+}
+
+.summary {
+    composes: summary from '../global.css';
+}

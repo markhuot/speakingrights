@@ -1,0 +1,48 @@
+{% extends "layouts/default" %}
+
+{% set styles = styles("cap/cap.css.json") %}
+{% set spacing = styles("layouts/spacing.css.json") %}
+
+{% use "cap/hero" %}
+
+{% block main %}
+    {% include "blocks/blocks" with {"blocks": entry.body} only %}
+
+    {% set news = craft.entries.section('news').relatedTo(entry).orderBy('entries.dateCreated desc').limit(3) %}
+    {% if news.total > 0 %}
+        {% include "news/_feature" with {"entry": news.first} only %}
+    {% endif %}
+    {% if news.total > 1 %}
+        {% include "news/_listing" with {"items": news.all|slice(1)} only %}
+        {% if news.total > 3 %}
+            {% include "components/readmore" with {"href": entry.url ~ '/news', "label": "Read more"} %}
+        {% endif %}
+    {% endif %}
+
+    {% set event = craft.entries.section('events').relatedTo(entry).where(['>', 'content.field_startDate', now|date('Y-m-d H:i:s')]).orderBy('startDate asc').limit(1) %}
+    {% if event.total > 0 %}
+        {% include "events/_feature" with {"entry": event.first} only %}
+    {% endif %}
+    {% if event.total > 1 %}
+        {% include "components/readmore" with {"href": entry.url ~ '/events', "label": "Read more"} %}
+    {% endif %}
+
+    {% if entry.photos.total %}
+        <h2 class="{{ styles.sectionHeading }}">
+            Photos
+
+            {% if entry.photos.total > 4 %}
+                <small>
+                    {% include "components/arrowLink" with {"href": entry.url ~ '/photos', "label": "See more"} %}
+                </small>
+            {% endif %}
+        </h2>
+        {% include "components/photos" with {"entry": entry, "photos": entry.photos.limit(4)} only %}
+    {% endif %}
+{% endblock %}
+
+{% block sidebar %}
+    {% include "components/contact" with {"body": entry.contactInformation, "socialUsernames": entry.socialUsernames} only %}
+    {% include "blocks/topics" with {"blockTitle": "Find CAP by", "type": "communityActionProject"} only %}
+    {% include "blocks/signup" %}
+{% endblock %}

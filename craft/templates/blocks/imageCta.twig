@@ -1,0 +1,12 @@
+{% set styles = styles('blocks/cta.css.json') %}
+{% set spacing = styles('layouts/spacing.css.json') %}
+
+{% if block.image.count %}
+    <div class="{{ styles.container }} {{ spacing.small }}">
+        <img class="{{ styles.image }}" src="{{ block.image.first.url }}">
+        <div class="{{ styles.meta }}">
+            <div class="{{ styles.description }}">{{ block.image.first.description }}</div>
+            {% include "components/arrowLink" with {"href": block.linkEntries.count ? block.linkEntries.first.url : block.linkUrl, "label": block.linkText} only %}
+        </div>
+    </div>
+{% endif %}

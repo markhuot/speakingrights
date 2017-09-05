@@ -1,0 +1,5 @@
+{% set order = craft.request.getParam('sort') == 'tag' ? 'title' : 'title' %}
+{% set direction = craft.request.getParam('direction') == 'desc' ? 'desc' : 'asc' %}
+{% paginate craft.entries.section('organizations').limit(6).order(order ~ ' ' ~ direction) as pageInfo, orgs %}
+
+{% include "components/orgList" with {"orgs": orgs, "pageInfo": pageInfo} only %}

@@ -1,0 +1,7 @@
+{% if start and start.format('Y-m-d') == end.format('Y-m-d') %}
+    {{ start.format('l, F j, Y') }}
+{% elseif start and start.format('Y-m') == end.format('Y-m') %}
+    {{ start.format('F j') }}&ndash;{{ end.format('j, Y') }}
+{% elseif start and start.format('Y') == end.format('Y') %}
+    {{ start.format('F j') }}&ndash;{{ end.format('F j, Y') }}
+{% endif %}

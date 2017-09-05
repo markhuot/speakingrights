@@ -1,0 +1,48 @@
+{% extends "layouts/default" %}
+
+{% set styles = styles("pages/search.css.json") %}
+{% set spacing = styles("layouts/spacing.css.json") %}
+{% set shortHero = true %}
+{% set heroLabel = "Search" %}
+{% set criteria = craft.entries %}
+
+{% if craft.request.getParam('type') %}
+    {% set criteria = criteria.type(craft.request.getParam('type')) %}
+{% else %}
+    {% set criteria = criteria.type(['communityActionProject', 'news', 'events']) %}
+{% endif %}
+
+{% if craft.request.getParam('topic') %}
+    {% set topic = craft.categories.slug(craft.request.getParam('topic')).first %}
+    {% set criteria = criteria.relatedTo(topic) %}
+{% endif %}
+
+{% if craft.request.getParam('tactic') %}
+    {% set tactic = craft.categories.slug(craft.request.getParam('tactic')).first %}
+    {% set criteria = criteria.relatedTo(tactic) %}
+{% endif %}
+
+{% if craft.request.getParam('q') %}
+    {% set criteria = criteria.search(craft.request.getParam('q')) %}
+{% endif %}
+
+{% set criteria = criteria.limit(10) %}
+
+{% paginate criteria as pageInfo, entries %}
+
+{% use "cap/hero" %}
+
+{% block main %}
+    <ul class="{{ styles.container }} {{ spacing.default }}">
+        {% for entry in entries %}
+            <li>
+                {% include [entry.type.handle ~ "/teaser", "components/defaultTeaser"] ignore missing with {"entry": entry} only %}
+            </li>
+        {% endfor %}
+    </ul>
+    {% include "components/pagination" with {"pageInfo": pageInfo} only %}
+{% endblock %}
+
+{% block sidebar %}
+    {% include "blocks/signup" %}
+{% endblock %}

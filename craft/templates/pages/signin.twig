@@ -1,0 +1,40 @@
+{% extends "layouts/default" %}
+
+{% set styles = styles("pages/signin.css.json") %}
+{% set spacing = styles("layouts/spacing.css.json") %}
+{% set shortHero = true %}
+{% set heroLabel = "Sign In" %}
+
+{% use "cap/hero" %}
+
+{% block main %}
+    <form method="post" accept-charset="UTF-8" class="{{ spacing.default }}">
+        {{ getCsrfInput() }}
+        <input type="hidden" name="action" value="users/login">
+
+        <div>
+            <h3><label for="loginName">Username or email</label></h3>
+            <input class="{{ styles.input }}" id="loginName" type="text" name="loginName">
+        </div>
+
+        <div>
+            <h3><label for="password">Password</label></h3>
+            <input class="{{ styles.input }}" id="password" type="password" name="password">
+        </div>
+
+        <div>
+            <input class="{{ styles.button }}" type="submit" value="Login">
+        </div>
+
+        {% if errorMessage is defined %}
+            <p>{{ errorMessage }}</p>
+        {% endif %}
+    </form>
+
+    {# <p><a href="{{ url('forgotpassword') }}">Forget your password?</a></p> #}
+{% endblock %}
+
+{% block sidebar %}
+    {% include "blocks/signup" %}
+    {% include "components/signup" %}
+{% endblock %}

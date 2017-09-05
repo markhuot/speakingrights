@@ -1,0 +1,58 @@
+{% extends "layouts/default" %}
+
+{% set styles = styles("resources/entry.css.json") %}
+{% set spacing = styles("layouts/spacing.css.json") %}
+{% set shortHero = true %}
+
+{% set downloads = craft.entries.section('downloads').limit(4) %}
+{% paginate craft.entries.section('links').limit(6) as linksPageInfo, links %}
+{% paginate craft.entries.section('organizations').limit(6) as orgsPageInfo, orgs %}
+
+{% use "cap/hero" %}
+
+{% block main %}
+    {% include "blocks/blocks" with {"blocks":entry.body} only %}
+
+    {% if downloads.total > 0 %}
+        <div class="{{ spacing.heading }}">
+            <h2 class="{{ styles.heading }}">Downloads</h2>
+            {% include "components/downloadList" with {"items": downloads } %}
+            {% if downloads.total > 4 %}
+                {% include "components/readmore" with {"href": "/resources/downloads", "label": "See all"} %}
+            {% endif %}
+        </div>
+    {% endif %}
+
+    {% if links|length %}
+        <div class="{{ spacing.heading }}">
+            <h2 class="{{ styles.heading }}">Links</h2>
+            <form action="/api/links" method="get" class="{{ spacing.small }}">
+                {% include "components/sort" with {"links": [
+                    {"name": "title", "label": "Name"},
+                    {"name": "tag", "label": "Tag"},
+                ]} %}
+                {% include "components/linkList" with {"links": links, "pageInfo": linksPageInfo} only %}
+            </form>
+        </div>
+    {% endif %}
+
+    {% if orgs|length %}
+        <div class="{{ spacing.heading }}">
+            <h2 class="{{ styles.heading }}">Organizational Directory</h2>
+            <form action="/api/orgs" method="get" class="{{ spacing.small }}">
+                {% include "components/sort" with {"links": [
+                    {"name": "title", "label": "Name"},
+                    {"name": "province", "label": "Province"},
+                    {"name": "tag", "label": "Tag"},
+                ]} %}
+                {% include "components/orgList" with {"orgs": orgs, "pageInfo": orgsPageInfo} only %}
+            </form>
+        </div>
+    {% endif %}
+
+{% endblock %}
+
+{% block sidebar %}
+    {% include "blocks/topics" with {"blockTitle": "Find Resources by", "type": "download"} only %}
+    {% include "blocks/signup" %}
+{% endblock %}

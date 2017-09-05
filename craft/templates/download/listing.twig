@@ -1,0 +1,26 @@
+{% extends "layouts/default" %}
+
+{% set styles = styles("download/listing.css.json") %}
+{% set spacing = styles("layouts/spacing.css.json") %}
+{% set shortHero = true %}
+{% set perPage = 12 %}
+{% paginate craft.entries.section('downloads').order('title asc').limit(perPage) as pageInfo, downloads %}
+
+{% use "cap/hero" %}
+
+{% block main %}
+    <form action="/api/downloads" method="get" class="{{ spacing.small }}">
+        {% include "components/sort" with {"links": [
+            {"name": "title", "label": "Title"},
+        ]} %}
+        <div data-ajax-container>
+            {% include "components/downloadList" with {"items": downloads} only %}
+            {% include "components/pagination" with {"pageInfo": pageInfo} only %}
+        </div>
+    </form>
+{% endblock %}
+
+{% block sidebar %}
+    {% include "blocks/topics" with {"blockTitle": "Find Resources by"} only %}
+    {% include "blocks/signup" %}
+{% endblock %}

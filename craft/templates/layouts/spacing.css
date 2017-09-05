@@ -1,0 +1,31 @@
+.huge > * + * {
+    margin-top: 40px;
+}
+
+.default > * + * {
+    margin-top: 30px;
+}
+
+.sidebar > * + * {
+    margin-top: 40px;
+}
+
+.heading > * + * {
+    margin-top: 20px;
+}
+
+.large > * + * {
+    margin-top: 50px;
+}
+
+.small > * + * {
+    margin-top: 15px;
+}
+
+.tiny > * + * {
+    margin-top: 10px;
+}
+
+.providesOwnSpacing + .providesOwnSpacing {
+    margin-top: 0;
+}

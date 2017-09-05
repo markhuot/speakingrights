@@ -1,0 +1,17 @@
+.heading {
+    font-size: 36px;
+    font-family: Oswald;
+    font-weight: bold;
+}
+
+@media screen and (width >= 700px) {
+    .image {
+        /* width: calc(100% + 6.3829% + 40px); */
+        width: calc(100% + 9.6774% + 20px);
+        max-width: none;
+    }
+}
+
+.date {
+    font-weight: bold;
+}

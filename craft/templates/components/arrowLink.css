@@ -1,0 +1,15 @@
+.link {
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    text-transform: uppercase;
+    color: #90278E;
+    font-size: 13px;
+    font-weight: 100;
+    font-family: Quicksand;
+}
+
+.icon {
+    font-size: 16px;
+    margin-left: 10px;
+}

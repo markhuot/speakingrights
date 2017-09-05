@@ -1,0 +1,15 @@
+.container {
+    text-align: right;
+    overflow: hidden;
+}
+
+.container > *:first-child:before {
+    content: "";
+    border-bottom: 1px solid #90278E;
+    right: calc(100% + 10px);
+    width: 100vw;
+    height: 0;
+    top: calc(50% + 1px);
+    overflow: hidden;
+    position: absolute;
+}

@@ -1,0 +1,41 @@
+{% extends "layouts/default" %}
+
+{% set styles = styles("cap/landing.css.json") %}
+{% set spacing = styles("layouts/spacing.css.json") %}
+
+{% set placement = 'body' %}
+{% set blocks = [] %}
+{% set postscript = [] %}
+{% for block in entry.body %}
+    {% if placement == 'body' %}
+        {% set blocks = blocks|merge([block]) %}
+    {% elseif placement == 'postscript' %}
+        {% set postscript = postscript|merge([block]) %}
+    {% endif %}
+
+    {% if block.type == 'columnBreak' %}
+        {% set placement = 'postscript' %}
+    {% endif %}
+{% endfor %}
+
+{% block main %}
+    <div class="{{ styles.header }} {{ spacing.heading }}">
+        <h1 class="{{ styles.heading }}">{{ entry.title }}</h1>
+        <div class="{{ styles.introduction }}">
+            {{ entry.introduction }}
+        </div>
+    </div>
+    {% include "blocks/blocks" with {"blocks": blocks} only %}
+{% endblock %}
+
+{% block postscript %}
+    {% include "blocks/blocks" with {"blocks": postscript} only %}
+{% endblock %}
+
+{% block sidebar %}
+    {% include "blocks/logo" with {"white": true} only %}
+    {% include "blocks/topics" with {"blockTitle": "Find CAP by", "type": "communityActionProject", "white": true} only %}
+    {% include "components/news" %}
+    {% include "components/resources" %}
+    {% include "blocks/signup" %}
+{% endblock %}

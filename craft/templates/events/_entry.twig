@@ -1,0 +1,29 @@
+{% extends "layouts/default" %}
+
+{% set styles = styles("events/event.css.json") %}
+{% set spacing = styles("layouts/spacing.css.json") %}
+
+{% block main %}
+    {% if entry.image|length %}
+        <p><img src="{{ entry.image.first.url }}" alt="{{ entry.image.first.description }}"></p>
+    {% endif %}
+    {% include "cap/_crumbs" with {
+        "cap": entry.communityActionProject.first,
+        "tails": [{"uri": "events", "label": "Events"}],
+    } %}
+    <h1 class="{{ styles.heading }}">{{ entry.title }}</h1>
+    {% include "blocks/blocks" with {"blocks":entry.body} only %}
+    <div class="{{ styles.detail }}">
+        <div>
+            {% include "events/_date_meta" with {"start": entry.startDate, "end": entry.endDate} %}
+        </div>
+        <div>
+            <a href="#">RSVP</a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block sidebar %}
+    {% include "blocks/logo" %}
+    {% include "blocks/signup" %}
+{% endblock %}

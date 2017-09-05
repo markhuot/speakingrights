@@ -1,0 +1,60 @@
+.container {
+    composes: container from '../global.css';
+}
+
+.heading {
+    text-align: center;
+    font-family: Oswald, sans-serif;
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+.list {
+    composes: clearfix from '../global.css';
+}
+
+.list li {
+    list-style: none;
+}
+
+.list > * {
+    float: left;
+}
+
+@media screen and (width < 700px) {
+    .list > *:nth-child(3) {
+        display: none;
+    }
+}
+
+@media screen and (width >= 400px) {
+    .list > * {
+        margin-right: 20px;
+        margin-top: 0;
+    }
+
+    .cta {
+        display: none;
+    }
+}
+
+@media screen and (400px <= width < 700px) {
+    .list > * {
+        width: calc(50% - 10px);
+    }
+    .list > *:nth-child(2n+2) {
+        margin-right: 0;
+    }
+    .list > *:nth-child(2n+1) {
+        clear: left;
+    }
+}
+
+@media screen and (width >= 700px) {
+    .list > * {
+        width: calc(33.3333% - 13.3333px);
+    }
+    .list > *:nth-child(3n+3) {
+        margin-right: 0;
+    }
+}

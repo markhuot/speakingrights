@@ -1,0 +1,6 @@
+{% extends "layouts/default" %}
+{% set disableSpacing = true %}
+
+{% block container %}
+    {% include "blocks/blocks" with {"blocks": entry.body} only %}
+{% endblock %}

@@ -1,0 +1,53 @@
+.logo {
+    height: 0;
+    padding-top: 94.85714%;
+    max-width: 175px;
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+}
+
+.logo svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.cls1 {
+    fill: #231f20;
+}
+
+.cls2 {
+    fill: #fff;
+}
+
+.cls3 {
+    fill: none;
+    stroke:#fff;
+    stroke-miterlimit:10;
+    stroke-width:0.49px;
+}
+
+.cls4 {
+    fill: #90278e;
+}
+
+.cls5 {
+    fill: none;
+    stroke: #ffdd15;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.9px;
+}
+
+.logo.white .cls1,
+.logo.white .cls2,
+.logo.white .cls4 {
+    fill: white;
+}
+
+.logo.white .cls5 {
+    stroke: white;
+}

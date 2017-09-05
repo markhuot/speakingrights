@@ -1,0 +1,10 @@
+{% set styles = styles("components/downloadList.css.json") %}
+{% set spacing = styles("layouts/spacing.css.json") %}
+
+<ul class="{{ styles.container }} {{ spacing.large }}">
+    {% for item in items %}
+        <li class="{{ styles.item }}">
+            {% include "components/downloadTeaser" with {"entry": item } %}
+        </li>
+    {% endfor %}
+</ul>
