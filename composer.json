@@ -9,6 +9,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "ext-mbstring": "*"
+        "ext-mbstring": "*",
+        "ext-gd": "*"
     }
 }
