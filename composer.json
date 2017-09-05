@@ -1,0 +1,12 @@
+{
+    "name": "markhuot/speakingrights",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Mark Huot",
+            "email": "mark@markhuot.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
