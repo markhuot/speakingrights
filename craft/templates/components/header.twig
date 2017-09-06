@@ -1,9 +1,12 @@
 {% set styles = styles("components/header.css.json") %}
 {% set spacing = styles("layouts/spacing.css.json") %}
+{% set langcode = getCookie('langcode')|default('en') %}
 
-<header class="{{ styles.header }}">
+<header class="{{ styles.header }}" data-header>
     <div class="{{ styles.container }}">
-        <a href="/"><img class="{{ styles.logo }}" src="/images/logo-50-ans.png"></a>
+        <p class="{{ styles.menuToggle }}" data-menu-toggle><a href="#" title="Toggle menu"><i data-icon class="fa fa-bars" aria-hidden="true"></i></a></p>
+        <div class="{{ styles.desktopLogo }}"><a href="/"><img src="/images/logo-50-ans.png"></a></div>
+        <div class="{{ styles.mobileLogo }}"><a href="/">{% include "blocks/logo" %}</a></div>
         <div class="{{ styles.navigationContainer }} {{ spacing.small }}">
             <div>
                 <nav class="{{ styles.utilityNavigation }}">
@@ -18,10 +21,14 @@
                     </ul>
                 </nav>
                 <nav class="{{ styles.utilityNavigation }} {{ styles.socialNavigation }}">
+                    <form data-search-form action="/search" method="get" class="{{ styles.searchBox }}">
+                        <input type="text" placeholder="SEARCH" name="q">
+                        <button><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </form>
                     <ul>
                         {% include "components/socialUsernameItems" with {"socialUsernames": utilities.socialUsernames} only %}
-                        <li><a href="/news" aria-label="search"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                        <li><a href="/news">FR</a></li>
+                        <li class="{{ styles.searchIcon }}" data-search-link><a href="#" aria-label="search"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                        <li><a href="/api/toggleLangcode?back={{ craft.request.path }}">{{ langcode|upper }}</a></li>
                     </ul>
                 </nav>
             </div>

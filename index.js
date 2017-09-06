@@ -41,6 +41,7 @@ require('./craft/templates/blocks/videoCta.js');
 require('./craft/templates/blocks/documentCta.css');
 
 require('./craft/templates/components/header.css');
+require('./craft/templates/components/header.js');
 require('./craft/templates/components/footer.css');
 require('./craft/templates/components/contact.css');
 require('./craft/templates/components/photos.css');

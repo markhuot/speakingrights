@@ -7,7 +7,7 @@
     <div class="{{ styles.split }}">
         {% include "events/_date_meta" with {"start": entry.startDate, "end": entry.endDate} %}
         <div>
-            {% include "blocks/summary" with {"blocks": entry.body} only %}
+            {{ localeField(entry, 'excerpt') }}
         </div>
     </div>
 </div>

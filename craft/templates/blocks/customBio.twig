@@ -9,6 +9,6 @@
     {% endif %}
     <div class="{{ styles.text }} {{ spacing.small }}">
         <h5 class="{{ styles.heading }}">{{ block.heading }}</h5>
-        {{ block.description }}
+        {{ localeField(block, 'description') }}
     </div>
 </div>

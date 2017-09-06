@@ -1,0 +1,11 @@
+{% set langcode = getCookie('langcode')|default('en') %}
+
+{% if langcode == 'en' %}
+    {% set langcode = 'fr' %}
+{% else %}
+    {% set langcode = 'en' %}
+{% endif %}
+
+{% do setCookie('langcode', langcode, 0, '/') %}
+
+{% redirect craft.request.getParam('back')|default('/') %}

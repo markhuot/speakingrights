@@ -6,7 +6,7 @@
 {% use "cap/hero" %}
 
 {% block main %}
-    {% include "blocks/blocks" with {"blocks": entry.body} only %}
+    {% include "blocks/blocks" with {"blocks": localeField(entry, 'body')} only %}
 
     {% set news = craft.entries.section('news').relatedTo(entry).orderBy('entries.dateCreated desc').limit(3) %}
     {% if news.total > 0 %}

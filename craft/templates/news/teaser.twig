@@ -15,7 +15,7 @@
             <p class="{{ styles.heading }}"><strong>{{ entry.title }}</strong></p>
         </a>
         <div class="{{ styles.summary }}">
-            {{ entry.excerpt }}
+            {{ localeField(entry, 'excerpt') }}
         </div>
     </div>
 </a>

@@ -13,5 +13,5 @@
             <a class="{{ styles.tag }}" href="{{ topic.url }}">{{ topic.title }}</a>
         {% endfor %}
     </p>
-    {{ entry.introduction }}
+    {{ localeField(entry, 'introduction') }}
 </div>

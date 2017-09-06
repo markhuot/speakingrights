@@ -7,6 +7,6 @@
     </div>
     <div class="{{ styles.text }} {{ spacing.small }}">
         <h5 class="{{ styles.heading }}">{{ block.user.first.name }}</h5>
-        {{ block.user.first.bio }}
+        {{ localeField(block.user.first, 'bio') }}
     </div>
 </div>

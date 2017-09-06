@@ -11,7 +11,7 @@
             "cap": entry.parent,
         } %}
     {% endif %}
-    {% include "blocks/blocks" with {"blocks":entry.body} only %}
+    {% include "blocks/blocks" with {"blocks": localeField(entry, 'body')} only %}
 {% endblock %}
 
 {% block sidebar %}

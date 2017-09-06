@@ -6,7 +6,7 @@
 {% set placement = 'body' %}
 {% set blocks = [] %}
 {% set postscript = [] %}
-{% for block in entry.body %}
+{% for block in localeField(entry, 'body') %}
     {% if placement == 'body' %}
         {% set blocks = blocks|merge([block]) %}
     {% elseif placement == 'postscript' %}
@@ -36,7 +36,7 @@
             <h1 class="{{ styles.heading }}">{{ entry.title }}</h1>
         </div>
         <div class="{{ styles.introduction }}">
-            {{ entry.introduction }}
+            {{ localeField(entry, 'introduction') }}
         </div>
     </div>
     {% include "blocks/blocks" with {"blocks": blocks} only %}

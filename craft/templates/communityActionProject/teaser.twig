@@ -9,6 +9,6 @@
         <p class="{{ styles.heading }}"><strong>{{ entry.title }}</strong></p>
     </a>
     <div class="{{ styles.summary }}">
-        {% include "blocks/summary" with {"blocks": entry.body} only %}
+        {{ localeField(entry, 'excerpt') }}
     </div>
 </div>

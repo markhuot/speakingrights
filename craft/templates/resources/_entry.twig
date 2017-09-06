@@ -11,7 +11,7 @@
 {% use "cap/hero" %}
 
 {% block main %}
-    {% include "blocks/blocks" with {"blocks":entry.body} only %}
+    {% include "blocks/blocks" with {"blocks": localeField(entry, 'body')} only %}
 
     {% if downloads.total > 0 %}
         <div class="{{ spacing.heading }}">
