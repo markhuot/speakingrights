@@ -25,10 +25,10 @@
 }
 
 input:checked + .label:after {
-    content: "\f078";
+    content: "\f077";
     margin-left: 0.25em;
 }
 
 [name="direction"][value="desc"] + span input:checked + label:after {
-    content: "\f077";
+    content: "\f078";
 }

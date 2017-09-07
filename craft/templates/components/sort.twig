@@ -1,12 +1,15 @@
 {% set styles = styles("components/sort.css.json") %}
 {% set name = "sort" ~ random() %}
 
+{% set sort = sort|default(links[0].name) %}
+{% set direction = direction|default('desc') %}
+
 <p class="{{ styles.container }}">
     Sort by
-    <input type="hidden" name="direction" value="asc" />
+    <input type="hidden" name="direction" value="{{ direction }}" />
     <span>
         {% for link in links %}
-            <input data-sort {{ loop.index0 == 0 ? "checked" }} class="{{ styles.input }}" type="radio" name="sort" value="{{ link.name }}" id="{{ name ~ link.name }}" />
+            <input data-sort {{ sort == link.name ? "checked" }} class="{{ styles.input }}" type="radio" name="sort" value="{{ link.name }}" id="{{ name ~ link.name }}" />
             <label data-sort for="{{ name ~ link.name }}" class="{{ styles.label }}">{{ link.label }}</label>
         {% endfor %}
     <span>

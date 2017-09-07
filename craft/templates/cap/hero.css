@@ -54,3 +54,9 @@
 .hero.short .heading {
     top: 0;
 }
+
+@media screen and (width < 700px) {
+    .logo {
+        display: none;
+    }
+}

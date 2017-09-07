@@ -1,3 +1,15 @@
+.link:hover {
+    text-decoration: none;
+}
+
+.link:hover .heading {
+    text-decoration: underline;
+}
+
+.image {
+    position: relative;
+}
+
 .image img {
     border: 6px solid #000;
 }
@@ -14,4 +26,18 @@
 .projectName {
     font-size: 14px;
     color: #90278E;
+}
+
+.tags {
+    position: absolute;
+    bottom: 20px;
+    right: 15px;
+}
+
+.tag {
+    background: #FFDD15;
+    display: inline-block;
+    font-size: 12px;
+    padding: 2px 7px;
+    border-radius: 4px;
 }

@@ -30,7 +30,7 @@
                 {% include "components/sort" with {"links": [
                     {"name": "title", "label": "Name"},
                     {"name": "tag", "label": "Tag"},
-                ]} %}
+                ], "sort": "title", "direction": "asc"} %}
                 {% include "components/linkList" with {"links": links, "pageInfo": linksPageInfo} only %}
             </form>
         </div>
@@ -44,7 +44,7 @@
                     {"name": "title", "label": "Name"},
                     {"name": "province", "label": "Province"},
                     {"name": "tag", "label": "Tag"},
-                ]} %}
+                ], "sort": "title", "direction": "asc"} %}
                 {% include "components/orgList" with {"orgs": orgs, "pageInfo": orgsPageInfo} only %}
             </form>
         </div>

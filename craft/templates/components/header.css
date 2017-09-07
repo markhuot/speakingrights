@@ -4,6 +4,16 @@
     overflow: hidden;
 }
 
+@media screen and (width < 400px) {
+    .header {
+        margin-bottom: 30px;
+    }
+
+    .header[data-open="1"] {
+        margin-bottom: 0;
+    }
+}
+
 @media screen and (width >= 400px) {
     .header {
         padding-top: 32px;
@@ -48,6 +58,14 @@
     }
  
     .desktopLogo {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 266px;
+    }
+}
+
+@media screen and (width >= 700px) {
+    .desktopLogo {
         max-width: 266px;
         position: absolute;
         bottom: -10px;
@@ -72,9 +90,21 @@
 
 @media screen and (width >= 400px) {
     .navigationContainer {
-        float: right;
-        max-width: 65.89% /* 8 columns, 7 gutters */;
         text-align: right;
+    }
+}
+
+@media screen and (width >= 700px) {
+    .navigationContainer {
+        float: right;
+        max-width: calc(50% - 10px) /* 8 columns, 7 gutters */;
+        text-align: right;
+    }
+}
+
+@media screen and (width >= 800px) {
+    .navigationContainer {
+        max-width: calc(66.6666% - 10px) /* 8 columns, 7 gutters */;
     }
 }
 

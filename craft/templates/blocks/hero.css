@@ -52,7 +52,8 @@
 
 @media screen and (width >= 700px) {
     .logo {
-        display: block;
+        display: flex;
+        align-items: center;
         width: 33.3333%;
         height: 100%;
     }

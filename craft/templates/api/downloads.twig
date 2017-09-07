@@ -1,5 +1,5 @@
 {% set perPage = 12 %}
-{% set order = 'title' %}
+{% set order = craft.request.getParam('sort') == 'date' ? 'postDate' : 'title' %}
 {% set direction = craft.request.getParam('direction') == 'desc' ? 'desc' : 'asc' %}
 {% paginate craft.entries.section('downloads').order(order ~ ' ' ~ direction).limit(perPage) as pageInfo, downloads %}
 

@@ -14,12 +14,20 @@
 
 {% if craft.request.getParam('topic') %}
     {% set topic = craft.categories.slug(craft.request.getParam('topic')).first %}
+    {% set heroLabel = "Topic “" ~ topic.title ~ "”" %}
     {% set criteria = criteria.relatedTo(topic) %}
 {% endif %}
 
 {% if craft.request.getParam('tactic') %}
     {% set tactic = craft.categories.slug(craft.request.getParam('tactic')).first %}
+    {% set heroLabel = "Tactic “" ~ tactic.title ~ "”" %}
     {% set criteria = criteria.relatedTo(tactic) %}
+{% endif %}
+
+{% if craft.request.getParam('tag') %}
+    {% set tag = craft.tags.name(craft.request.getParam('tag')).first %}
+    {% set heroLabel = "Tag “" ~ tag.name ~ "”" %}
+    {% set criteria = criteria.relatedTo(tag) %}
 {% endif %}
 
 {% if craft.request.getParam('q') %}

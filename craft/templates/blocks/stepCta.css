@@ -143,6 +143,13 @@
         float: left;
     }
 
+    .one .text {
+        font-style: italic;
+        font-weight: bold;
+        line-height: 1.8;
+        font-size: 16px;
+    }
+
     .one .text > *:first-child,
     .one .text > *:last-child {
         position: relative;
@@ -164,10 +171,11 @@
 
     .one .text > *:last-child:after {
         content: '\201d';
-        position: absolute;
-        bottom: -2em;
-        left: 50%;
         transform: translateX(-50%);
+        line-height: 0;
+        position: relative;
+        top: 30px;
+        left: 10px;
     }
 }
 

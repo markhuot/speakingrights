@@ -20,6 +20,7 @@ require('./craft/templates/cap/hero.css');
 require('./craft/templates/resources/entry.css');
 
 require('./craft/templates/download/listing.css');
+require('./craft/templates/download/entry.css');
 
 require('./craft/templates/pages/signin.css');
 require('./craft/templates/pages/search.css');
@@ -33,7 +34,7 @@ require('./craft/templates/blocks/text.css');
 require('./craft/templates/blocks/textQuote.css');
 require('./craft/templates/blocks/imageList.css');
 require('./craft/templates/blocks/hero.css');
-require('./craft/templates/blocks/news.css');
+require('./craft/templates/blocks/recentNews.css');
 require('./craft/templates/blocks/stepCta.css');
 require('./craft/templates/blocks/mailingListSignup.css');
 require('./craft/templates/blocks/cta.css');

@@ -1,0 +1,25 @@
+{% extends "layouts/default" %}
+
+{% set styles = styles("download/entry.css.json") %}
+{% set spacing = styles("layouts/spacing.css.json") %}
+
+{% block main %}
+    <div class="{{ spacing.default }}">
+        <div class="{{ spacing.small }}">
+            <h1 class="{{ styles.heading }}">{{ entry.title }}</h1>
+            {% if entry.image|length %}
+                <p><img class="{{ styles.image }}" src="{{ entry.image.first.url({"mode": "crop", "width": 100}) }}" alt="{{ entry.image.first.description }}"></p>
+            {% endif %}
+            {% include "blocks/blocks" with {"blocks": localeField(entry, 'body')} only %}
+        </div>
+
+        {% if entry.download.count %}
+            <p>{% include "components/button" with {"label": "Download the " ~ entry.download.first.extension, "href": entry.download.first.url} only %}</p>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block sidebar %}
+    {% include "blocks/logo" %}
+    {% include "blocks/signup" %}
+{% endblock %}

@@ -1,0 +1,11 @@
+.heading {
+    font-size: 36px;
+    font-family: Oswald;
+    font-weight: bold;
+}
+
+.image {
+    max-width: 100px;
+    float: left;
+    margin: 0 20px 20px 0;
+}

@@ -1,6 +1,6 @@
 {% set styles = styles("blocks/logo.css.json") %}
 
-<div class="{{ styles.logo }} {{ white is defined and white ? styles.white }}">
+<div class="{{ styles.logo }} {{ left is defined ? styles.left }} {{ white is defined and white ? styles.white }}">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 173.54 164.39">
         <defs>
         </defs>

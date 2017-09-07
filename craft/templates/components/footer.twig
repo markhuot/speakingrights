@@ -1,26 +1,28 @@
 {% set styles = styles("components/footer.css.json") %}
+{% set spacing = styles("layouts/spacing.css.json") %}
 
 <footer class="{{ styles.gradient }}">
     <div class="{{ styles.container }}">
-        <div>
-            {% include "blocks/logo" %}
+        <div class="{{ spacing.heading }}">
+            {% include "blocks/logo" with {"left": true} %}
+            <p><img class="{{ styles.equitas }}" src="/images/logo-50-ans.png"></p>
         </div>
-        <div>
+        <div class="{{ styles.longform }}">
             <address>
-                Main office<br>
+                <strong>Main office</strong><br>
                 666 Sherbrooke Street West, <br>
                 Suite 1100, Montréal, Québec, <br>
                 H3A 1E7
             </address>
             <address>
-                Regional British Columbia Office<br>
+                <strong>Regional British Columbia Office</strong><br>
                 #726 – 736 Granville Street<br>
                 Vancouver, BC<br>
                 V6Z 1E4
             </address>
         </div>
         <div>
-            <ul>
+            <ul class="{{ styles.links }}">
                 <li><a href="#">Contact</a></li>
                 <li><a href="#">Equitas.org </a></li>
                 <li><a href="#">Site map</a></li>

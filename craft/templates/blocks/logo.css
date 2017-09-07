@@ -1,10 +1,15 @@
 .logo {
     height: 0;
-    padding-top: 94.85714%;
+    padding-top: 50%;
     max-width: 175px;
     margin: 0 auto;
     position: relative;
     width: 100%;
+}
+
+.logo.left {
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .logo svg {

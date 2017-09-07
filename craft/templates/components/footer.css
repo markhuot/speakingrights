@@ -24,6 +24,31 @@
     float: left;
 }
 
+.container address {
+    font-style: normal;
+}
+
 .copyright {
     text-align: center;
+    font-size: 12px;
+}
+
+.longform {
+    composes: longform from '../global.css';
+}
+
+.links a {
+    text-decoration: underline;
+}
+
+.links li {
+    list-style: none;
+}
+
+.links li + li {
+    margin-top: 15px;
+}
+
+.equitas {
+    max-width: 180px;
 }

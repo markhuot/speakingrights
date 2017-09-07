@@ -18,5 +18,14 @@
                 {% endfor %}
             </ul>
         </li>
+        {% if hideTags is not defined or (hideTags is defined and hideTags == false) %}
+        <li><p class="{{ styles.subheading }}">Tag</p>
+            <ul>
+                {% for tactic in craft.tags.group('default').limit(10) %}
+                    <li><a class="{{ styles.tag }}" href="/search?{{ type is defined ? 'type=' ~ type }}&tag={{ tactic.slug }}">{{ tactic.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endif %}
     </ul>
 </div>
