@@ -1,0 +1,5 @@
+{% set styles = styles("components/comments.css.json") %}
+
+{{ craft.comments.form(entry.id, {
+    order: 'dateCreated asc',
+}) }}

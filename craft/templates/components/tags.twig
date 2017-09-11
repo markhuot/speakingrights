@@ -1,0 +1,9 @@
+{% set styles = styles("components/tags.css.json") %}
+
+{% if tags|length %}
+    <ul class="{{ styles.tags }}">
+        {% for tag in tags %}
+            <li class="{{ styles.tag }}">#{{ tag.name }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}

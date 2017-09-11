@@ -6,3 +6,7 @@
 .summary {
     composes: summary from '../global.css';
 }
+
+.image {
+    position: relative;
+}

@@ -62,3 +62,6 @@ require('./craft/templates/components/sort.js');
 require('./craft/templates/components/button.css');
 require('./craft/templates/components/resources.css');
 require('./craft/templates/components/signup.css');
+require('./craft/templates/components/tags.css');
+require('./craft/templates/components/comments.css');
+require('./craft/templates/components/comments.js');

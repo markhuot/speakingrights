@@ -447,14 +447,17 @@ img {
     }
 }
 
-._heading_jnbdt_1 {
+._heading_g2qqa_1 {
     font-size: 30px;
     font-family: Oswald, sans-serif;
 }
 
-._summary_jnbdt_6 {
+._summary_g2qqa_6 {
 }
-._clearfix_ytb0m_1:after {
+
+._image_g2qqa_10 {
+    position: relative;
+}._clearfix_ytb0m_1:after {
     content: "";
     display: table;
     clear: both;
@@ -553,48 +556,35 @@ img {
     }
 }
 
-._link_xpsz7_1:hover {
+._link_mgwk9_1:hover {
     text-decoration: none;
 }
 
-._link_xpsz7_1:hover ._heading_xpsz7_5 {
+._link_mgwk9_1:hover ._heading_mgwk9_5 {
     text-decoration: underline;
 }
 
-._image_xpsz7_9 {
+._image_mgwk9_9 {
     position: relative;
 }
 
-._image_xpsz7_9 img {
+._image_mgwk9_9 img {
     border: 6px solid #000;
 }
 
-._heading_xpsz7_5 {
+._heading_mgwk9_5 {
     font-family: Oswald, sans-serif;
     font-size: 20px;
 }
 
-._summary_xpsz7_22 {
+._summary_mgwk9_22 {
 }
 
-._projectName_xpsz7_26 {
+._projectName_mgwk9_26 {
     font-size: 14px;
     color: #90278E;
 }
-
-._tags_xpsz7_31 {
-    position: absolute;
-    bottom: 20px;
-    right: 15px;
-}
-
-._tag_xpsz7_31 {
-    background: #FFDD15;
-    display: inline-block;
-    font-size: 12px;
-    padding: 2px 7px;
-    border-radius: 4px;
-}._heading_1w3qk_1 {
+._heading_1w3qk_1 {
     font-size: 36px;
 }
 
@@ -4239,4 +4229,221 @@ input:checked + ._label_11wxe_8:after {
 }
 
 ._content_1w0zh_12 {
+}._tags_1nnf6_1 {
+    position: absolute;
+    bottom: 20px;
+    right: 15px;
+}
+
+._tag_1nnf6_1 {
+    background: #FFDD15;
+    display: inline-block;
+    font-size: 12px;
+    padding: 2px 7px;
+    border-radius: 4px;
+}._buttons_ocu6y_1 {
+    text-align: right;
+}
+
+._button_ocu6y_1 {
+    color: #fff;
+    background: #000;
+    border-radius: 4px;
+    padding: 17px 19px;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block;
+    white-space: nowrap;
+    width: auto;
+    border: none;
+    font-family: Quicksand, sans-serif;
+}
+
+._textarea_ocu6y_20 {
+    border: 2px solid #9B9B9B;
+}
+
+/* ---- */
+
+.comments-box {
+    border: 1px solid #90278E;
+    padding: 30px;
+}
+
+.comment-form-container {
+    margin-top: 40px;
+}
+
+.comments-box .comment-input,
+.comments-box .form-group *,
+.comments-box .email-input,
+.comments-box .name-input {
+    width: 100%;
+}
+
+.comments-box .form-control {
+    margin-bottom: 10px;
+    padding: 15px;
+    min-height: 5em;
+    font-size: 16px;
+}
+
+
+/* Comments List */
+
+.comments-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Comment Item */
+
+.comment-single + .comment-single {
+    margin-top: 30px;
+}
+
+.comment-single .comment-single {
+    padding-left: 40px;
+}
+
+.comments-list li .comment-image {
+    display: none;
+}
+
+.comments-list li .comment-text {
+    display: block;
+}
+
+.comments-list .comment-form {
+    display: none;
+}
+
+.comment-image {
+    width: 30px;
+    margin-right: 10px;
+    height: 30px;
+    float: left;
+}
+
+.comment-image img {
+    width: 100%;
+}
+
+.comment-text p {
+    margin: 0;
+}
+
+.comment-heading {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+    color: #90278E;
+}
+
+.comment-heading .title {
+    font-family: Oswald, sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.comment-heading .meta {
+    margin-left: 5px;
+    font-weight: 500;
+    font-style: italic;
+}
+
+/* Comment Item - Reply Form */
+
+.comment-single .comment-form {
+    margin: 20px 0 0 0;
+    padding-bottom: 0;
+    padding: 10px;
+    margin: 0;
+}
+
+/* Comment Item - Meta Buttons */
+
+.meta-buttons {
+    margin-top: 10px;
+    display: none;
+}
+
+.meta-buttons a {
+    font-weight: bold;
+    font-size: 11px;
+    padding: 0 15px 0 0;
+    color: #288ce4;
+}
+
+.meta-buttons .comment-votes {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.meta-buttons .comment-votes a {
+    padding: 0 0 0 2px;
+}
+
+.meta-buttons .comment-votes .count {
+    color: #a5b2b9;
+    font-weight: 500;
+    font-size: 13px;
+    margin-right: 2px;
+}
+
+.meta-buttons .static-label {
+    font-weight: bold;
+    font-size: 11px;
+    color: #a5b2b9;
+}
+
+
+/* Comment Item - Share/Options Dropdown */
+
+.comment-heading .dropdown {
+    float: right;
+    margin-left: 20px;
+    display: none;
+}
+
+.comment-heading .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.comment-heading .dropdown-toggle {
+    font-weight: bold;
+    font-size: 11px;
+    color: #288ce4;
+}
+
+.comment-heading .dropdown-menu {
+    right: 0;
+    left: auto;
+    min-width: 60px;
+}
+
+.comment-heading .dropdown-menu > li > a {
+    font-weight: bold;
+    font-size: 11px;
+    color: #288ce4;
+    padding: 5px 10px;
+}
+
+.comment-heading .dropdown-menu > li > span.comment-flag .glyphicon,
+.comment-heading .dropdown-menu > li > a .fa,
+.comment-heading .dropdown-menu > li > a .glyphicon {
+    padding-right: 5px;
+    width: 15px;
+    text-align: center;
+}
+
+.comment-heading .dropdown-menu > li > span.comment-flag {
+    display: block;
+    white-space: nowrap;
+    color: #aaa;
+    font-weight: bold;
+    font-size: 11px;
+    padding: 5px 10px;
 }

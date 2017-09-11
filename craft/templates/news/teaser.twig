@@ -7,11 +7,7 @@
             <div>
                 <div class="{{ styles.image }}">
                     {% include "news/_image" with {"image": entry.image, "transform": {"mode": "crop", "width": 600, "height": 360}} only %}
-                    <ul class="{{ styles.tags }}">
-                    {% for tag in entry.tags %}
-                        <li class="{{ styles.tag }}">#{{ tag.name }}</li>
-                    {% endfor %}
-                    </ul>
+                    {% include "components/tags" with {"tags": entry.tags} only %}
                 </div>
                 {% if entry.communityActionProject.total %}
                     <p class="{{ styles.projectName }}">{{ entry.communityActionProject.first.title }}</p>

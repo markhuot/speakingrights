@@ -1,0 +1,13 @@
+.tags {
+    position: absolute;
+    bottom: 20px;
+    right: 15px;
+}
+
+.tag {
+    background: #FFDD15;
+    display: inline-block;
+    font-size: 12px;
+    padding: 2px 7px;
+    border-radius: 4px;
+}
