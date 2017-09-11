@@ -1,0 +1,41 @@
+.container {
+    padding: 20px;
+    background: linear-gradient(90deg, #90278E, #5C23A1);
+    color: #fff;
+}
+
+.heading {
+    font-family: Oswald, sans-serif;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.input {
+    background: #fff;
+    border-radius: 6px;
+    border: none;
+    font-size: 15px;
+    font-family: Oswald, sans-serif;
+    padding: 7px 19px;
+}
+
+.button {
+    composes: button from '../global.css';
+    color: #fff;
+    background: #000;
+}
+
+.socialLinks {
+    text-align: right;
+}
+
+.socialLinks li {
+    list-style: none;
+    display: inline;
+    color: #90278E;
+    font-size: 21px;
+}
+
+.socialLinks li + li {
+    margin-left: 15px;
+}

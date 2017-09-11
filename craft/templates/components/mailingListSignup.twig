@@ -1,0 +1,26 @@
+{% set styles = styles("components/mailingListSignup.css.json") %}
+{% set spacing = styles("layouts/spacing.css.json") %}
+
+<div class="{{ spacing.small }}">
+    <div class="{{ styles.container }}">
+        <!-- Begin MailChimp Signup Form -->
+        <div id="mc_embed_signup">
+            <form action="//equitas.us15.list-manage.com/subscribe/post?u=eb69b441b62907cb8ef2ed1d0&amp;id=9797882fb8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                <div id="mc_embed_signup_scroll" class="{{ spacing.heading }}">
+                    <label class="{{ styles.heading }}" for="mce-EMAIL">Sign Up</label>
+                    <input class="{{ styles.input }}" type="email" value="" name="EMAIL" id="mce-EMAIL" placeholder="Email address" required>
+                    <div>
+                        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_eb69b441b62907cb8ef2ed1d0_9797882fb8" tabindex="-1" value=""></div>
+                        <div><input class="{{ styles.button }}" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!--End mc_embed_signup-->
+    </div>
+
+    <ul class="{{ styles.socialLinks }}">
+        {% include "components/socialUsernameItems" with {"socialUsernames": utilities.socialUsernames} only %}
+    </ul>
+</div>

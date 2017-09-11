@@ -20,5 +20,5 @@
 
 {% block sidebar %}
     {% include "blocks/topics" with {"blockTitle": "Search by", "type": "events", "hideTags": true} only %}
-    {% include "blocks/signup" %}
+    {% include "components/mailingListSignup" %}
 {% endblock %}

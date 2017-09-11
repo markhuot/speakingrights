@@ -1046,8 +1046,10 @@ __webpack_require__(86);
 __webpack_require__(87);
 __webpack_require__(88);
 __webpack_require__(89);
-__webpack_require__(146);
-__webpack_require__(148);
+__webpack_require__(90);
+__webpack_require__(91);
+__webpack_require__(149);
+__webpack_require__(151);
 
 /***/ }),
 /* 11 */
@@ -2444,8 +2446,34 @@ document.body.addEventListener('mousedown', function (event) {
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 90 */,
-/* 91 */,
+/* 90 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 91 */
+/***/ (function(module, exports) {
+
+// // Toggle to show/hide replies
+// $(document).on('click', 'a.comment-toggle', function(e) {
+//     e.preventDefault();
+//     $(this).parents('.comment-single:first').find('.comments-list:first').toggle();
+// });
+// // Toggle to show/hide reply form
+// $(document).on('click', 'a.comment-reply', function(e) {
+//     e.preventDefault();
+//     $(this).parents('.comment-single:first').find('.comment-form').toggle();
+// });
+// // Handle editing
+// $(document).on('click', 'a.comment-edit', function(e) {
+//     e.preventDefault();
+//     // Simply hides text and shows form
+//     $(this).parents('.comment-text').find('.comment-content').hide();
+//     $(this).parents('.comment-text').find('.edit-comment-form').show();
+// });
+
+/***/ }),
 /* 92 */,
 /* 93 */,
 /* 94 */,
@@ -2500,33 +2528,20 @@ document.body.addEventListener('mousedown', function (event) {
 /* 143 */,
 /* 144 */,
 /* 145 */,
-/* 146 */
+/* 146 */,
+/* 147 */,
+/* 148 */,
+/* 149 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 147 */,
-/* 148 */
+/* 150 */,
+/* 151 */
 /***/ (function(module, exports) {
 
-// // Toggle to show/hide replies
-// $(document).on('click', 'a.comment-toggle', function(e) {
-//     e.preventDefault();
-//     $(this).parents('.comment-single:first').find('.comments-list:first').toggle();
-// });
-// // Toggle to show/hide reply form
-// $(document).on('click', 'a.comment-reply', function(e) {
-//     e.preventDefault();
-//     $(this).parents('.comment-single:first').find('.comment-form').toggle();
-// });
-// // Handle editing
-// $(document).on('click', 'a.comment-edit', function(e) {
-//     e.preventDefault();
-//     // Simply hides text and shows form
-//     $(this).parents('.comment-text').find('.comment-content').hide();
-//     $(this).parents('.comment-text').find('.edit-comment-form').show();
-// });
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
