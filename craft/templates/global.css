@@ -30,7 +30,7 @@
 
 .longform h1,
 .longform h2,
-.longform h3, 
+.longform h3,
 .longform h4,
 .longform h5,
 .longform h6 {
@@ -39,7 +39,7 @@
 
 .longform * + h1,
 .longform * + h2,
-.longform * + h3, 
+.longform * + h3,
 .longform * + h4,
 .longform * + h5,
 .longform * + h6 {
@@ -88,6 +88,10 @@
     padding: 8px;
 }
 
+.gradient {
+    background: linear-gradient(90deg, #90278E, #FFDD15);
+}
+
 .gradientOverlay:before {
     content: "";
     display: block;
@@ -125,12 +129,12 @@
     .splitInHalf > *:nth-child(2) {
         margin-top: 0;
     }
-    
+
     .splitInHalf > *:nth-child(2n+1) {
         clear: left;
         margin-right: 10px;
     }
-    
+
     .splitInHalf > *:nth-child(2n+2) {
         margin-left: 10px;
     }

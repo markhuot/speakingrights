@@ -1,0 +1,7 @@
+{% set perPage = 10 %}
+{% set order = craft.request.getParam('sort') == 'date' ? 'postDate' : 'title' %}
+{% set direction = craft.request.getParam('direction') == 'desc' ? 'desc' : 'asc' %}
+{% paginate craft.entries.section('communityActionProject').depth(1).order(order ~ ' ' ~ direction).limit(perPage) as pageInfo, caps %}
+
+{% include "components/capList" with {"caps": caps, "pageInfo": pageInfo} only %}
+{% include "components/pagination" with {"pageInfo": pageInfo} only %}

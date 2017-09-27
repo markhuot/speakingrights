@@ -5,18 +5,18 @@
 <header class="{{ styles.header }}" data-header>
     <div class="{{ styles.container }}">
         <p class="{{ styles.menuToggle }}" data-menu-toggle><a href="#" title="Toggle menu"><i data-icon class="fa fa-bars" aria-hidden="true"></i></a></p>
-        <div class="{{ styles.desktopLogo }}"><a href="/"><img src="/images/logo-50-ans.png"></a></div>
+        <div class="{{ styles.desktopLogo }}"><a href="https://equitas.org/"><img src="/images/equitas.png"></a></div>
         <div class="{{ styles.mobileLogo }}"><a href="/">{% include "blocks/logo" %}</a></div>
         <div class="{{ styles.navigationContainer }} {{ spacing.small }}">
             <div>
                 <nav class="{{ styles.utilityNavigation }}">
                     <ul>
-                        <li><a href="/about">About Us</a></li>
-                        <li><a href="/contact">Contact Us</a></li>
+                        <li><a href="/about">{{ "About Us"|t }}</a></li>
+                        <li><a href="/contact">{{ "Contact Us"|t }}</a></li>
                         {% if currentUser == null %}
-                            <li><a href="/signin">Sign In</a></li>
+                            <li><a href="/signin">{{ "Sign In"|t }}</a></li>
                         {% else %}
-                            <li><a href="{{ logoutUrl }}">Sign Out</a></li>
+                            <li><a href="{{ logoutUrl }}">{{ "Sign Out"|t }}</a></li>
                         {% endif %}
                     </ul>
                 </nav>
@@ -28,18 +28,19 @@
                     <ul>
                         {% include "components/socialUsernameItems" with {"socialUsernames": utilities.socialUsernames} only %}
                         <li class="{{ styles.searchIcon }}" data-search-link><a href="#" aria-label="search"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                        <li><a href="/api/toggleLangcode?back={{ craft.request.path }}">{{ langcode|upper }}</a></li>
+                        <li><a href="/api/toggleLangcode?back={{ craft.request.path }}">{{ (langcode == 'en' ? 'fr' : 'en')|upper }}</a></li>
                     </ul>
                 </nav>
             </div>
             <nav class="{{ styles.navigation }}">
                 <ul>
-                    <li><a href="/news">News</a></li>
-                    <li><a href="/motivate">Motivate</a></li>
-                    <li><a href="/investigate">Investigate</a></li>
-                    <li><a href="/take-action">Take Action</a></li>
-                    <li><a href="/community-action-projects">CAPs</a></li>
-                    <li><a href="/resources">Resources</a></li>
+                    <li><a href="/">{{ "Home"|t }}</a></li>
+                    <li><a href="/news">{{ "News"|t }}</a></li>
+                    <li><a href="/motivate">{{ "Motivate"|t }}</a></li>
+                    <li><a href="/investigate">{{ "Investigate"|t }}</a></li>
+                    <li><a href="/take-action">{{ "Take Action"|t }}</a></li>
+                    <li><a href="/community-action-projects">{{ "CAPs"|t }}</a></li>
+                    <li><a href="/resources">{{ "Resources"|t }}</a></li>
                 </ul>
             </nav>
         </div>

@@ -3,22 +3,37 @@
 
 <footer class="{{ styles.gradient }}">
     <div class="{{ styles.container }}">
-        <div class="{{ spacing.heading }}">
-            {% include "blocks/logo" with {"left": true} %}
-            <p><img class="{{ styles.equitas }}" src="/images/logo-50-ans.png"></p>
+        <div>
+            <p class="{{ styles.speakingRights }}"><img src="/images/speaking-rights.jpg"></p>
+            <p class="{{ styles.equitas }}"><img src="/images/image005.png"></p>
+            <p class="{{ styles.canada }}"><img src="/images/wordmark_C.png"></p>
         </div>
         <div class="{{ styles.longform }}">
             <address>
-                <strong>Main office</strong><br>
-                666 Sherbrooke Street West, <br>
-                Suite 1100, Montréal, Québec, <br>
-                H3A 1E7
+                {% if locale() == 'en' %}
+                    <strong>Main office</strong><br>
+                    666 Sherbrooke Street West, <br>
+                    Suite 1100, Montréal, Québec, <br>
+                    H3A 1E7
+                {% else %}
+                    <strong>Bureau principal</strong><br>
+                    666 rue Sherbrooke ouest, Suite 1100<br>
+                    Montréal, QC, Canada<br>
+                    H3A 1E7
+                {% endif %}
             </address>
             <address>
-                <strong>Regional British Columbia Office</strong><br>
-                #726 – 736 Granville Street<br>
-                Vancouver, BC<br>
-                V6Z 1E4
+                {% if locale() == 'en' %}
+                    <strong>Regional British Columbia Office</strong><br>
+                    #726 – 736 Granville Street<br>
+                    Vancouver, BC<br>
+                    V6Z 1E4
+                {% else %}
+                    <strong>Bureau régional de Colombie-Britannique</strong><br>
+                    #726 – 736 rue Granville<br>
+                    Vancouver, CB<br>
+                    V6Z 1E4
+                {% endif %}
             </address>
         </div>
         <div>

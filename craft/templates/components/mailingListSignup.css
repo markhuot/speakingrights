@@ -30,14 +30,3 @@
 .socialLinks {
     text-align: right;
 }
-
-.socialLinks li {
-    list-style: none;
-    display: inline;
-    color: #90278E;
-    font-size: 21px;
-}
-
-.socialLinks li + li {
-    margin-left: 15px;
-}

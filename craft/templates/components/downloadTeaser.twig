@@ -6,11 +6,14 @@
         {% if entry.image.count %}
             <p><img src="{{ entry.image.first.url({"mode": "crop", "width": 145, "height": 202}) }}"></p>
         {% endif %}
-        <p><strong>{{ entry.title }}</strong></p>
+        <p><strong>{{ localeField(entry, 'title') }}</strong></p>
     </a>
     <p class="{{ styles.tags }}">
-        {% for tag in entry.tags %}
-            <a class="{{ styles.tag }}" href="/search?type=downloads&tag={{ tag.title }}">{{ tag.title }}</a>
+        {% for tag in entry.topics %}
+            <a class="{{ styles.tag }}" href="/search?type=downloads&topic={{ tag.slug }}">{{ tag.title }}</a>
+        {% endfor %}
+        {% for tag in entry.tactics %}
+            <a class="{{ styles.tag }}" href="/search?type=downloads&tactic={{ tag.slug }}">{{ tag.title }}</a>
         {% endfor %}
     </p>
     {{ localeField(entry, 'excerpt') }}

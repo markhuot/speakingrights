@@ -19,21 +19,20 @@
 {% endfor %}
 
 {% block main %}
-    <div class="{{ styles.header }} {{ styles.dots }} {{ spacing.heading }}">
+    <div class="{{ styles.header }} {{ spacing.heading }}">
         <div class="heading">
             {% if entry.stepNumber.value is defined %}
-                <p class="{{ styles.stepText }}">Step {{ entry.stepNumber }}</p>
                 {% if entry.stepNumber.value == 1 %}
-                    <img class="{{ styles.stepNumber }} {{ styles.one }}" src="/images/one.svg">
+                    <img class="{{ styles.stepNumber }} {{ styles.one }}" src="/images/motivate.svg">
                 {% endif %}
                 {% if entry.stepNumber.value == 2 %}
-                    <img class="{{ styles.stepNumber }} {{ styles.two }}" src="/images/two.svg">
+                    <img class="{{ styles.stepNumber }} {{ styles.two }}" src="/images/investigate.svg">
                 {% endif %}
                 {% if entry.stepNumber.value == 3 %}
-                    <img class="{{ styles.stepNumber }} {{ styles.three }}" src="/images/three.svg">
+                    <img class="{{ styles.stepNumber }} {{ styles.three }}" src="/images/take-action.svg">
                 {% endif %}
             {% endif %}
-            <h1 class="{{ styles.heading }}">{{ entry.title }}</h1>
+            <h1 class="{{ styles.heading }}">{{ localeField(entry, 'title') }}</h1>
         </div>
         <div class="{{ styles.introduction }}">
             {{ localeField(entry, 'introduction') }}
@@ -47,8 +46,8 @@
 {% endblock %}
 
 {% block sidebar %}
-    <img src="/images/logo-en.gif">
-    {% include "blocks/topics" with {"blockTitle": "Find CAP by", "type": "communityActionProject", "white": true, "hideTags": true} only %}
+    <img src="/images/logos/EQI0100-Animated-Logo-{{ random(['A', 'B', 'C']) }}-EN.gif">
+    {% include "blocks/topics" with {"blockTitle": "Find CAP by", "type": "communityActionProject", "white": true} only %}
     {% include "components/news" %}
     {% include "components/resources" %}
     {% include "components/mailingListSignup" %}

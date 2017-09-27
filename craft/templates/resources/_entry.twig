@@ -15,7 +15,7 @@
 
     {% if downloads.total > 0 %}
         <div class="{{ spacing.heading }}">
-            <h2 class="{{ styles.heading }}">Downloads</h2>
+            <h2 class="{{ styles.heading }}">{{ "Downloads"|t }}</h2>
             {% include "components/downloadList" with {"items": downloads } %}
             {% if downloads.total > 4 %}
                 {% include "components/readmore" with {"href": "/resources/downloads", "label": "See all"} %}
@@ -25,7 +25,7 @@
 
     {% if links|length %}
         <div class="{{ spacing.heading }}">
-            <h2 class="{{ styles.heading }}">Links</h2>
+            <h2 class="{{ styles.heading }}">{{ "Links"|t }}</h2>
             <form action="/api/links" method="get" class="{{ spacing.small }}">
                 {% include "components/sort" with {"links": [
                     {"name": "title", "label": "Name"},
@@ -38,7 +38,7 @@
 
     {% if orgs|length %}
         <div class="{{ spacing.heading }}">
-            <h2 class="{{ styles.heading }}">Organizational Directory</h2>
+            <h2 class="{{ styles.heading }}">{{ "Organizational Directory"|t }}</h2>
             <form action="/api/orgs" method="get" class="{{ spacing.small }}">
                 {% include "components/sort" with {"links": [
                     {"name": "title", "label": "Name"},
@@ -53,6 +53,6 @@
 {% endblock %}
 
 {% block sidebar %}
-    {% include "blocks/topics" with {"blockTitle": "Find Resources by", "type": "download"} only %}
+    {% include "blocks/topics" with {"blockTitle": "Find Resources by"|t, "type": "downloads"} only %}
     {% include "components/mailingListSignup" %}
 {% endblock %}

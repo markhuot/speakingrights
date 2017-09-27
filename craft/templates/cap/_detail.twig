@@ -43,6 +43,6 @@
 
 {% block sidebar %}
     {% include "components/contact" with {"body": entry.contactInformation, "socialUsernames": entry.socialUsernames} only %}
-    {% include "blocks/topics" with {"blockTitle": "Find CAP by", "type": "communityActionProject", "hideTags": true} only %}
+    {% include "blocks/topics" with {"blockTitle": "Find CAP by", "type": "communityActionProject"} only %}
     {% include "components/mailingListSignup" %}
 {% endblock %}

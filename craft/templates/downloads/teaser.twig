@@ -9,8 +9,11 @@
         <p><strong>{{ entry.title }}</strong></p>
     </a>
     <p class="{{ styles.tags }}">
-        {% for tag in entry.tags %}
-            <a class="{{ styles.tag }}" href="/search?type=downloads&tag={{ tag.title }}">{{ tag.title }}</a>
+        {% for tag in entry.topics %}
+            <a class="{{ styles.tag }}" href="/search?type=downloads&topic={{ tag.title }}">{{ tag.title }}</a>
+        {% endfor %}
+        {% for tag in entry.tactics %}
+            <a class="{{ styles.tag }}" href="/search?type=downloads&tactic={{ tag.title }}">{{ tag.title }}</a>
         {% endfor %}
     </p>
     {{ localeField(entry, 'excerpt') }}

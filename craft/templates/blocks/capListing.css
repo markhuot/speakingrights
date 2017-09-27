@@ -1,0 +1,7 @@
+.container {
+    composes: container from '../global.css';
+}
+
+.heading {
+    font-family: Oswald;
+}

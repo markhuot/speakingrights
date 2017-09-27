@@ -2,6 +2,7 @@
     background: url(/images/dots-mail.svg) repeat center center;
     background-size: 1024px 340px;
     padding: 30px;
+    color: #fff;
 }
 
 .container {
@@ -11,4 +12,45 @@
     background: linear-gradient(90deg, #90278E, #5C23A1);
     padding: 40px;
     color: #fff;
+    display: flex;
+}
+
+.left {
+    width: 20%;
+}
+
+.right {
+    padding-left: 30px;
+    flex-grow: 1;
+}
+
+.heading {
+    font-family: Oswald, sans-serif;
+    font-size: 24px;
+}
+
+.input {
+    background: #fff;
+    border-radius: 6px;
+    border: none;
+    font-size: 15px;
+    font-family: Oswald, sans-serif;
+    padding: 7px 19px;
+    width: 60%;
+}
+
+.button {
+    composes: button from '../global.css';
+    color: #000;
+    background: #FFDD15;
+    text-align: center;
+    margin-left: 20px;
+}
+
+.socialLinks {
+    text-align: right;
+}
+
+.image {
+    max-width: 200px;
 }

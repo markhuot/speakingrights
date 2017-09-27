@@ -40,6 +40,7 @@ require('./craft/templates/blocks/mailingListSignup.css');
 require('./craft/templates/blocks/cta.css');
 require('./craft/templates/blocks/videoCta.js');
 require('./craft/templates/blocks/documentCta.css');
+require('./craft/templates/blocks/capListing.css');
 
 require('./craft/templates/components/header.css');
 require('./craft/templates/components/header.js');
@@ -67,3 +68,5 @@ require('./craft/templates/components/comments.css');
 require('./craft/templates/components/comments.js');
 require('./craft/templates/components/mailingListSignup.css');
 require('./craft/templates/components/socialUsernameItems.css');
+require('./craft/templates/components/slider.js');
+require('./craft/templates/components/slider.css');

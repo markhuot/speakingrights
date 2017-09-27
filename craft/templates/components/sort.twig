@@ -5,7 +5,7 @@
 {% set direction = direction|default('desc') %}
 
 <p class="{{ styles.container }}">
-    Sort by
+    {{ "Sort by"|t }}
     <input type="hidden" name="direction" value="{{ direction }}" />
     <span>
         {% for link in links %}

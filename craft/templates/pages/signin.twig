@@ -29,6 +29,8 @@
         {% if errorMessage is defined %}
             <p>{{ errorMessage }}</p>
         {% endif %}
+
+        {% include "pages/social-accounts" %}
     </form>
 
     {# <p><a href="{{ url('forgotpassword') }}">Forget your password?</a></p> #}

@@ -7,10 +7,12 @@
             <div>
                 <div class="{{ styles.image }}">
                     {% include "news/_image" with {"image": entry.image, "transform": {"mode": "crop", "width": 600, "height": 360}} only %}
-                    {% include "components/tags" with {"tags": entry.tags} only %}
+                    {% include "components/tags" with {"entry": entry} only %}
                 </div>
                 {% if entry.communityActionProject.total %}
                     <p class="{{ styles.projectName }}">{{ entry.communityActionProject.first.title }}</p>
+                {% else %}
+                    <p class="{{ styles.projectName }}">EQUITAS Blog</p>
                 {% endif %}
             </div>
             <p class="{{ styles.heading }}"><strong>{{ entry.title }}</strong></p>

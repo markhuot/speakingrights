@@ -1,9 +1,6 @@
 .header {
     padding: 40px;
     position: relative;
-}
-
-.header.dots {
     background: url(/images/dots-motivate.svg) no-repeat 0 60px;
 }
 
@@ -55,22 +52,22 @@
 }
 
 .stepNumber.one {
-    width: 90px;
+    width: 140px;
     position: absolute;
-    top: 130px;
-    left: 20px;
+    top: 75px;
+    left: 430px;
 }
 
 .stepNumber.two {
-    width: 110px;
+    width: 160px;
     position: absolute;
-    top: 110px;
-    left: 0px;
+    top: 160px;
+    left: -10px;
 }
 
 .stepNumber.three {
-    width: 110px;
+    width: 240px;
     position: absolute;
-    top: 120px;
-    left: 10px;
+    top: 40px;
+    left: 360px;
 }

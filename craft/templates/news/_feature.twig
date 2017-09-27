@@ -5,7 +5,7 @@
     <a href="{{ entry.url }}" class="{{ spacing.small }}">
         <div class="{{ styles.image }}">
             {% include "news/_image" with {"image": entry.image, "transform": {"mode": "crop", "width": 1240, "height": 442}} only %}
-            {% include "components/tags" with {"tags": entry.tags} only %}
+            {% include "components/tags" with {"tags": entry} only %}
         </div>
         <h2 class="{{ styles.heading }}">{{ entry.title }}</h2>
     </a>

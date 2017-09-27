@@ -31,6 +31,7 @@
 .copyright {
     text-align: center;
     font-size: 12px;
+    margin-bottom: 15px;
 }
 
 .longform {
@@ -49,6 +50,19 @@
     margin-top: 15px;
 }
 
+.speakingRights {
+    float: left;
+    margin-right: 10px;
+}
+
 .equitas {
-    max-width: 180px;
+    float: left;
+    max-width: 40px;
+}
+
+.canada {
+    clear: left;
+    max-width: 107px;
+    margin-top: 20px;
+    float: left;
 }

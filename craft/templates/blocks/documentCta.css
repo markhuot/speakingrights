@@ -1,5 +1,5 @@
 .background {
-    background: url(/images/dots-mail.svg) repeat center center;
+    composes: gradient from '../global.css';
     background-size: 1024px 340px;
     padding: 60px 0;
 }
@@ -16,7 +16,7 @@
 }
 
 .heading {
-    color: #90278E;
+    color: #fff;
     font-size: 20px;
     font-weight: bold;
 }
@@ -48,7 +48,7 @@
 .content {
     composes: longform from '../global.css';
     background: #fff;
-    padding: 15px;
+    padding: 10px 15px;
     overflow: hidden;
 }
 

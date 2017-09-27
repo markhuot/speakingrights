@@ -11,7 +11,9 @@
         <div class="{{ styles.quote }}">{{ block.quote }}</div>
         <p class="{{ styles.meta }}">
             <cite class="{{ styles.citation }}">&mdash;{{ block.citation }}</cite>
-            {% include "components/arrowLink" with {"href": block.linkEntries.count ? block.linkEntries.first.url : block.linkUrl, "label": block.linkText} only %}
+            {% if block.linkEntries.count or block.linkUrl %}
+                {% include "components/arrowLink" with {"href": block.linkEntries.count ? block.linkEntries.first.url : block.linkUrl, "label": block.linkText} only %}
+            {% endif %}
         </p>
     </div>
 </blockquote>

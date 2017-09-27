@@ -2,28 +2,33 @@
 {% set spacing = styles("layouts/spacing.css.json") %}
 {% set numerics = ['', 'one', 'two', 'three'] %}
 
-<div class="{{ styles.container }} {{ spacing.providesOwnSpacing }}">
-    <div class="{{ styles.content }} {{ styles[numerics[block.number.value]] }} {{ styles[block.position] }}">
+<div class="{{ styles.container }} {{ spacing.providesOwnSpacing }} {{ styles[numerics[block.number.value]] }}">
+    <div class="{{ styles.content }} {{ styles[block.position] }}">
         {% if block.number.value == 1 %}
             <div class="{{ styles.number }}">
-                <img class="{{ styles.numeral }}" src="/images/one.svg">
-                <h3 class="{{ styles.heading }}">Motivate</h3>
-                <a class="{{ styles.cta }}" href="{{ block.linkUrl }}">Start your project</a>
+                <img class="{{ styles.numeral }}" src="/images/motivate.svg">
+                <h3 class="{{ styles.heading }}">
+                    {{ "Motivate"|t }}
+                </h3>
+                <a class="{{ styles.cta }}" href="{{ block.linkUrl }}">{{ "Start your project"|t }}</a>
             </div>
         {% endif %}
         {% if block.number.value == 2 %}
             <div class="{{ styles.number }}">
-                <img class="{{ styles.numeral }}" src="/images/two.svg">
+                <img class="{{ styles.numeral }}" src="/images/investigate.svg">
                 <h3 class="{{ styles.heading }}">
-                    <span class="{{ styles.cta }}" href="{{ block.linkUrl }}">Step 2</span>
-                    Investigate
+                    <span class="{{ styles.cta }}" href="{{ block.linkUrl }}">{{ "What's next"|t }}</span>
+                    {{ "Investigate"|t }}
                 </h3>
             </div>
         {% endif %}
         {% if block.number.value == 3 %}
             <div class="{{ styles.number }}">
-                <img class="{{ styles.numeral }}" src="/images/three.svg">
-                <h3 class="{{ styles.heading }}">Take Action</h3>
+                <img class="{{ styles.numeral }}" src="/images/take-action.svg">
+                <h3 class="{{ styles.heading }}">
+                    <span class="{{ styles.cta }}" href="{{ block.linkUrl }}">{{ "What's next"|t }}</span>
+                    {{ "Take Action"|t }}
+                </h3>
             </div>
         {% endif %}
         <div class="{{ styles.text }}">

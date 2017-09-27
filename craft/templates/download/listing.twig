@@ -22,6 +22,6 @@
 {% endblock %}
 
 {% block sidebar %}
-    {% include "blocks/topics" with {"blockTitle": "Find Resources by", "hideTags": true} only %}
+    {% include "blocks/topics" with {"blockTitle": "Find Resources by", "type": "downloads"} only %}
     {% include "components/mailingListSignup" %}
 {% endblock %}

@@ -45,7 +45,7 @@
             {% endif %}
         </div>
 
-        
+
 
         <div>
             <h3><label for="password">Password</label></h3>
@@ -55,6 +55,8 @@
                 {{ errorList(account.getErrors('password')) }}
             {% endif %}
         </div>
+
+        {% include "pages/social-accounts" %}
 
         <div>
             <input class="{{ styles.button }}" type="submit" value="Register">

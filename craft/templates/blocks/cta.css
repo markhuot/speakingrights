@@ -4,6 +4,7 @@
 
 .image {
     border: 6px solid black;
+    width: 100%;
 }
 
 .play {

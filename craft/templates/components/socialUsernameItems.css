@@ -1,5 +1,16 @@
+.item {
+    margin-left: 15px;
+    list-style: none;
+    display: inline;
+}
+
+.item:first-child {
+    margin-left: 0;
+}
+
 .link {
-    
+    color: #90278E;
+    font-size: 21px;
 }
 
 .link:hover {

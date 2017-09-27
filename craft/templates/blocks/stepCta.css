@@ -4,6 +4,10 @@
     background-size: 1015px 382px;
 }
 
+.container.three {
+    background-position: calc(50% - 180px) center;
+}
+
 @media screen and (width >= 700px) {
     .container {
         background-position: center center;
@@ -14,6 +18,9 @@
     composes: container from '../global.css';
     min-height: 395px;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .number {
@@ -59,13 +66,14 @@
 }
 
 .one .numeral {
-    width: 80px;
-    margin-left: -15px;
+    width: 190px;
+    margin-left: 15px;
+    margin-top: -10px;
 }
 
 .heading {
     font-family: Oswald;
-    font-size: 50px;
+    font-size: 70px;
     color: #90278E;
     white-space: nowrap;
 }
@@ -81,14 +89,14 @@
 }
 
 .two .numeral {
-    width: 120px
+    width: 250px
 }
 
 .two .heading {
     font-size: 74px;
 }
 
-.two .cta {
+.two .cta, .three .cta {
     position: absolute;
     top: 0px;
     left: 0;
@@ -100,7 +108,7 @@
 }
 
 .three .numeral {
-    width: 120px;
+    width: 330px;
 }
 
 @media screen and (width < 700px) {
@@ -110,17 +118,12 @@
 }
 
 .text {
-    composes: longform from '../global.css';
     padding: 25px 20px;
-    font-size: 15px;
+    font-family: Oswald, sans-serif;
+    font-size: 20px;
     font-weight: bold;
     line-height: 1.75;
     position: relative;
-}
-
-.two .text {
-    font-family: Oswald, sans-serif;
-    font-size: 18px;
 }
 
 .left {
@@ -141,41 +144,6 @@
 
     .right .text {
         float: left;
-    }
-
-    .one .text {
-        font-style: italic;
-        font-weight: bold;
-        line-height: 1.8;
-        font-size: 16px;
-    }
-
-    .one .text > *:first-child,
-    .one .text > *:last-child {
-        position: relative;
-    }
-
-    .one .text > *:first-child:before,
-    .one .text > *:last-child:after {
-        position: relative;
-        font-size: 50px;
-        color: #90278E;
-    }
-
-    .one .text > *:first-child:before {
-        content: '\201c';
-        position: absolute;
-        top: -0.3em;
-        left: -0.7em;
-    }
-
-    .one .text > *:last-child:after {
-        content: '\201d';
-        transform: translateX(-50%);
-        line-height: 0;
-        position: relative;
-        top: 30px;
-        left: 10px;
     }
 }
 

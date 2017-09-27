@@ -1,6 +1,11 @@
 {% extends "layouts/default" %}
 {% set disableSpacing = true %}
 
+{% set spacing = styles('layouts/spacing.css.json') %}
+
 {% block container %}
-    {% include "blocks/blocks" with {"blocks": localeField(entry, 'body')} only %}
+    <div class="{{ spacing.default }}">
+        {% include "components/slider" with {"blocks": localeField(entry, 'hero')} only %}
+        {% include "blocks/blocks" with {"blocks": localeField(entry, 'body')} only %}
+    </div>
 {% endblock %}
