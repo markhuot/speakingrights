@@ -32,40 +32,6 @@
             {% include "components/footer" %}
         </div>
     </div>
-    {% if entry.type.handle is defined %}
-        {% if entry.type.handle == 'communityActionProject' %}
-            <img id="spec" src="/spec-cap.jpg" style="pointer-events: none;" class="{{ layoutStyles.spec }}">
-        {% elseif entry.type.handle == 'news' %}
-            <img id="spec" src="/spec-news-detail.jpg" style="pointer-events: none;" class="{{ layoutStyles.spec }}">
-        {% elseif entry.type.handle == 'capLanding' %}
-            <img id="spec" src="/spec-cap-landing.jpg" style="pointer-events: none;" class="{{ layoutStyles.spec }}">
-        {% elseif entry.type.handle == 'about' %}
-            <img id="spec" src="/spec-about.jpg" style="pointer-events: none;" class="{{ layoutStyles.spec }}">
-        {% elseif entry.type.handle == 'resources' %}
-            <img id="spec" src="/spec-resources.jpg" style="pointer-events: none;" class="{{ layoutStyles.spec }}">
-        {% elseif entry.type.handle == 'homepage' %}
-            <img id="spec" src="/spec-home.jpg" style="pointer-events: none;" class="{{ layoutStyles.spec }}">
-        {% elseif entry.type.handle == 'motivate' %}
-            <img id="spec" src="/spec-motivate.jpg" style="pointer-events: none;" class="{{ layoutStyles.spec }}">
-        {% endif %}
-        <script>
-            document.body.addEventListener('keyup', function (event) {
-                var el = document.getElementById('spec');
-                switch(event.keyCode) {
-                    case 49: el.style.opacity = '1.0'; break;
-                    case 50: el.style.opacity = '0.2'; break;
-                    case 51: el.style.opacity = '0.3'; break;
-                    case 52: el.style.opacity = '0.4'; break;
-                    case 53: el.style.opacity = '0.5'; break;
-                    case 54: el.style.opacity = '0.6'; break;
-                    case 55: el.style.opacity = '0.7'; break;
-                    case 56: el.style.opacity = '0.8'; break;
-                    case 57: el.style.opacity = '0.9'; break;
-                    case 48: el.style.opacity = '0.0'; break;
-                }
-            });
-        </script>
-    {% endif %}
     <script src="/bundle.js"></script>
 </body>
 </html>

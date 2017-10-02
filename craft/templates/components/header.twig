@@ -27,8 +27,14 @@
                     </form>
                     <ul>
                         {% include "components/socialUsernameItems" with {"socialUsernames": utilities.socialUsernames} only %}
+                        {% if currentUser %}
+                            <li class="{{ styles.searchIcon }}"><a href="/slack" aria-label="Slack"><i class="fa fa-slack" aria-hidden="true"></i></a></li>
+                        {% endif %}
                         <li class="{{ styles.searchIcon }}" data-search-link><a href="#" aria-label="search"><i class="fa fa-search" aria-hidden="true"></i></a></li>
                         <li><a href="/api/toggleLangcode?back={{ craft.request.path }}">{{ (langcode == 'en' ? 'fr' : 'en')|upper }}</a></li>
+                        {% if currentUser %}
+                            <li><a href="/admin">{{ "Manage Content"|t }}</a></li>
+                        {% endif %}
                     </ul>
                 </nav>
             </div>

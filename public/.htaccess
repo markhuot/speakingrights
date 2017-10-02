@@ -1,6 +1,17 @@
 <IfModule mod_rewrite.c>
 	RewriteEngine On
 
+	RewriteCond %{HTTPS} !on
+	RewriteCond %{HTTP_HOST} ^speakingrights\.ca$ [NC]
+	RewriteRule (.*) https://www.speakingrights.ca/$1 [L,R=301]
+
+	RewriteCond %{HTTPS} !on
+	RewriteCond %{HTTP_HOST} ^www\.speakingrights\.ca$ [NC]
+	RewriteRule (.*) https://www.speakingrights.ca/$1 [L,R=301]
+
+	RewriteCond %{HTTP_HOST} ^speakingrights\.ca$ [NC]
+	RewriteRule (.*) https://www.speakingrights.ca/$1 [L,R=301]
+
 	# Send would-be 404 requests to Craft
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
