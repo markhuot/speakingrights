@@ -13,7 +13,7 @@
             </h1>
         </div>
         <div class="{{ spacing.default }}">
-            <img class="{{ styles.logo }}" src="/images/logos/EQI0100-Animated-Logo-{{ random(['A', 'B', 'C']) }}-EN.gif">
+            <a href="/"><img class="{{ styles.logo }}" src="/images/logos/EQI0100-Animated-Logo-{{ random(['A', 'B', 'C']) }}-EN-Yellow.gif"></a>
             {% if entry is defined and entry.children.count %}
                 {% for child in entry.children %}
                     <p>{% include "components/button" with {"href": child.url, "label": child.title} only %}</p>

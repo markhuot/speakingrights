@@ -10,7 +10,7 @@
 {% block main %}
     <form method="post" accept-charset="UTF-8" class="{{ spacing.default }}">
         {{ getCsrfInput() }}
-        <input type="hidden" name="action" value="users/save-user">
+        <input type="hidden" name="action" value="users/saveUser">
         <input type="hidden" name="redirect" value="">
 
         {% macro errorList(errors) %}

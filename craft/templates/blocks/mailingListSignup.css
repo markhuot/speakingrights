@@ -10,23 +10,58 @@
     margin-left: auto;
     margin-right: auto;
     background: linear-gradient(90deg, #90278E, #5C23A1);
-    padding: 40px;
     color: #fff;
-    display: flex;
+    text-align: center;
+    padding: 20px;
 }
 
-.left {
-    width: 20%;
+@media screen and (width >= 700px) {
+    .container {
+        padding: 40px;
+    }
 }
 
-.right {
-    padding-left: 30px;
-    flex-grow: 1;
+.container * {
+    text-align: left;
+}
+
+.image {
+    max-width: 140px;
+    margin-right: 30px;
+    display: inline-block;
+}
+
+@media screen and (width < 700px) {
+    .image {
+        display: none;
+    }
+}
+
+.form {
+    width: 100%;
+    display: inline-block;
+}
+
+@media screen and (width >= 700px) {
+    .form {
+        width: 50%;
+    }
+}
+
+@media screen and (width >= 940px) {
+    .form {
+        width: 60%;
+    }
 }
 
 .heading {
     font-family: Oswald, sans-serif;
     font-size: 24px;
+}
+
+.inputContainer {
+    display: flex;
+    justify-content: space-between;
 }
 
 .input {
@@ -36,7 +71,8 @@
     font-size: 15px;
     font-family: Oswald, sans-serif;
     padding: 7px 19px;
-    width: 60%;
+    width: 80%;
+    flex-grow: 1;
 }
 
 .button {
@@ -49,8 +85,4 @@
 
 .socialLinks {
     text-align: right;
-}
-
-.image {
-    max-width: 200px;
 }

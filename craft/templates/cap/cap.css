@@ -5,6 +5,7 @@
 }
 
 .sidebar {
+    padding-top: 40px;
     float: left;
     width: calc(25% - 10px);
 }

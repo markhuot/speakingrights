@@ -33,8 +33,8 @@
 {% endblock %}
 
 {% block sidebar %}
-    <img src="/images/logos/EQI0100-Animated-Logo-{{ random(['A', 'B', 'C']) }}-Black-EN.gif">
-    {% include "blocks/topics" with {"blockTitle": "Find CAP by", "type": "communityActionProject", "white": true} only %}
+    <a href="/"><img src="/images/logos/EQI0100-Animated-Logo-{{ random(['A', 'B', 'C']) }}-Black-EN.gif"></a>
+    {% include "blocks/topics" with {"blockTitle": "Find CAP by Tag", "type": "communityActionProject", "white": true} only %}
     {% include "components/news" %}
     {% include "components/resources" %}
     {% include "components/mailingListSignup" %}

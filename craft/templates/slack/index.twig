@@ -12,31 +12,35 @@
         <p>Thank you. You will get an email shortly with further instructions to sign in to Slack.</p>
     {% endif %}
 
-    <form method="post" action="actions/slack/signup" class="{{ spacing.default }}">
+    <form method="post" action="actions/slack/signup">
         {{ getCsrfInput() }}
 
-        <div>
-            <h3><label for="firstName">First Name</label></h3>
-            <input class="{{ styles.input }}" id="firstName" type="text" name="firstName" value="{{ currentUser ? currentUser.firstName }}">
-        </div>
+        <div class="{{ spacing.default }}">
+            <div class="{{ styles.row }}">
+                <div class="{{ styles.half }}">
+                    <h3><label for="firstName">First Name</label></h3>
+                    <input class="{{ styles.inputFull }}" id="firstName" type="text" name="firstName" value="{{ currentUser ? currentUser.firstName }}">
+                </div>
 
-        <div>
-            <h3><label for="lastName">Last Name</label></h3>
-            <input class="{{ styles.input }}" id="lastName" type="text" name="lastName" value="{{ currentUser ? currentUser.lastName }}">
-        </div>
+                <div class="{{ styles.half }}">
+                    <h3><label for="lastName">Last Name</label></h3>
+                    <input class="{{ styles.inputFull }}" id="lastName" type="text" name="lastName" value="{{ currentUser ? currentUser.lastName }}">
+                </div>
+            </div>
 
-        <div>
-            <h3><label for="emailAddress">Email Address</label></h3>
-            <input class="{{ styles.input }}" id="emailAddress" type="text" name="emailAddress" value="{{ currentUser ? currentUser.email }}">
-        </div>
+            <div>
+                <h3><label for="emailAddress">Email Address</label></h3>
+                <input class="{{ styles.inputFull }}" id="emailAddress" type="text" name="emailAddress" value="{{ currentUser ? currentUser.email }}">
+            </div>
 
-        <div>
-            <input class="{{ styles.button }}" type="submit" value="Join!">
+            <div>
+                <input class="{{ styles.button }}" type="submit" value="Join!">
+            </div>
         </div>
     </form>
 {% endblock %}
 
 {% block sidebar %}
-If you&rsquo;re already a member you can access Slack at <a href="https://equitas-youth-jeunes.slack.com"><strong>equitas-youth-jeunes.slack.com</strong></a>.
+    {% include "components/slackSignupHelp" %}
 {% endblock %}
 

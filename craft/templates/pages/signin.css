@@ -15,3 +15,31 @@
     padding: 8px 15px;
     width: 40%;
 }
+
+.inputFull {
+    font-size: 18px;
+    padding: 8px 15px;
+    width: 100%;
+}
+
+.half {
+    width: calc(50% - 10px);
+    float: left;
+    margin-right: 10px;
+}
+
+.half + .half {
+    margin-left: 10px;
+    margin-right: 0;
+    margin-top: 0;
+}
+
+.row:after {
+    display: table;
+    clear: both;
+    content: '';
+}
+
+.row + * {
+    clear: both;
+}

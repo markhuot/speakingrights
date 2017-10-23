@@ -5,9 +5,10 @@
     <table class="{{ styles.table }}">
         {% for link in links %}
             <tr>
-                <td><strong><a href="{{ link.linkUrl }}">{{ link.title }}</a></strong></td>
+                <td><strong><a href="{{ link.linkUrl }}" target="_blank">{{ link.title }}</a></strong></td>
                 <td>
-                    {{ link.tactics|join(',') }}
+                    {{ link.topics|join(', ') }}
+                    {{ link.tactics|join(', ') }}
                 </td>
             </tr>
         {% endfor %}

@@ -70,3 +70,4 @@ require('./craft/templates/components/mailingListSignup.css');
 require('./craft/templates/components/socialUsernameItems.css');
 require('./craft/templates/components/slider.js');
 require('./craft/templates/components/slider.css');
+require('./craft/templates/components/slackSignupHelp.css');

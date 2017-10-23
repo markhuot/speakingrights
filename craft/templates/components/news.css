@@ -11,9 +11,11 @@
 
 .item {
     list-style: none;
+    font-size: 14px;
 }
 
 .subheading {
     font-family: Oswald, sans-serif;
     font-size: 18px;
+    line-height: 24px;
 }

@@ -1,7 +1,6 @@
 .header {
     padding: 40px;
     position: relative;
-    background: url(/images/dots-motivate.svg) no-repeat 0 60px;
 }
 
 @media screen and (940px > width >= 700px) {
@@ -12,6 +11,7 @@
 
 @media screen and (width >= 940px) {
     .header {
+        background: url(/images/dots-motivate.svg) no-repeat 0 60px;
         padding: 104px 0 100px 160px;
     }
 }

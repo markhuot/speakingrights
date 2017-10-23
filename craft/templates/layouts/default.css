@@ -84,6 +84,7 @@ a:hover {
     }
 
     .sidebar {
+        padding-top: 40px;
         float: right;
         width: calc(25% - 10px);
         margin-top: 0px;

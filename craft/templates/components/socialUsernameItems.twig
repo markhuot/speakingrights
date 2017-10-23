@@ -1,5 +1,5 @@
 {% set styles = styles("components/socialUsernameItems.css.json") %}
 
 {% for username in socialUsernames %}
-    <li class="{{ styles.item }}"><a class="{{ styles.link }}" href="http://www.{{ username.type.handle }}.com/{{ username[username.type.handle ~ 'Username'] }}"><i class="fa fa-{{ username.type.handle }}" aria-hidden="true"></i></a></li>
+    <li class="{{ styles.item }}"><a class="{{ styles.link }}" href="http://www.{{ username.type.handle }}.com/{{ username[username.type.handle ~ 'Username'] }}" target="_blank"><i class="fa fa-{{ username.type.handle }}" aria-hidden="true"></i></a></li>
 {% endfor %}

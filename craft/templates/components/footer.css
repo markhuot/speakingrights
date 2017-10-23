@@ -51,18 +51,15 @@
 }
 
 .speakingRights {
-    float: left;
-    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 .equitas {
-    float: left;
-    max-width: 40px;
+    max-width: 160px;
 }
 
 .canada {
     clear: left;
     max-width: 107px;
-    margin-top: 20px;
-    float: left;
+    margin: 20px auto;
 }
