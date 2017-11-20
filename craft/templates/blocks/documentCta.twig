@@ -6,7 +6,7 @@
         <p class="{{ styles.heading }}">{{ block.heading }}</p>
         <div class="{{ styles.images }}">
             {% for image in block.images %}
-                <img class="{{ styles.image }}" src="{{ image.url }}">
+                <img class="{{ styles.image }}" src="{{ image.url }}" alt="{{ image.alternativeText|default('') }}">
             {% endfor %}
         </div>
         <div class="{{ styles.content }}">

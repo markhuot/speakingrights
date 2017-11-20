@@ -3,7 +3,15 @@
 
 <div class="{{ styles.container }} {{ spacing.heading }}">
     <h3 class="{{ styles.heading }}">Contact Us</h3>
-    {{ body }}
+
+    <p><address>
+        {% if entry.contactName %}{{ entry.contactName|default('') }}<br>{% endif %}
+        {% if entry.addressLine1 %}{{ entry.addressLine1|default('') }}<br>{% endif %}
+        {% if entry.addressLine2 %}{{ entry.addressLine2|default('') }}<br>{% endif %}
+        {% if entry.province.count and entry.province.first.title %}{{ entry.province.first.title|default('') }}<br>{% endif %}
+        {% if entry.phoneNumber %}{{ entry.phoneNumber|default('') }}<br>{% endif %}
+        {% if entry.email %}{{ entry.email|default('') }}<br>{% endif %}
+    </address></p>
 
     {% if socialUsernames.count %}
         <ul class="{{ styles.social }}">

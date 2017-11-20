@@ -5,7 +5,7 @@
     <table class="{{ styles.table }}">
         {% for org in orgs %}
             <tr>
-                <td><strong>{{ org.title }}</strong></td>
+                <td><strong><a href="{{ org.linkUrl|default('') }}">{{ org.title }}</a></strong></td>
                 <td>{{ org.province|join(',') }}</td>
                 <td>
                     {{ org.tactics|join(',') }}

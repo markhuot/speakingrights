@@ -4,7 +4,12 @@
 {% set spacing = styles("layouts/spacing.css.json") %}
 {% set shortHero = true %}
 {% set perPage = 12 %}
-{% paginate craft.entries.section('downloads').order('postDate desc').limit(perPage) as pageInfo, downloads %}
+
+{% set entries = craft.entries.section('downloads').order('postDate desc').limit(perPage) %}
+{% if not currentUser %}
+    {% set entries = entries.requireLogin('not 1') %}
+{% endif %}
+{% paginate entries as pageInfo, downloads %}
 
 {% use "cap/hero" %}
 

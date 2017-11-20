@@ -1053,7 +1053,7 @@ __webpack_require__(93);
 __webpack_require__(94);
 __webpack_require__(95);
 __webpack_require__(98);
-__webpack_require__(160);
+__webpack_require__(99);
 
 /***/ }),
 /* 11 */
@@ -1366,14 +1366,14 @@ document.body.addEventListener('click', function (event) {
     var link = event.target.closest('[data-search-link]')
     if (link) {
         event.preventDefault();
-        // var anchor = link.querySelector('a');
-        // anchor.parentNode.removeChild(anchor);
         var header = link.closest('[data-header]');
         var form = header.querySelector('[data-search-form]');
-        form.style.display = 'block';
-        // link.appendChild(form);
-        // link.removeAttribute('data-search-link');
-        // link.querySelector('input[type="text"]').focus();
+        if (form.style.display == 'block') {
+            form.style.display = 'none';
+        }
+        else {
+            form.style.display = 'block';
+        }
     }
 });
 
@@ -2507,11 +2507,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 var styles = __webpack_require__(97)
 
 document.addEventListener('DOMContentLoaded', () => {
-    const slider = document.getElementsByClassName(styles.slider)[0];
+    const slider = document.getElementsByClassName(styles.slider);
 
-    Object(__WEBPACK_IMPORTED_MODULE_0_lory_js__["lory"])(slider, {
-        rewind: true
-    });
+    if (slider.length) {
+        Object(__WEBPACK_IMPORTED_MODULE_0_lory_js__["lory"])(slider[0], {
+            rewind: true
+        });
+    }
 });
 
 /***/ }),
@@ -3444,68 +3446,7 @@ module.exports = {"slider":"_slider_rpik8_5","frame":"_frame_rpik8_9","slides":"
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 99 */,
-/* 100 */,
-/* 101 */,
-/* 102 */,
-/* 103 */,
-/* 104 */,
-/* 105 */,
-/* 106 */,
-/* 107 */,
-/* 108 */,
-/* 109 */,
-/* 110 */,
-/* 111 */,
-/* 112 */,
-/* 113 */,
-/* 114 */,
-/* 115 */,
-/* 116 */,
-/* 117 */,
-/* 118 */,
-/* 119 */,
-/* 120 */,
-/* 121 */,
-/* 122 */,
-/* 123 */,
-/* 124 */,
-/* 125 */,
-/* 126 */,
-/* 127 */,
-/* 128 */,
-/* 129 */,
-/* 130 */,
-/* 131 */,
-/* 132 */,
-/* 133 */,
-/* 134 */,
-/* 135 */,
-/* 136 */,
-/* 137 */,
-/* 138 */,
-/* 139 */,
-/* 140 */,
-/* 141 */,
-/* 142 */,
-/* 143 */,
-/* 144 */,
-/* 145 */,
-/* 146 */,
-/* 147 */,
-/* 148 */,
-/* 149 */,
-/* 150 */,
-/* 151 */,
-/* 152 */,
-/* 153 */,
-/* 154 */,
-/* 155 */,
-/* 156 */,
-/* 157 */,
-/* 158 */,
-/* 159 */,
-/* 160 */
+/* 99 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

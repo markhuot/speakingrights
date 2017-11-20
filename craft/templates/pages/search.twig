@@ -35,7 +35,7 @@
 {% use "cap/hero" %}
 
 {% block main %}
-    <ul class="{{ styles.container }} {{ spacing.default }}">
+    <ul class="{{ craft.request.getParam('type') == 'downloads' ? styles.downloadContainer : styles.container }} {{ spacing.default }}">
         {% for entry in entries %}
             <li>
                 {% include [entry.type.handle ~ "/teaser", "components/defaultTeaser"] ignore missing with {"entry": entry} only %}

@@ -32,3 +32,36 @@ input:checked + .label:after {
 [name="direction"][value="desc"] + span input:checked + label:after {
     content: "\f078";
 }
+
+.select {
+    display: inline-block;
+    position: relative;
+    border: 1px solid #90278E;
+    border-radius: 5px;
+    padding-right: 20px;
+}
+
+.select select {
+    appearance: none;
+    border: none;
+    padding: 5px;
+    font-size: 14px;
+    color: #90278E;
+    background: none;
+    width: 140px;
+    font-family: Quicksand;
+}
+
+.select:after {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\f13a";
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}

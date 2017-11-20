@@ -4,7 +4,7 @@
 <div class="{{ styles.container }}">
     {% if block.image.total %}
         <div class="{{ styles.image }}">
-            <img src="{{ block.image.first.url }}">
+            <img src="{{ block.image.first.url }}" alt="{{ block.image.first.alternativeText|default('') }}">
         </div>
     {% endif %}
     <div class="{{ styles.text }} {{ spacing.small }}">

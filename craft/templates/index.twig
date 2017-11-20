@@ -6,6 +6,6 @@
 {% block container %}
     <div class="{{ spacing.default }}">
         {% include "components/slider" with {"blocks": localeField(entry, 'hero')} only %}
-        {% include "blocks/blocks" with {"blocks": localeField(entry, 'body')} only %}
+        {% include "blocks/blocks" with {"blocks": localeField(entry, 'body'), "showOnHomepage": true} only %}
     </div>
 {% endblock %}

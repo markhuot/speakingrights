@@ -21,13 +21,13 @@ document.body.addEventListener('click', function (event) {
     var link = event.target.closest('[data-search-link]')
     if (link) {
         event.preventDefault();
-        // var anchor = link.querySelector('a');
-        // anchor.parentNode.removeChild(anchor);
         var header = link.closest('[data-header]');
         var form = header.querySelector('[data-search-form]');
-        form.style.display = 'block';
-        // link.appendChild(form);
-        // link.removeAttribute('data-search-link');
-        // link.querySelector('input[type="text"]').focus();
+        if (form.style.display == 'block') {
+            form.style.display = 'none';
+        }
+        else {
+            form.style.display = 'block';
+        }
     }
 });

@@ -20,3 +20,8 @@
 .image {
     border: 6px solid black;
 }
+
+.hidden {
+    position: absolute;
+    left: -100vw;
+}

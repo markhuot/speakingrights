@@ -4,16 +4,16 @@
 <div class="{{ spacing.tiny }}">
     <a href="{{ entry.url }}">
         {% if entry.image.count %}
-            <p><img src="{{ entry.image.first.url({"mode": "crop", "width": 145, "height": 202}) }}"></p>
+            <p><img src="{{ entry.image.first.url({"mode": "crop", "width": 145, "height": 202}) }}" alt="{{ entry.image.first.alternativeText|default('') }}"></p>
         {% endif %}
         <p><strong>{{ entry.title }}</strong></p>
     </a>
     <p class="{{ styles.tags }}">
         {% for tag in entry.topics %}
-            <a class="{{ styles.tag }}" href="/search?type=downloads&topic={{ tag.title }}">{{ tag.title }}</a>
+            <a class="{{ styles.tag }}" href="/search?type=downloads&topic={{ tag.slug }}">{{ tag.title }}</a>
         {% endfor %}
         {% for tag in entry.tactics %}
-            <a class="{{ styles.tag }}" href="/search?type=downloads&tactic={{ tag.title }}">{{ tag.title }}</a>
+            <a class="{{ styles.tag }}" href="/search?type=downloads&tactic={{ tag.slug }}">{{ tag.title }}</a>
         {% endfor %}
     </p>
     {{ localeField(entry, 'excerpt') }}

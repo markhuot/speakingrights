@@ -1,3 +1,7 @@
 .container {
     composes: splitInHalf from '../global.css';
 }
+
+.downloadContainer {
+    composes: splitInQuarter from '../global.css';
+}

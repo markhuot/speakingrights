@@ -3,7 +3,7 @@
 {% if photos|length %}
     <ul class="{{ styles.container }}" data-gallery>
         {% for photo in photos %}
-            <li><a href="{{ photo.url }}" data-caption="{{ photo.description }}"><img class="{{ styles.image }}" src="{{ photo.url({"mode": "crop", "width": 140, "height": 140}) }}"></a></li>
+            <li {{ (hideAfter|default(false) and loop.index > hideAfter ? 'class="'~ styles.hidden ~'"')|raw }}><a href="{{ photo.url }}" data-caption="{{ photo.description }}"><img class="{{ styles.image }}" src="{{ photo.url({"mode": "crop", "width": 140, "height": 140}) }}"></a></li>
         {% endfor %}
     </ul>
 {% endif %}

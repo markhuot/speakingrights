@@ -1,6 +1,7 @@
 {% set styles = styles('blocks/userBio.css.json') %}
 {% set spacing = styles('layouts/spacing.css.json') %}
 
+{% if block.user.count %}
 <div class="{{ styles.container }}">
     {% if block.user|length %}
     <div class="{{ styles.image }}">
@@ -12,3 +13,4 @@
         {{ localeField(block.user.first, 'bio') }}
     </div>
 </div>
+{% endif %}

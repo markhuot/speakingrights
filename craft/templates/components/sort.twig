@@ -4,11 +4,35 @@
 {% set sort = sort|default(links[0].name) %}
 {% set direction = direction|default('desc') %}
 
+{% if filters|default([])|length %}
+<p class="{{ styles.container }}">
+    {{ "Filter by"|t }}
+    {% for filter in filters|default([]) %}
+        {% set foo = [] %}
+        {% for key in filter.keys %}
+            {% for entry in filter.objects %}
+                {% for tag in entry[key] %}
+                    {% set foo = foo|merge([{"bundle": key, "id": tag.id, "label": tag.title}]) %}
+                {% endfor %}
+            {% endfor %}
+        {% endfor %}
+        <span class="{{ styles.select }}">
+            <select name="">
+                <option>{{ filter.label }}</option>
+                {% for bar in foo %}
+                    <option value="{{ bar.bundle }}:{{ bar.id }}">{{ bar.label }}</option>
+                {% endfor %}
+            </select>
+        </span>
+    {% endfor %}
+</p>
+{% endif %}
+
 <p class="{{ styles.container }}">
     {{ "Sort by"|t }}
     <input type="hidden" name="direction" value="{{ direction }}" />
     <span>
-        {% for link in links %}
+        {% for link in links|default([]) %}
             <input data-sort {{ sort == link.name ? "checked" }} class="{{ styles.input }}" type="radio" name="sort" value="{{ link.name }}" id="{{ name ~ link.name }}" />
             <label data-sort for="{{ name ~ link.name }}" class="{{ styles.label }}">{{ link.label }}</label>
         {% endfor %}

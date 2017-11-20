@@ -37,12 +37,12 @@
                 </small>
             {% endif %}
         </h2>
-        {% include "components/photos" with {"entry": entry, "photos": entry.photos.limit(4)} only %}
+        {% include "components/photos" with {"entry": entry, "photos": entry.photos, "hideAfter": 4} only %}
     {% endif %}
 {% endblock %}
 
 {% block sidebar %}
-    {% include "components/contact" with {"body": entry.contactInformation, "socialUsernames": entry.socialUsernames} only %}
+    {% include "components/contact" with {"entry": entry, "socialUsernames": entry.socialUsernames} only %}
     {% include "blocks/topics" with {"blockTitle": "Find CAP by Tag", "type": "communityActionProject"} only %}
     {% include "components/mailingListSignup" %}
 {% endblock %}

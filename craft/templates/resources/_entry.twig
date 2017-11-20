@@ -5,8 +5,12 @@
 {% set shortHero = true %}
 
 {% set downloads = craft.entries.section('downloads').limit(4) %}
-{% paginate craft.entries.section('links').limit(6) as linksPageInfo, links %}
-{% paginate craft.entries.section('organizations').limit(6) as orgsPageInfo, orgs %}
+{% if not currentUser %}
+    {% set downloads = downloads.requireLogin('not 1') %}
+{% endif %}
+
+{% paginate craft.entries.section('links').limit(6).order('title asc') as linksPageInfo, links %}
+{% paginate craft.entries.section('organizations').limit(6).order('title asc') as orgsPageInfo, orgs %}
 
 {% use "cap/hero" %}
 
@@ -25,12 +29,21 @@
 
     {% if links|length %}
         <div class="{{ spacing.heading }}">
-            <h2 class="{{ styles.heading }}">{{ "Links"|t }}</h2>
+            <h2 class="{{ styles.heading }}">
+                {{ "Links"|t }}
+                {% include "components/arrowLink" with {"href": "/resources/links", "label": "See all"} %}
+            </h2>
             <form action="/api/links" method="get" class="{{ spacing.small }}">
-                {% include "components/sort" with {"links": [
-                    {"name": "title", "label": "Name"},
-                    {"name": "tag", "label": "Tag"},
-                ], "sort": "title", "direction": "asc"} %}
+                {% include "components/sort" with {
+                    "links": [
+                        {"name": "title", "label": "Name"},
+                    ],
+                    "filters": [
+                        {"name": "tags", "label": "Tag", "objects": links, "keys": ["topics","tactics"]},
+                    ],
+                    "sort": "title",
+                    "direction": "asc"}
+                %}
                 {% include "components/linkList" with {"links": links, "pageInfo": linksPageInfo} only %}
             </form>
         </div>
@@ -38,7 +51,10 @@
 
     {% if orgs|length %}
         <div class="{{ spacing.heading }}">
-            <h2 class="{{ styles.heading }}">{{ "Organizational Directory"|t }}</h2>
+            <h2 class="{{ styles.heading }}">
+                {{ "Organizational Directory"|t }}
+                {% include "components/arrowLink" with {"href": "/resources/orgs", "label": "See all"} %}
+            </h2>
             <form action="/api/orgs" method="get" class="{{ spacing.small }}">
                 {% include "components/sort" with {"links": [
                     {"name": "title", "label": "Name"},

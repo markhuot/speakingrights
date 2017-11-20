@@ -13,7 +13,9 @@
     <div class="{{ styles.metaItem }}">
         <i class="{{ styles.icon }} fa fa-map-marker" aria-hidden="true"></i>
         <div class="{{ styles.location }}">
-            {{ entry.location }}
+            {% if entry.mapLink %}<a href="{{ entry.mapLink }}">{% endif %}
+            {{ entry.location|replace({"\n": "<br>"})|raw }}
+            {% if entry.mapLink %}</a>{% endif %}
         </div>
     </div>
 </div>

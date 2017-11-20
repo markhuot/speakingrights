@@ -1,11 +1,16 @@
 {% set styles = styles("blocks/recentNews.css.json") %}
 {% set spacing = styles("layouts/spacing.css.json") %}
 
+{% set items = craft.entries.section('news').order('postDate desc').limit(3) %}
+{% if showOnHomepage|default(false) %}
+    {% set items = items.showOnHomepage(true) %}
+{% endif %}
+
 <div class="{{ styles.container }} {{ spacing.small }}">
     <h2 class="{{ styles.heading }}">{{ block.heading }}</h2>
 
     <ul class="{{ styles.list }} {{ spacing.default }}">
-        {% for item in craft.entries.section('news').order('postDate desc').limit(3) %}
+        {% for item in items %}
             <li>
                 {% include "news/teaser" with {"entry": item} only %}
             </li>

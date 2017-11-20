@@ -4,7 +4,7 @@
 <blockquote class="{{ styles.container }}">
     <div>
         {% if block.image.count %}
-            <img class="{{ styles.image }}" src="{{ block.image.first.url }}">
+            <img class="{{ styles.image }}" src="{{ block.image.first.url }}" src="{{ block.image.first.alternativeText|default('') }}">
         {% endif %}
     </div>
     <div>

@@ -1,0 +1,27 @@
+{% extends "layouts/default" %}
+
+{% set styles = styles("download/listing.css.json") %}
+{% set spacing = styles("layouts/spacing.css.json") %}
+{% set heroLabel = "Organizations" %}
+{% set shortHero = true %}
+{% set perPage = 12 %}
+
+{% paginate craft.entries.section('organizations').limit(1000).order('title asc') as orgsPageInfo, orgs %}
+
+{% use "cap/hero" %}
+
+{% block main %}
+    <form action="/api/orgs?perPage=1000" method="get" class="{{ spacing.small }}">
+        {% include "components/sort" with {"links": [
+            {"name": "title", "label": "Name"},
+            {"name": "province", "label": "Province"},
+            {"name": "tag", "label": "Tag"},
+        ], "sort": "title", "direction": "asc"} %}
+        {% include "components/orgList" with {"orgs": orgs, "pageInfo": orgsPageInfo} only %}
+    </form>
+{% endblock %}
+
+{% block sidebar %}
+    {% include "blocks/topics" with {"blockTitle": "Find Resources by Tag", "type": "downloads"} only %}
+    {% include "components/mailingListSignup" %}
+{% endblock %}

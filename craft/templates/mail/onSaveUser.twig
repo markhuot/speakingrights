@@ -1,17 +1,12 @@
-a user was updated!
+<h3>A user was updated!</h3>
 
-Hi Mark! If I get a general email for Equitas, can we have new member sign ups go there so admins  can approve?
+<p>The user is:</p>
 
-I’m also wondering if when people sign up they can say “I am Equitas staff, I am a part of a community action project, neither” so that they know how they’re self-identifying?
+<ul>
+    <li>{{ user.name }}</li>
+    <li>{{ user.email }}</li>
+</ul>
 
-Sheila
---
-Sheila Sampath
-
-The Public
-647 477 7474
-
-58 Lansdowne Ave.
-Toronto ON M6K 2V9
-
-The Public is on your side. 
+<p>
+    You can see this user at: https://www.speakingrights.ca/admin/users/{{ user.id }}
+</p>

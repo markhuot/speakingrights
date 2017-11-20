@@ -1,10 +1,16 @@
 {% set styles = styles("components/news.css.json") %}
 {% set spacing = styles("layouts/spacing.css.json") %}
 
+{% set entries = craft.entries.section('news').limit(3) %}
+{% if entry.slug == 'motivate' %}{% set entries = entries.relatedTo(craft.categories.slug('motivate')) %}{% endif %}
+{% if entry.slug == 'investigate' %}{% set entries = entries.relatedTo(craft.categories.slug('investigate')) %}{% endif %}
+{% if entry.slug == 'take-action' %}{% set entries = entries.relatedTo(craft.categories.slug('take-action')) %}{% endif %}
+
+{% if entries.count %}
 <div class="{{ styles.container }} {{ spacing.heading }}">
     <h3 class="{{ styles.heading }}">News</h3>
     <ul class="{{ spacing.default }}">
-    {% for entry in craft.entries.section('news').limit(3) %}
+    {% for entry in entries %}
         <li class="{{ styles.item }}">
             <a href="{{ entry.url }}">
                 <p class="{{ styles.subheading }}">{{ entry.title }}</p>
@@ -14,3 +20,4 @@
     {% endfor %}
     </ul>
 </div>
+{% endif %}

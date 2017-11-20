@@ -33,10 +33,11 @@
         {% include "pages/social-accounts" %}
     </form>
 
+    {% include "components/signup" %}
+
     {# <p><a href="{{ url('forgotpassword') }}">Forget your password?</a></p> #}
 {% endblock %}
 
 {% block sidebar %}
     {% include "components/mailingListSignup" %}
-    {% include "components/signup" %}
 {% endblock %}

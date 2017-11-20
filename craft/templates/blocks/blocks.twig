@@ -1,7 +1,7 @@
 {% set spacing = styles("layouts/spacing.css.json") %}
 
 <div class="{{ className|default(spacing.default) }}">
-    {% for block in (blocks.all is defined ? blocks.all : blocks) %}
-        {% include ["blocks/" ~ (block.type|escape), "blocks/unknown"] ignore missing with {"block": block} only %}
+    {% for block in (blocks.find is defined ? blocks.find : blocks) %}
+        {% include ["blocks/" ~ (block.type|escape), "blocks/unknown"] ignore missing with {"block": block, "showOnHomepage": showOnHomepage|default(false)} only %}
     {% endfor %}
 </div>

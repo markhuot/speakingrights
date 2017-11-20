@@ -3,7 +3,7 @@
 
 {% if block.image.count %}
     <div class="{{ styles.container }} {{ spacing.small }}">
-        <img class="{{ styles.image }}" src="{{ block.image.first.url }}">
+        <img class="{{ styles.image }}" src="{{ block.image.first.url }}" alt="{{ block.image.first.alternativeText|default('') }}">
         <div class="{{ styles.meta }}">
             <div class="{{ styles.description }}">{{ block.image.first.description }}</div>
             {% include "components/arrowLink" with {"href": block.linkEntries.count ? block.linkEntries.first.url : block.linkUrl, "label": block.linkText} only %}

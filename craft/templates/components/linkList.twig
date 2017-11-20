@@ -7,7 +7,7 @@
             <tr>
                 <td><strong><a href="{{ link.linkUrl }}" target="_blank">{{ link.title }}</a></strong></td>
                 <td>
-                    {{ link.topics|join(', ') }}
+                    {{ link.topics|join(', ') }}{% if link.topics.count and link.tactics.count %},{% endif %}
                     {{ link.tactics|join(', ') }}
                 </td>
             </tr>

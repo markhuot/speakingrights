@@ -25,24 +25,34 @@
         <input type="hidden" name="action" value="contactForm/sendMessage">
         <input type="hidden" name="redirect" value="contact/thanks">
 
-        <h3><label for="fromName">Your Name</label></h3>
-        <input class="{{ styles.input }}" id="fromName" type="text" name="fromName" value="{% if message is defined %}{{ message.fromName }}{% endif %}">
-        {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
+        <div class="{{ spacing.default }}">
+            <div>
+                <h3><label for="fromName">Your Name</label></h3>
+                <input class="{{ styles.inputFull }}" id="fromName" type="text" name="fromName" value="{% if message is defined %}{{ message.fromName }}{% endif %}">
+                {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
+            </div>
 
-        <h3><label for="fromEmail">Your Email</label></h3>
-        <input class="{{ styles.input }}" id="fromEmail" type="email" name="fromEmail" value="{% if message is defined %}{{ message.fromEmail }}{% endif %}">
-        {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
+            <div>
+                <h3><label for="fromEmail">Your Email</label></h3>
+                <input class="{{ styles.inputFull }}" id="fromEmail" type="email" name="fromEmail" value="{% if message is defined %}{{ message.fromEmail }}{% endif %}">
+                {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
+            </div>
 
-        <h3><label for="subject">Subject</label></h3>
-        <input class="{{ styles.input }}" id="subject" type="text" name="subject" value="{% if message is defined %}{{ message.subject }}{% endif %}">
-        {{ message is defined and message ? errorList(message.getErrors('subject')) }}
+            <div>
+                <h3><label for="subject">Subject</label></h3>
+                <input class="{{ styles.inputFull }}" id="subject" type="text" name="subject" value="{% if message is defined %}{{ message.subject }}{% endif %}">
+                {{ message is defined and message ? errorList(message.getErrors('subject')) }}
+            </div>
 
-        <h3><label for="message">Message</label></h3>
-        <textarea class="{{ styles.input }}" rows="10" cols="40" id="message" name="message">{% if message is defined %}{{ message.message }}{% endif %}</textarea>
-        {{ message is defined and message ? errorList(message.getErrors('message')) }}
+            <div>
+                <h3><label for="message">Message</label></h3>
+                <textarea class="{{ styles.inputFull }}" rows="10" cols="40" id="message" name="message">{% if message is defined %}{{ message.message }}{% endif %}</textarea>
+                {{ message is defined and message ? errorList(message.getErrors('message')) }}
+            </div>
 
-        <p>
-            <input class="{{ styles.button }}" type="submit" value="Send">
-        </p>
+            <div>
+                <input class="{{ styles.button }}" type="submit" value="Send">
+            </div>
+        </div>
     </form>
 {% endblock %}
