@@ -35,11 +35,11 @@ document.body.addEventListener('mousedown', function (event) {
         var form = el.closest('form');
         var directionEl = form.querySelector('[name="direction"]')
         var direction = directionEl.value == 'desc' ? -1 : 1;
-        
+
         if (el.checked) {
             direction *= -1;
         }
-        
+
         directionEl.value = direction > 0 ? 'asc' : 'desc';
 
         form.dispatchEvent(new Event('ajaxfetch', {bubbles: true}));

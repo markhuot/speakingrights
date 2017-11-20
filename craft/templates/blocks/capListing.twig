@@ -1,6 +1,6 @@
 {% set styles = styles('blocks/capListing.css.json') %}
 {% set spacing = styles('layouts/spacing.css.json') %}
-{% paginate craft.entries.section('communityActionProject').level(1).limit(10) as capsPageInfo, caps %}
+{% paginate craft.entries.section('communityActionProject').level(1).limit(100) as capsPageInfo, caps %}
 
 <div class="{{ styles.container }} {{ spacing.heading }}">
     <h2 class="{{ styles.heading }}">All Community Action Projects</h2>

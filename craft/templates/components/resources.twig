@@ -6,7 +6,7 @@
     <ul class="{{ spacing.default }}">
     {% for entry in craft.entries.section('downloads').limit(3) %}
         <li class="{{ styles.item }}">
-            <a href="{{ entry.download.count ? entry.download.first.url }}">
+            <a href="{{ entry.url }}">
                 <p class="{{ styles.subheading }}">{{ entry.title }}</p>
             </a
         </li>

@@ -31,7 +31,6 @@
         <div class="{{ spacing.heading }}">
             <h2 class="{{ styles.heading }}">
                 {{ "Links"|t }}
-                {% include "components/arrowLink" with {"href": "/resources/links", "label": "See all"} %}
             </h2>
             <form action="/api/links" method="get" class="{{ spacing.small }}">
                 {% include "components/sort" with {
@@ -39,21 +38,24 @@
                         {"name": "title", "label": "Name"},
                     ],
                     "filters": [
-                        {"name": "tags", "label": "Tag", "objects": links, "keys": ["topics","tactics"]},
+                        {"name": "tags", "label": "Tags", "objects": links, "keys": ["topics","tactics"]},
                     ],
                     "sort": "title",
                     "direction": "asc"}
                 %}
                 {% include "components/linkList" with {"links": links, "pageInfo": linksPageInfo} only %}
+                {% if linksPageInfo.total > 4 %}
+                    {% include "components/readmore" with {"href": "/resources/links", "label": "See all"} %}
+                {% endif %}
             </form>
         </div>
     {% endif %}
 
+    {#
     {% if orgs|length %}
         <div class="{{ spacing.heading }}">
             <h2 class="{{ styles.heading }}">
                 {{ "Organizational Directory"|t }}
-                {% include "components/arrowLink" with {"href": "/resources/orgs", "label": "See all"} %}
             </h2>
             <form action="/api/orgs" method="get" class="{{ spacing.small }}">
                 {% include "components/sort" with {"links": [
@@ -62,13 +64,17 @@
                     {"name": "tag", "label": "Tag"},
                 ], "sort": "title", "direction": "asc"} %}
                 {% include "components/orgList" with {"orgs": orgs, "pageInfo": orgsPageInfo} only %}
+                {% if orgsPageInfo.total > 4 %}
+                    {% include "components/readmore" with {"href": "/resources/orgs", "label": "See all"} %}
+                {% endif %}
             </form>
         </div>
     {% endif %}
+    #}
 
 {% endblock %}
 
 {% block sidebar %}
-    {% include "blocks/topics" with {"blockTitle": "Find Resources by Tag"|t, "type": "downloads"} only %}
+    {% include "blocks/topics" with {"blockTitle": "Search by"|t, "type": "downloads"} only %}
     {% include "components/mailingListSignup" %}
 {% endblock %}

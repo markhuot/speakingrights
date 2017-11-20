@@ -3,18 +3,18 @@
 {% set styles = styles("resources/entry.css.json") %}
 {% set spacing = styles("layouts/spacing.css.json") %}
 {% set shortHero = true %}
-{% set heroLabel = "News" %}
+{% set heroLabel = "Events" %}
+{% set heroButton = {"url": "/events/past", "title": "Past events"} %}
 {% set perPage = 6 %}
-{% paginate craft.entries.section('news').limit(perPage) as pageInfo, news %}
+{% paginate craft.entries.section('events').order('startDate asc').startDate('and, > ' ~ now|format('Y-m-d')).limit(perPage) as pageInfo, events %}
 
 {% use "cap/hero" %}
 
 {% block main %}
-    {% include "news/_listing" with {"items": news} only %}
+    {% include "events/_listing" with {"items": events} only %}
     {% include "components/pagination" with {"pageInfo": pageInfo} only %}
 {% endblock %}
 
 {% block sidebar %}
-    {% include "blocks/topics" with {"blockTitle": "Search by", "type": "news"} only %}
     {% include "components/mailingListSignup" %}
 {% endblock %}

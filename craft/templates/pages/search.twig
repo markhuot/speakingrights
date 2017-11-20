@@ -9,7 +9,7 @@
 {% if craft.request.getParam('type') %}
     {% set criteria = criteria.type(craft.request.getParam('type')) %}
 {% else %}
-    {% set criteria = criteria.type(['communityActionProject', 'news', 'events']) %}
+    {# {% set criteria = criteria %} #}
 {% endif %}
 
 {% if craft.request.getParam('topic') %}

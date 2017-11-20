@@ -3,7 +3,7 @@
 {% set spacing = styles("layouts/spacing.css.json") %}
 <div class="{{ styles.hero }} {{ shortHero is defined and shortHero == true ? styles.short : '' }}" {% if (shortHero is not defined and entry.image and entry.image.count) or (shortHero is defined and shortHero == false) %}style="background-image:url({{ entry.image.first.url }});"{% endif %}>
     <div class="{{ styles.heroContent }}">
-        <div>
+        <div class="{{ spacing.default }}">
             <h1 class="{{ styles.heading }}">
                 {% if heroLabel is defined and heroLabel != false %}
                     {{ heroLabel }}
@@ -11,6 +11,9 @@
                     {{ localeField(entry, 'title') }}
                 {% endif %}
             </h1>
+            {% if heroButton|default(false) %}
+                <p>{% include "components/button" with {"href": heroButton.url, "label": heroButton.title} only %}</p>
+            {% endif %}
         </div>
         <div class="{{ spacing.default }}">
             <a href="/"><img class="{{ styles.logo }}" src="/images/logos/EQI0100-Animated-Logo-{{ random(['A', 'B', 'C']) }}-EN-Yellow.gif"></a>

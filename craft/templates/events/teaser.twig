@@ -5,9 +5,9 @@
         <h3><a href="{{ entry.url }}">{{ entry.title }}</a></h3>
     </div>
     <div class="{{ styles.split }}">
-        {% include "events/_date_meta" with {"start": entry.startDate, "end": entry.endDate} %}
+        {% include "events/_date_meta" with {"start": entry.startDate, "end": entry.endDate, "entry": entry} %}
         <div>
-            {{ localeField(entry, 'excerpt') }}
+            {{ localeField(entry, 'excerpt')|raw }}
         </div>
     </div>
 </div>

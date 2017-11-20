@@ -1319,7 +1319,7 @@ return reframe;
 /* 46 */
 /***/ (function(module, exports) {
 
-module.exports = {"container":"_container_1krz5_1 _container_1r4fr_8","image":"_image_1krz5_5","play":"_play_1krz5_10","meta":"_meta_1krz5_30","description":"_description_1krz5_35"}
+module.exports = {"container":"_container_1krz5_1 _container_1j2gt_8","image":"_image_1krz5_5","play":"_play_1krz5_10","meta":"_meta_1krz5_30","description":"_description_1krz5_35"}
 
 /***/ }),
 /* 47 */
@@ -2420,11 +2420,11 @@ document.body.addEventListener('mousedown', function (event) {
         var form = el.closest('form');
         var directionEl = form.querySelector('[name="direction"]')
         var direction = directionEl.value == 'desc' ? -1 : 1;
-        
+
         if (el.checked) {
             direction *= -1;
         }
-        
+
         directionEl.value = direction > 0 ? 'asc' : 'desc';
 
         form.dispatchEvent(new Event('ajaxfetch', {bubbles: true}));

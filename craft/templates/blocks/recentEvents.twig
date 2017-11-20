@@ -1,23 +1,23 @@
 {% set styles = styles("blocks/recentNews.css.json") %}
 {% set spacing = styles("layouts/spacing.css.json") %}
 
-{% set items = craft.entries.section('news').order('postDate desc').limit(3) %}
+{% set items = craft.entries.section('events').limit(3) %}
 {% if showOnHomepage|default(false) %}
     {% set items = items.showOnHomepage(true) %}
 {% endif %}
 
 <div class="{{ styles.container }} {{ spacing.small }}">
-    <h2 class="{{ styles.heading }}"><a href="/news">{{ block.heading }}</a></h2>
+    <h2 class="{{ styles.heading }}"><a href="/events">{{ block.heading }}</a></h2>
 
     <ul class="{{ styles.list }} {{ spacing.default }}">
         {% for item in items %}
             <li>
-                {% include "news/teaser" with {"entry": item} only %}
+                {% include "events/teaser" with {"entry": item} only %}
             </li>
         {% endfor %}
     </ul>
 
     <p class="{{ styles.cta }}">
-        {% include "components/button" with {"href": "/news", "label": "Read more news"} %}
+        {% include "components/button" with {"href": "/events", "label": "See more events"} %}
     </p>
 </div>

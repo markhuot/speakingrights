@@ -1,3 +1,18 @@
-<div style="background: red; color: #fff; padding: 15px;">
-    [<code>{{ entry.type.handle }}</code>] {{ entry.title }}
-</div>
+{% set styles = styles("news/teaser.css.json") %}
+{% set spacing = styles("layouts/spacing.css.json") %}
+
+<a href="{{ entry.url }}">
+    <div class="{{ spacing.small }}">
+        <a href="{{ entry.url }}" class="{{ styles.link }}" class="{{ spacing.small }}">
+            <div>
+                <div class="{{ styles.image }}">
+                    {% include "components/tags" with {"entry": entry} only %}
+                </div>
+            </div>
+            <p class="{{ styles.heading }}"><strong>{{ entry.title }}</strong></p>
+        </a>
+        <div class="{{ styles.summary }}">
+            {{ localeField(entry, 'excerpt') }}
+        </div>
+    </div>
+</a>

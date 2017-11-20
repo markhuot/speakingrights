@@ -7,12 +7,17 @@
             <tr>
                 <td><strong><a href="{{ link.linkUrl }}" target="_blank">{{ link.title }}</a></strong></td>
                 <td>
-                    {{ link.topics|join(', ') }}{% if link.topics.count and link.tactics.count %},{% endif %}
-                    {{ link.tactics|join(', ') }}
+                    {{ localeField(link, 'description') }}
+                    <p class="{{ styles.tags }}">
+                        {% for tag in link.topics %}
+                            <a class="{{ styles.tag }}" href="/search?type=downloads&topic={{ tag.slug }}">{{ tag.title }}</a>
+                        {% endfor %}
+                        {% for tag in link.tactics %}
+                            <a class="{{ styles.tag }}" href="/search?type=downloads&tactic={{ tag.slug }}">{{ tag.title }}</a>
+                        {% endfor %}
+                    </p>
                 </td>
             </tr>
         {% endfor %}
     </table>
-
-    {% include "components/pagination" with {"pageInfo": pageInfo, "ajax": true} only %}
 </div>

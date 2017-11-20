@@ -5,6 +5,10 @@
     font-weight: 100;
 }
 
+.filters {
+    margin-right: 40px;
+}
+
 .label {
     margin-left: 20px;
     cursor: pointer;

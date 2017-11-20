@@ -10,5 +10,7 @@
         {% endfor %}
     </table>
 
-    {% include "components/pagination" with {"pageInfo": pageInfo, "ajax": true} only %}
+    {% if pageInfo.last != pageInfo.total %}
+        {% include "components/pagination" with {"pageInfo": pageInfo, "ajax": true} only %}
+    {% endif %}
 </div>
