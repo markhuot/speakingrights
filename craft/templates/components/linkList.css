@@ -6,6 +6,22 @@
     vertical-align: top;
 }
 
+.table tr.row {
+    margin-bottom: 0;
+}
+
+.table tr.row td {
+    padding-bottom: 0;
+}
+
+.table tr.rowMeta td {
+    padding-top: 0;
+}
+
+.table td:first-child {
+    width: 60%;
+}
+
 .tags {
     color: #90278E;
     font-size: 12px;

@@ -5,8 +5,9 @@
     font-weight: 100;
 }
 
-.filters {
-    margin-right: 40px;
+.sorts {
+    width: 60%;
+    display: inline-block;
 }
 
 .label {
