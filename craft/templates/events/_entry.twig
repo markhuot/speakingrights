@@ -16,9 +16,11 @@
         <div>
             {% include "events/_date_meta" with {"start": entry.startDate, "end": entry.endDate} %}
         </div>
-        <div>
-            <a href="#">RSVP</a>
-        </div>
+        {% if entry.rsvp %}
+            <div>
+                <a href="{{ entry.rsvp }}">RSVP</a>
+            </div>
+        {% endif %}
     </div>
 {% endblock %}
 
