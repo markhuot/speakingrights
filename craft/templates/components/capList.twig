@@ -6,6 +6,16 @@
         {% for cap in caps %}
             <tr>
                 <td><strong><a href="{{ cap.url }}">{{ cap.title }}</a></strong></td>
+                <td>
+                    <p class="{{ styles.tags }}">
+                        {% for tag in cap.topics %}
+                            <a class="{{ styles.tag }}" href="/search?type=downloads&topic={{ tag.slug }}">{{ tag.title }}</a>
+                        {% endfor %}
+                        {% for tag in cap.tactics %}
+                            <a class="{{ styles.tag }}" href="/search?type=downloads&tactic={{ tag.slug }}">{{ tag.title }}</a>
+                        {% endfor %}
+                    </p>
+                </td>
             </tr>
         {% endfor %}
     </table>

@@ -1,13 +1,20 @@
 {% set styles = styles('blocks/capListing.css.json') %}
 {% set spacing = styles('layouts/spacing.css.json') %}
-{% paginate craft.entries.section('communityActionProject').level(1).limit(100) as capsPageInfo, caps %}
+{% set query = craft.entries.section('communityActionProject').level(1).limit(100).order('title asc') %}
+{% paginate query as capsPageInfo, caps %}
 
 <div class="{{ styles.container }} {{ spacing.heading }}">
     <h2 class="{{ styles.heading }}">All Community Action Projects</h2>
     <form action="/api/caps" method="get" class="{{ spacing.small }}">
-        {% include "components/sort" with {"links": [
-            {"name": "title", "label": "Name"},
-        ], "sort": "title", "direction": "asc"} %}
+        {% include "components/sort" with {
+            "links": [
+                {"name": "title", "label": "Name"},
+            ],
+            "filters": [
+                {"name": "tags", "label": "Tags", "objects": caps, "keys": ["topics","tactics"]},
+                {"name": "provinces", "label": "Provinces", "objects": caps, "keys": ["province"]},
+            ],
+            "sort": "title", "direction": "asc"} %}
         {% include "components/capList" with {"caps": caps, "pageInfo": capsPageInfo} only %}
     </form>
 </div>

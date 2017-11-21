@@ -1,7 +1,18 @@
 {% set perPage = 100 %}
 {% set order = craft.request.getParam('sort') == 'date' ? 'postDate' : 'title' %}
 {% set direction = craft.request.getParam('direction') == 'desc' ? 'desc' : 'asc' %}
-{% paginate craft.entries.section('communityActionProject').depth(1).order(order ~ ' ' ~ direction).limit(perPage) as pageInfo, caps %}
+{% set query = craft.entries.section('communityActionProject').depth(1).order(order ~ ' ' ~ direction).limit(perPage) %}
+{% for key in ['tags', 'provinces'] %}
+    {% set tags = craft.request.query(key) %}
+    {% if tags %}
+        {% set tagParts = tags|split(':') %}
+        {% if tagParts %}
+            {% set term = craft.categories.id(tagParts[1]) %}
+            {% set query = query.relatedTo(term) %}
+        {% endif %}
+    {% endif %}
+{% endfor %}
+{% paginate query as pageInfo, caps %}
 
 {% include "components/capList" with {"caps": caps, "pageInfo": pageInfo} only %}
 {% if pageInfo.total > perPage %}

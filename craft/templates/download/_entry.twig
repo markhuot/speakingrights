@@ -8,7 +8,7 @@
         <div class="{{ spacing.small }}">
             <h1 class="{{ styles.heading }}">{{ entry.title }}</h1>
             {% if entry.image|length %}
-                <p><img class="{{ styles.image }}" src="{{ entry.image.first.url({"mode": "crop", "width": 100}) }}" alt="{{ entry.image.first.description }}"></p>
+                <p><img class="{{ styles.image }}" src="{{ entry.image.first.url({"mode": "crop", "width": 200}) }}" alt="{{ entry.image.first.description }}"></p>
             {% endif %}
             {% include "blocks/blocks" with {"blocks": localeField(entry, 'body')} only %}
         </div>
