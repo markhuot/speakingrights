@@ -8,7 +8,7 @@ return [
     'Sign Out' => 'Déconnexion',
     'News' => 'Nouvelles',
     'Motivate' => 'Motiver',
-    'Investigate' => 'Explorer',
+    'Investigate' => 'Approfondir',
     'Take Action' => 'Agir',
     'Community Action Projects' => 'Projets d\'action communautaire (PAC)',
     'CAPs' => 'PACs',

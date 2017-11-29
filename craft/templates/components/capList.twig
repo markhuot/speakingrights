@@ -5,7 +5,7 @@
     <table class="{{ styles.table }}">
         {% for cap in caps %}
             <tr>
-                <td><strong><a href="{{ cap.url }}">{{ cap.title }}</a></strong></td>
+                <td><strong><a href="{{ cap.url }}">{{ localeField(cap, 'title') }}</a></strong></td>
                 <td>
                     <p class="{{ styles.tags }}">
                         {% for tag in cap.topics %}
