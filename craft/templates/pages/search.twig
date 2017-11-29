@@ -4,45 +4,108 @@
 {% set spacing = styles("layouts/spacing.css.json") %}
 {% set shortHero = true %}
 {% set heroLabel = "Search" %}
-{% set criteria = craft.entries %}
 
-{% if craft.request.getParam('type') %}
-    {% set criteria = criteria.type(craft.request.getParam('type')) %}
-{% else %}
-    {# {% set criteria = criteria %} #}
-{% endif %}
+{% set criteriaCap = craft.entries.section(['communityActionProject']) %}
+{% set criteriaNews = craft.entries.section(['news']) %}
+{% set criteriaEvents = craft.entries.section(['events']) %}
+{% set criteriaResources = craft.entries.section(['downloads']) %}
 
 {% if craft.request.getParam('topic') %}
     {% set topic = craft.categories.slug(craft.request.getParam('topic')).first %}
     {% set heroLabel = "Topic “" ~ topic.title ~ "”" %}
-    {% set criteria = criteria.relatedTo(topic) %}
+
+    {% set criteriaCap = criteriaCap.relatedTo(topic) %}
+    {% set criteriaNews = criteriaNews.relatedTo(topic) %}
+    {% set criteriaEvents = criteriaEvents.relatedTo(topic) %}
+    {% set criteriaResources = criteriaResources.relatedTo(topic) %}
 {% endif %}
 
 {% if craft.request.getParam('tactic') %}
     {% set tactic = craft.categories.slug(craft.request.getParam('tactic')).first %}
     {% set heroLabel = "Tactic “" ~ tactic.title ~ "”" %}
-    {% set criteria = criteria.relatedTo(tactic) %}
+
+    {% set criteriaCap = criteriaCap.relatedTo(tactic) %}
+    {% set criteriaNews = criteriaNews.relatedTo(tactic) %}
+    {% set criteriaEvents = criteriaEvents.relatedTo(tactic) %}
+    {% set criteriaResources = criteriaResources.relatedTo(tactic) %}
 {% endif %}
 
-{% if craft.request.getParam('q') %}
-    {% set criteria = criteria.search(craft.request.getParam('q')) %}
+{% set q = craft.request.getParam('q') %}
+{% if q %}
+    {% set criteriaCap = criteriaCap.search(q) %}
+    {% set criteriaNews = criteriaNews.search(q) %}
+    {% set criteriaEvents = criteriaEvents.search(q) %}
+    {% set criteriaResources = criteriaResources.search(q) %}
 {% endif %}
 
-{% set criteria = criteria.limit(10) %}
+{% set criteriaCap = criteriaCap.limit(6) %}
+{% set criteriaNews = criteriaNews.limit(6) %}
+{% set criteriaEvents = criteriaEvents.limit(6) %}
+{% set criteriaResources = criteriaResources.limit(6) %}
 
-{% paginate criteria as pageInfo, entries %}
+{% paginate criteriaCap as pageInfoCap, entriesCap %}
+{% paginate criteriaNews as pageInfoNews, entriesNews %}
+{% paginate criteriaEvents as pageInfoEvents, entriesEvents %}
+{% paginate criteriaResources as pageInfoResources, entriesResources %}
 
 {% use "cap/hero" %}
 
 {% block main %}
-    <ul class="{{ craft.request.getParam('type') == 'downloads' ? styles.downloadContainer : styles.container }} {{ spacing.default }}">
-        {% for entry in entries %}
-            <li>
-                {% include [entry.type.handle ~ "/teaser", "components/defaultTeaser"] ignore missing with {"entry": entry} only %}
-            </li>
-        {% endfor %}
-    </ul>
-    {% include "components/pagination" with {"pageInfo": pageInfo} only %}
+    {% if entriesCap|length %}
+        <h2>CAPs</h2>
+        <ul class="{{ craft.request.getParam('type') == 'downloads' ? styles.downloadContainer : styles.container }} {{ spacing.default }}">
+            {% for entry in entriesCap %}
+                <li>
+                    {% include [entry.type.handle ~ "/teaser", "components/defaultTeaser"] ignore missing with {"entry": entry} only %}
+                </li>
+            {% endfor %}
+        </ul>
+        {% if pageInfoCap.total > 6 %}
+            {% include "components/readmore" with {"href": "/search-all?type=communityActionProject&q=" ~ q, "label": "See all"} %}
+        {% endif %}
+    {% endif %}
+
+    {% if entriesNews|length %}
+        <h2>News</h2>
+        <ul class="{{ craft.request.getParam('type') == 'downloads' ? styles.downloadContainer : styles.container }} {{ spacing.default }}">
+            {% for entry in entriesNews %}
+                <li>
+                    {% include [entry.type.handle ~ "/teaser", "components/defaultTeaser"] ignore missing with {"entry": entry} only %}
+                </li>
+            {% endfor %}
+        </ul>
+        {% if pageInfoNews.total > 6 %}
+            {% include "components/readmore" with {"href": "/search-all?type=news&q=" ~ q, "label": "See all"} %}
+        {% endif %}
+    {% endif %}
+
+    {% if entriesEvents|length %}
+        <h2>Events</h2>
+        <ul class="{{ craft.request.getParam('type') == 'downloads' ? styles.downloadContainer : styles.container }} {{ spacing.default }}">
+            {% for entry in entriesEvents %}
+                <li>
+                    {% include [entry.type.handle ~ "/teaser", "components/defaultTeaser"] ignore missing with {"entry": entry} only %}
+                </li>
+            {% endfor %}
+        </ul>
+        {% if pageInfoEvents.total > 6 %}
+            {% include "components/readmore" with {"href": "/search-all?type=events&q=" ~ q, "label": "See all"} %}
+        {% endif %}
+    {% endif %}
+
+    {% if entriesResources|length %}
+        <h2>Resources</h2>
+        <ul class="{{ craft.request.getParam('type') == 'downloads' ? styles.downloadContainer : styles.container }} {{ spacing.default }}">
+            {% for entry in entriesResources %}
+                <li>
+                    {% include [entry.type.handle ~ "/teaser", "components/defaultTeaser"] ignore missing with {"entry": entry} only %}
+                </li>
+            {% endfor %}
+        </ul>
+        {% if pageInfoResources.total > 6 %}
+            {% include "components/readmore" with {"href": "/search-all?type=downloads&q=" ~ q, "label": "See all"} %}
+        {% endif %}
+    {% endif %}
 {% endblock %}
 
 {% block sidebar %}
