@@ -42,8 +42,8 @@
                         {"name": "tactics", "label": "Tactics", "objects": links, "keys": ["tactics"]},
                     ],
                     "sort": "title",
-                    "direction": "asc"}
-                %}
+                    "direction": "asc"
+                }%}
                 {% include "components/linkList" with {"links": links, "pageInfo": linksPageInfo} only %}
                 {% if linksPageInfo.total > 4 %}
                     {% include "components/readmore" with {"href": "/resources/links", "label": "See all"} %}

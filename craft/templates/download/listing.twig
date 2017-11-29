@@ -15,10 +15,18 @@
 
 {% block main %}
     <form action="/api/downloads" method="get" class="{{ spacing.small }}">
-        {% include "components/sort" with {"links": [
-            {"name": "title", "label": "Title"},
-            {"name": "date", "label": "Date"},
-        ], "sort": "date", "direction": "desc"} %}
+        {% include "components/sort" with {
+            "links": [
+                {"name": "title", "label": "Title"},
+                {"name": "date", "label": "Date"},
+            ],
+            "filters": [
+                {"name": "topics", "label": "Topics", "objects": entries, "keys": ["topics"]},
+                {"name": "tactics", "label": "Tactics", "objects": entries, "keys": ["tactics"]},
+            ],
+            "sort": "date",
+            "direction": "desc"
+        } %}
         <div data-ajax-container>
             {% include "components/downloadList" with {"items": downloads} only %}
             {% include "components/pagination" with {"pageInfo": pageInfo} only %}

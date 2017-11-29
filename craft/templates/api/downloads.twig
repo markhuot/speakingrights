@@ -1,11 +1,21 @@
 {% set perPage = 12 %}
 {% set order = craft.request.getParam('sort') == 'date' ? 'postDate' : 'title' %}
 {% set direction = craft.request.getParam('direction') == 'desc' ? 'desc' : 'asc' %}
-{% set entries = craft.entries.section('downloads').order(order ~ ' ' ~ direction).limit(perPage) %}
+{% set query = craft.entries.section('downloads').order(order ~ ' ' ~ direction).limit(perPage) %}
 {% if not currentUser %}
-    {% set entries = entries.requireLogin('not 1') %}
+    {% set query = query.requireLogin('not 1') %}
 {% endif %}
-{% paginate entries as pageInfo, downloads %}
+{% for key in ['topics', 'tactics', 'provinces'] %}
+    {% set tags = craft.request.query(key) %}
+    {% if tags %}
+        {% set tagParts = tags|split(':') %}
+        {% if tagParts %}
+            {% set term = craft.categories.id(tagParts[1]) %}
+            {% set query = query.relatedTo(term) %}
+        {% endif %}
+    {% endif %}
+{% endfor %}
+{% paginate query as pageInfo, downloads %}
 
 {% include "components/downloadList" with {"items": downloads} only %}
 {% include "components/pagination" with {"pageInfo": pageInfo} only %}

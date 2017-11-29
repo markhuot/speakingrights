@@ -55,6 +55,7 @@ input:checked + .label:after {
     background: none;
     width: 140px;
     font-family: Quicksand;
+    margin-right: -20px;
 }
 
 .select:after {
@@ -69,4 +70,5 @@ input:checked + .label:after {
     top: 50%;
     right: 10px;
     transform: translateY(-50%);
+    pointer-events: none;
 }

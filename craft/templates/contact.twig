@@ -2,12 +2,14 @@
 
 {% set styles = styles("pages/signin.css.json") %}
 {% set spacing = styles("layouts/spacing.css.json") %}
-{% set heroLabel = 'Contact' %}
+{% set heroLabel = entry.title %}
 {% set shortHero = true %}
 
 {% use "cap/hero" %}
 
 {% block main %}
+    {% include "blocks/blocks" with {"blocks": localeField(entry, 'body')} only %}
+
     {% macro errorList(errors) %}
         {% if errors %}
             <ul class="errors">
