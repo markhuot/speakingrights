@@ -2,7 +2,7 @@
 {% set order = craft.request.getParam('sort') == 'date' ? 'postDate' : 'title' %}
 {% set direction = craft.request.getParam('direction') == 'desc' ? 'desc' : 'asc' %}
 {% set query = craft.entries.section('communityActionProject').depth(1).order(order ~ ' ' ~ direction).limit(perPage) %}
-{% for key in ['tags', 'provinces'] %}
+{% for key in ['topics', 'tactics', 'provinces'] %}
     {% set tags = craft.request.query(key) %}
     {% if tags %}
         {% set tagParts = tags|split(':') %}
