@@ -1,6 +1,6 @@
 {% extends "layouts/default" %}
 
-{% set styles = styles("news/news.css.json") %}
+{% set styles = styles("site-map.css.json") %}
 {% set spacing = styles("layouts/spacing.css.json") %}
 {% set heroLabel = 'Sitemap' %}
 {% set shortHero = true %}
@@ -8,10 +8,58 @@
 {% use "cap/hero" %}
 
 {% block main %}
-    <p>All pages, ordered by recent updates</p>
-    <ul>
-        {% for entry in craft.entries.section(['about', 'news', 'communityActionProject', 'downloads', 'events', 'investigate', 'motivate', 'resources', 'takeAction']).limit(null).order('dateUpdated desc') %}
-            <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
-        {% endfor %}
+    <ul class="{{ styles.siteMap }}">
+        <li><a href="/home">Home</a></li>
+        <li>
+            <a href="/news">News</a>
+            <ul>
+                {% for entry in craft.entries.section(['news']).limit(null).order('title asc') %}
+                    <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>
+            <a href="/events">Events</a>
+            <ul>
+                {% for entry in craft.entries.section(['events']).limit(null).order('title asc') %}
+                    <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li><a href="/motivate">Motivate</a></li>
+        <li><a href="/investigate">Investigate</a></li>
+        <li><a href="/take-action">Take Action</a></li>
+        <li>
+            <a href="/community-action-projects">Projects</a>
+            <ul>
+                {% for entry in craft.entries.section(['communityActionProject']).limit(null).order('title asc') %}
+                    <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>
+            <a href="/resources">Resources</a>
+            <ul>
+                <li>
+                    <a href="/resources/downloads">Downloads</a>
+                    <ul>
+                        {% for entry in craft.entries.section(['downloads']).limit(null).order('title asc') %}
+                            <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li>
+                    <a href="/resources/links">Links</a>
+                    <ul>
+                        {% for entry in craft.entries.section(['links']).limit(null).order('title asc') %}
+                            <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="/privacy">Privacy and Comment Policy</a></li>
     </ul>
 {% endblock %}
