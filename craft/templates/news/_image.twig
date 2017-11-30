@@ -1,5 +1,3 @@
 {% if image.count %}
     <img src="{{ transform is defined ? image.first.url(transform) : image.first.url }}" alt="{{ image.first.alternativeText|default('') }}">
-{% else %}
-    <img src="http://placehold.it/{{ transform is defined ? transform.width ~ 'x' ~ transform.height : '1000x1000' }}" >
 {% endif %}

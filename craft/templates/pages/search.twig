@@ -52,7 +52,7 @@
 
 {% block main %}
     {% if entriesCap|length %}
-        <h2>CAPs</h2>
+        <h2>Projects</h2>
         <ul class="{{ craft.request.getParam('type') == 'downloads' ? styles.downloadContainer : styles.container }} {{ spacing.default }}">
             {% for entry in entriesCap %}
                 <li>
