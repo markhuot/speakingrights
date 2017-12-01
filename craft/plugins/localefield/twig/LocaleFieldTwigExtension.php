@@ -4,6 +4,18 @@ namespace Craft;
 
 class LocaleFieldTwigExtension extends \Twig_Extension
 {
+    private function langcode() {
+        if ($langcode = craft()->cookies_utils->get('langcode')) {
+            return $langcode;
+        }
+
+        if (preg_match('/parlonsdroits\.ca$/', craft()->request->getHostName())) {
+            return 'fr';
+        }
+
+        return 'en';
+    }
+
     public function getFunctions()
     {
         $twig = craft()->templates->getTwig();
@@ -11,30 +23,30 @@ class LocaleFieldTwigExtension extends \Twig_Extension
         return [
             'localeField' => new \Twig_Function_Function(function ($entry, $enFieldName) use ($twig) {
                 $frFieldName = "{$enFieldName}Fr";
-                $locale = craft()->cookies_utils->get('langcode');
+                $langcode = $this->langcode();
 
-                if ($locale == 'fr' && in_array($enFieldName, ['excerpt', 'introduction', 'description', 'bio', 'title']) && !empty($entry->{$frFieldName})) {
+                if ($langcode == 'fr' && in_array($enFieldName, ['excerpt', 'introduction', 'description', 'bio', 'title']) && !empty($entry->{$frFieldName})) {
                     return $entry->{$frFieldName};
                 }
 
-                if ($locale == 'fr' && in_array($enFieldName, ['body', 'hero', 'bodyText']) && $entry->{$frFieldName}->count() > 0) {
+                if ($langcode == 'fr' && in_array($enFieldName, ['body', 'hero', 'bodyText']) && $entry->{$frFieldName}->count() > 0) {
                     return $entry->{$frFieldName};
                 }
 
                 return $entry->{$enFieldName};
             }),
             'locale' => new \Twig_Function_Function(function () {
-                return craft()->cookies_utils->get('langcode') ?: 'en';
+                return $this->langcode();
             }),
         ];
     }
 
     public function getFilters() {
-        $locale = craft()->cookies_utils->get('langcode');
+        $langcode = $this->langcode();
 
         return [
-            't' => new \Twig_Filter_Function(function ($text, $opts=[]) use ($locale) {
-                return Craft::t($text, $opts, null, $locale);
+            't' => new \Twig_Filter_Function(function ($text, $opts=[]) use ($langcode) {
+                return Craft::t($text, $opts, null, $langcode);
             }),
         ];
     }

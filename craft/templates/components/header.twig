@@ -1,6 +1,6 @@
 {% set styles = styles("components/header.css.json") %}
 {% set spacing = styles("layouts/spacing.css.json") %}
-{% set langcode = getCookie('langcode')|default('en') %}
+{% set langcode = locale() %}
 
 <header class="{{ styles.header }}" data-header>
     <div class="{{ styles.container }}">

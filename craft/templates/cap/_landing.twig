@@ -2,7 +2,7 @@
 
 {% set styles = styles("cap/landing.css.json") %}
 {% set spacing = styles("layouts/spacing.css.json") %}
-{% set langcode = getCookie('langcode')|default('en') %}
+{% set langcode = locale() %}
 
 {% set placement = 'body' %}
 {% set blocks = [] %}

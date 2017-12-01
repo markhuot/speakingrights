@@ -1,6 +1,6 @@
 {% set styles = styles("blocks/hero.css.json") %}
 {% set spacing = styles("layouts/spacing.css.json") %}
-{% set langcode = getCookie('langcode')|default('en') %}
+{% set langcode = locale() %}
 
 <div class="{{ spacing.default }}">
     <div class="{{ styles.container }} {{ spacing.providesOwnSpacing }}"{% if block.image.count %}style="background-image: url({{ block.image.first.url }})"{% endif %}>

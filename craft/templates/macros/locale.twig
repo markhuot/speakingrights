@@ -1,5 +1,5 @@
 {%- macro fieldName(name) -%}
-    {% set langcode = getCookie('langcode')|default('en') %}
+    {% set langcode = locale() %}
     {% if langcode == 'fr' %}
         {{ name }}Fr
     {% else %}

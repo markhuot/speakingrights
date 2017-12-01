@@ -1,10 +1,11 @@
 {% set styles = styles("components/footer.css.json") %}
 {% set spacing = styles("layouts/spacing.css.json") %}
+{% set langcode = locale() %}
 
 <footer class="{{ styles.gradient }}">
     <div class="{{ styles.container }}">
         <div>
-            <p class="{{ styles.speakingRights }}"><img src="/images/speaking-rights.jpg"></p>
+            <p class="{{ styles.speakingRights }}"><img src="/images/speaking-rights-{{ langcode }}.jpg"></p>
             <p class="{{ styles.equitas }}"><img src="/images/equitas.png"></p>
         </div>
         <div class="{{ styles.longform }}">
@@ -37,10 +38,10 @@
         </div>
         <div>
             <ul class="{{ styles.links }}">
-                <li><a href="/contact">Contact</a></li>
+                <li><a href="/contact">{{ "Contact Us"|t }}</a></li>
                 <li><a href="https://equitas.org/">Equitas.org </a></li>
-                <li><a href="/site-map">Site Map</a></li>
-                <li><a href="/privacy">Privacy and Comment Policy</a></li>
+                <li><a href="/site-map">{{ "Site Map"|t }}</a></li>
+                <li><a href="/privacy">{{ "Privacy Statement"|t }}</a></li>
             </ul>
         </div>
     </div>

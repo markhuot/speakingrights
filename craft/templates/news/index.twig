@@ -3,7 +3,7 @@
 {% set styles = styles("resources/entry.css.json") %}
 {% set spacing = styles("layouts/spacing.css.json") %}
 {% set shortHero = true %}
-{% set heroLabel = "News" %}
+{% set heroLabel = "News"|t %}
 {% set perPage = 6 %}
 {% paginate craft.entries.section('news').limit(perPage) as pageInfo, news %}
 

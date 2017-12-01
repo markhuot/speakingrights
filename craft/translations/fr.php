@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'Home' => 'Maison',
+    'Home' => 'Accueil',
     'About Us' => 'À propos',
     'Contact Us' => 'Contactez-nous',
     'Sign In' => 'Connexion',
@@ -16,7 +16,8 @@ return [
     'Speaking Rights News' => 'Les nouvelles Parlons Droits',
     'Start your project' => 'Débuter votre projet',
     'Join our mailing list' => 'Abonnez-vous à notre liste de diffusion',
-    'Sign up' => 'Créez un compte',
+    'Email address' => 'Courriel',
+    'Sign Up' => 'S\'abonner',
     'Contact' => 'Contact',
     'Sitemap' => 'Plan du site',
     'Privacy Statement' => 'Politique de confidentialité',
@@ -34,4 +35,7 @@ return [
     'Links' => 'Liens',
     'See all' => 'Tout voir',
     'What\'s next' => 'Et après',
+    'Manage Content' => 'Gérer le contenu',
+    'Site Map' => 'Plan du site',
+    'Privacy Statement' => 'Politique de confidentialité et commentaires',
 ];

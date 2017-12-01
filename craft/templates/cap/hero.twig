@@ -1,7 +1,7 @@
 {% block hero %}
 {% set styles = styles("cap/hero.css.json") %}
 {% set spacing = styles("layouts/spacing.css.json") %}
-{% set langcode = getCookie('langcode')|default('en') %}
+{% set langcode = locale() %}
 
 <div class="{{ styles.hero }} {{ shortHero is defined and shortHero == true ? styles.short : '' }}" {% if (shortHero is not defined and entry.image and entry.image.count) or (shortHero is defined and shortHero == false) %}style="background-image:url({{ entry.image.first.url }});"{% endif %}>
     <div class="{{ styles.heroContent }}">
