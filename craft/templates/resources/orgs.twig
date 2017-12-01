@@ -22,6 +22,6 @@
 {% endblock %}
 
 {% block sidebar %}
-    {% include "blocks/topics" with {"blockTitle": "Search by", "type": "downloads"} only %}
+    {% include "blocks/topics" with {"blockTitle": "Search By"|t, "type": "downloads"} only %}
     {% include "components/mailingListSignup" %}
 {% endblock %}

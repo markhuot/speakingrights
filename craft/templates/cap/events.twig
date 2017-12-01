@@ -19,6 +19,6 @@
 {% endblock %}
 
 {% block sidebar %}
-    {% include "blocks/topics" with {"blockTitle": "Search by", "type": "events"} only %}
+    {% include "blocks/topics" with {"blockTitle": "Search By"|t, "type": "events"} only %}
     {% include "components/mailingListSignup" %}
 {% endblock %}

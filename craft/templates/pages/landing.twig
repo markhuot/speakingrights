@@ -47,7 +47,7 @@
 
 {% block sidebar %}
     <a href="/"><img src="/images/logos/EQI0100-Animated-Logo-{{ random(['A', 'B', 'C']) }}-Black-EN.gif"></a>
-    {% include "blocks/topics" with {"blockTitle": "Search by", "type": "communityActionProject", "white": true} only %}
+    {% include "blocks/topics" with {"blockTitle": "Search By"|t, "type": "communityActionProject", "white": true} only %}
     {% include "components/news" %}
     {% include "components/mailingListSignup" %}
 {% endblock %}
