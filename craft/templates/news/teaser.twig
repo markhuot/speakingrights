@@ -15,7 +15,7 @@
                     <p class="{{ styles.projectName }}">EQUITAS Blog</p>
                 {% endif %}
             </div>
-            <p class="{{ styles.heading }}"><strong>{{ entry.title }}</strong></p>
+            <p class="{{ styles.heading }}"><strong>{{ localeField(entry, 'title') }}</strong></p>
         </a>
         <div class="{{ styles.summary }}">
             {{ localeField(entry, 'excerpt') }}

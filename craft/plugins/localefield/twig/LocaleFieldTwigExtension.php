@@ -17,7 +17,7 @@ class LocaleFieldTwigExtension extends \Twig_Extension
                     return $entry->{$frFieldName};
                 }
 
-                if ($locale == 'fr' && in_array($enFieldName, ['body', 'hero']) && $entry->{$frFieldName}->count() > 0) {
+                if ($locale == 'fr' && in_array($enFieldName, ['body', 'hero', 'bodyText']) && $entry->{$frFieldName}->count() > 0) {
                     return $entry->{$frFieldName};
                 }
 

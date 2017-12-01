@@ -13,7 +13,7 @@
                 "cap": entry.communityActionProject.first,
             } %}
         </div>
-        <h1 class="{{ styles.heading }}">{{ entry.title }}</h1>
+        <h1 class="{{ styles.heading }}">{{ localeField(entry, 'title') }}</h1>
         <p class="{{ styles.date }}">{{ entry.dateCreated.format("F j, Y") }}</p>
         {% include "blocks/blocks" with {"blocks": localeField(entry, 'bodyText')} only %}
     </div>
@@ -43,6 +43,6 @@
 
 {% block sidebar %}
     {% include "blocks/logo" %}
-    {% include "blocks/topics" with {"blockTitle": "Search by", "type": "news"} only %}
+    {% include "blocks/topics" with {"blockTitle": "Search By"|t, "type": "news"} only %}
     {% include "components/mailingListSignup" %}
 {% endblock %}

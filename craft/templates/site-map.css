@@ -1,3 +1,19 @@
 .siteMap ul {
-    margin-left: 20px;
+    margin-left: 50px;
+}
+
+.siteMap li {
+    font-weight: bold;
+}
+
+.siteMap li li {
+    font-weight: normal;
+}
+
+.siteMap > li + li {
+    margin-top: 20px;
+}
+
+.siteMap > ul li + li {
+    margin-top: 10px;
 }
