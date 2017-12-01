@@ -2,6 +2,7 @@
 
 {% set styles = styles("cap/landing.css.json") %}
 {% set spacing = styles("layouts/spacing.css.json") %}
+{% set langcode = getCookie('langcode')|default('en') %}
 
 {% set placement = 'body' %}
 {% set blocks = [] %}
@@ -46,7 +47,7 @@
 {% endblock %}
 
 {% block sidebar %}
-    <a href="/"><img src="/images/logos/EQI0100-Animated-Logo-{{ random(['A', 'B', 'C']) }}-Black-EN.gif"></a>
+    <a href="/"><img src="/images/logos/EQI0100-Animated-Logo-{{ random(['A', 'B', 'C']) }}-Black-{{ langcode|upper }}.gif"></a>
     {% include "blocks/topics" with {"blockTitle": "Search By"|t, "type": "communityActionProject", "white": true} only %}
     {% include "components/news" %}
     {% include "components/mailingListSignup" %}
