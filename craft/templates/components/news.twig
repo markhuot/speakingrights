@@ -8,13 +8,13 @@
 
 {% if entries.count %}
 <div class="{{ styles.container }} {{ spacing.heading }}">
-    <h3 class="{{ styles.heading }}">News</h3>
+    <h3 class="{{ styles.heading }}">{{ "News"|t }}</h3>
     <ul class="{{ spacing.default }}">
     {% for entry in entries %}
         <li class="{{ styles.item }}">
             <a href="{{ entry.url }}">
-                <p class="{{ styles.subheading }}">{{ entry.title }}</p>
-                {{ entry.excerpt }}
+                <p class="{{ styles.subheading }}">{{ localeField(entry, 'title') }}</p>
+                {{ localeField(entry, 'excerpt') }}
             </a
         </li>
     {% endfor %}

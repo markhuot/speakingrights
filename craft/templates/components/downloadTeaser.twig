@@ -10,10 +10,10 @@
     </a>
     <p class="{{ styles.tags }}">
         {% for tag in entry.topics %}
-            <a class="{{ styles.tag }}" href="/search?type=downloads&topic={{ tag.slug }}">{{ tag.title }}</a>
+            <a class="{{ styles.tag }}" href="/search?type=downloads&topic={{ tag.slug }}">{{ localeField(tag, 'title') }}</a>
         {% endfor %}
         {% for tag in entry.tactics %}
-            <a class="{{ styles.tag }}" href="/search?type=downloads&tactic={{ tag.slug }}">{{ tag.title }}</a>
+            <a class="{{ styles.tag }}" href="/search?type=downloads&tactic={{ tag.slug }}">{{ localeField(tag, 'title') }}</a>
         {% endfor %}
     </p>
     {{ localeField(entry, 'excerpt') }}

@@ -6,7 +6,7 @@
         <p class="{{ styles.image }}">
             {% include "news/_image" with {"image": entry.image, "transform": {"mode": "crop", "width": 600, "height": 360}} only %}
         </p>
-        <p class="{{ styles.heading }}"><strong>{{ entry.title }}</strong></p>
+        <p class="{{ styles.heading }}"><strong>{{ localeField(entry, 'title') }}</strong></p>
     </a>
     <div class="{{ styles.summary }}">
         {{ localeField(entry, 'excerpt') }}

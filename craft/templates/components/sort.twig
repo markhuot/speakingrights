@@ -33,7 +33,7 @@
             {% set foo = uniqueBy(foo, 'id', 'label') %}
             <span class="{{ styles.select }}">
                 <select name="{{ filter.name }}" data-sort>
-                    <option value="">All {{ filter.label }}</option>
+                    <option value="">{{ filter.label }}</option>
                     {% for bar in foo %}
                         <option value="{{ bar.bundle }}:{{ bar.id }}">{{ bar.label }}</option>
                     {% endfor %}

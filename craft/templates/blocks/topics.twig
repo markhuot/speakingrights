@@ -7,14 +7,14 @@
         <li><p class="{{ styles.subheading }}">{{ "Topic"|t }}</p>
             <ul>
                 {% for topic in craft.categories.group('topics').all %}
-                    <li><a class="{{ styles.tag }}" href="/search?{{ type is defined ? 'type=' ~ type }}&topic={{ topic.slug }}">{{ topic.title }}</a></li>
+                    <li><a class="{{ styles.tag }}" href="/search?{{ type is defined ? 'type=' ~ type }}&topic={{ topic.slug }}">{{ localeField(topic, 'title') }}</a></li>
                 {% endfor %}
             </ul>
         </li>
         <li><p class="{{ styles.subheading }}">{{ "Tactic"|t }}</p>
             <ul>
                 {% for tactic in craft.categories.group('tactics').all %}
-                    <li><a class="{{ styles.tag }}" href="/search?{{ type is defined ? 'type=' ~ type }}&tactic={{ tactic.slug }}">{{ tactic.title }}</a></li>
+                    <li><a class="{{ styles.tag }}" href="/search?{{ type is defined ? 'type=' ~ type }}&tactic={{ tactic.slug }}">{{ localeField(tactic, 'title') }}</a></li>
                 {% endfor %}
             </ul>
         </li>

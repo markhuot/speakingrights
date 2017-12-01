@@ -2,7 +2,7 @@
 {% set spacing = styles("layouts/spacing.css.json") %}
 
 <div class="{{ styles.container }} {{ spacing.heading }}">
-    <h3 class="{{ styles.heading }}">Contact Us</h3>
+    <h3 class="{{ styles.heading }}">{{ "Contact Us"|t }}</h3>
 
     <p><address>
         {% if entry.contactName %}{{ entry.contactName|default('') }}<br>{% endif %}

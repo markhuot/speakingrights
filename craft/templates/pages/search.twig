@@ -52,7 +52,7 @@
 
 {% block main %}
     {% if entriesCap|length %}
-        <h2>Projects</h2>
+        <h2>{{ "Projects"|t }}</h2>
         <ul class="{{ craft.request.getParam('type') == 'downloads' ? styles.downloadContainer : styles.container }} {{ spacing.default }}">
             {% for entry in entriesCap %}
                 <li>
@@ -61,12 +61,12 @@
             {% endfor %}
         </ul>
         {% if pageInfoCap.total > 6 %}
-            {% include "components/readmore" with {"href": "/search-all?type=communityActionProject&q=" ~ q, "label": "See all"} %}
+            {% include "components/readmore" with {"href": "/search-all?type=communityActionProject&q=" ~ q, "label": "See all"|t} %}
         {% endif %}
     {% endif %}
 
     {% if entriesNews|length %}
-        <h2>News</h2>
+        <h2>{{ "News"|t }}</h2>
         <ul class="{{ craft.request.getParam('type') == 'downloads' ? styles.downloadContainer : styles.container }} {{ spacing.default }}">
             {% for entry in entriesNews %}
                 <li>
@@ -75,12 +75,12 @@
             {% endfor %}
         </ul>
         {% if pageInfoNews.total > 6 %}
-            {% include "components/readmore" with {"href": "/search-all?type=news&q=" ~ q, "label": "See all"} %}
+            {% include "components/readmore" with {"href": "/search-all?type=news&q=" ~ q, "label": "See all"|t} %}
         {% endif %}
     {% endif %}
 
     {% if entriesEvents|length %}
-        <h2>Events</h2>
+        <h2>{{ "Events"|t }}</h2>
         <ul class="{{ craft.request.getParam('type') == 'downloads' ? styles.downloadContainer : styles.container }} {{ spacing.default }}">
             {% for entry in entriesEvents %}
                 <li>
@@ -89,12 +89,12 @@
             {% endfor %}
         </ul>
         {% if pageInfoEvents.total > 6 %}
-            {% include "components/readmore" with {"href": "/search-all?type=events&q=" ~ q, "label": "See all"} %}
+            {% include "components/readmore" with {"href": "/search-all?type=events&q=" ~ q, "label": "See all"|t} %}
         {% endif %}
     {% endif %}
 
     {% if entriesResources|length %}
-        <h2>Resources</h2>
+        <h2>{{ "Resources"|t }}</h2>
         <ul class="{{ craft.request.getParam('type') == 'downloads' ? styles.downloadContainer : styles.container }} {{ spacing.default }}">
             {% for entry in entriesResources %}
                 <li>
@@ -103,7 +103,7 @@
             {% endfor %}
         </ul>
         {% if pageInfoResources.total > 6 %}
-            {% include "components/readmore" with {"href": "/search-all?type=downloads&q=" ~ q, "label": "See all"} %}
+            {% include "components/readmore" with {"href": "/search-all?type=downloads&q=" ~ q, "label": "See all"|t} %}
         {% endif %}
     {% endif %}
 {% endblock %}

@@ -17,12 +17,12 @@
     <form action="/api/downloads" method="get" class="{{ spacing.small }}">
         {% include "components/sort" with {
             "links": [
-                {"name": "title", "label": "Title"},
-                {"name": "date", "label": "Date"},
+                {"name": "title", "label": "Title"|t},
+                {"name": "date", "label": "Date"|t},
             ],
             "filters": [
-                {"name": "topics", "label": "Topics", "objects": entries, "keys": ["topics"]},
-                {"name": "tactics", "label": "Tactics", "objects": entries, "keys": ["tactics"]},
+                {"name": "topics", "label": "Topic"|t, "objects": entries, "keys": ["topics"]},
+                {"name": "tactics", "label": "Tactic"|t, "objects": entries, "keys": ["tactics"]},
             ],
             "sort": "date",
             "direction": "desc"
