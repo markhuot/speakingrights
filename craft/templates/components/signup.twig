@@ -2,8 +2,8 @@
 {% set spacing = styles("layouts/spacing.css.json") %}
 
 <div class="{{ styles.container }} {{ spacing.heading }}">
-    <h3 class="{{ styles.heading }}">New User?</h3>
+    <h3 class="{{ styles.heading }}">{{ "New User"|t }}?</h3>
     <div class="{{ styles.content }}">
-        <p><a href="/signup"><strong>Register for an account</strong></a>  to leave comments, and share your CAP.</p>
+        <p>{{ "[reg]Register for an account[/reg] to leave comments, and share your CAP."|t|replace({'[reg]':'<a href="/signup"><strong>', '[/reg]':'</strong></a>'})|raw }}</p>
     </div>
 </div>

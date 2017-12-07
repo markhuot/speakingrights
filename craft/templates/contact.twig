@@ -2,7 +2,7 @@
 
 {% set styles = styles("pages/signin.css.json") %}
 {% set spacing = styles("layouts/spacing.css.json") %}
-{% set heroLabel = entry.title %}
+{% set heroLabel = localeField(entry, 'title') %}
 {% set shortHero = true %}
 
 {% use "cap/hero" %}
@@ -29,25 +29,25 @@
 
         <div class="{{ spacing.default }}">
             <div>
-                <h3><label for="fromName">Your Name</label></h3>
+                <h3><label for="fromName">{{ "Your Name"|t }}</label></h3>
                 <input class="{{ styles.inputFull }}" id="fromName" type="text" name="fromName" value="{% if message is defined %}{{ message.fromName }}{% endif %}">
                 {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
             </div>
 
             <div>
-                <h3><label for="fromEmail">Your Email</label></h3>
+                <h3><label for="fromEmail">{{ "Your Email"|t }}</label></h3>
                 <input class="{{ styles.inputFull }}" id="fromEmail" type="email" name="fromEmail" value="{% if message is defined %}{{ message.fromEmail }}{% endif %}">
                 {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
             </div>
 
             <div>
-                <h3><label for="subject">Subject</label></h3>
+                <h3><label for="subject">{{ "Subject"|t }}</label></h3>
                 <input class="{{ styles.inputFull }}" id="subject" type="text" name="subject" value="{% if message is defined %}{{ message.subject }}{% endif %}">
                 {{ message is defined and message ? errorList(message.getErrors('subject')) }}
             </div>
 
             <div>
-                <h3><label for="message">Message</label></h3>
+                <h3><label for="message">{{ "Message"|t }}</label></h3>
                 <textarea class="{{ styles.inputFull }}" rows="10" cols="40" id="message" name="message">{% if message is defined %}{{ message.message }}{% endif %}</textarea>
                 {{ message is defined and message ? errorList(message.getErrors('message')) }}
             </div>

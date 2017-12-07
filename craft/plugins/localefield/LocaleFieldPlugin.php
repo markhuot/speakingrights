@@ -29,4 +29,15 @@ class LocaleFieldPlugin extends BasePlugin
         Craft::import('plugins.localefield.twig.LocaleFieldTwigExtension');
         return new LocaleFieldTwigExtension();
     }
+
+    public function modifyCpNav(&$nav)
+    {
+        craft()->templates->includeCss(<<<EOT
+        #global-sidebar { background: linear-gradient(90deg, #90278E, #5C23A1); }
+        #page-header #page-title h1 { color: #90278E; }
+EOT
+);
+
+//#ffdd15;
+    }
 }

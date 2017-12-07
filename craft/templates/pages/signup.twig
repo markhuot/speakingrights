@@ -26,7 +26,7 @@
         {% from _self import errorList %}
 
         <div>
-            <h3><label for="username">Username</label></h3>
+            <h3><label for="username">{{ "Username"|t }}</label></h3>
             <input class="{{ styles.input }}" id="username" type="text" name="username"
                 {%- if account is defined %} value="{{ account.username }}"{% endif -%}>
         </div>
@@ -36,7 +36,7 @@
         {% endif %}
 
         <div>
-            <h3><label for="email">Email</label></h3>
+            <h3><label for="email">{{ "Email"|t }}</label></h3>
             <input class="{{ styles.input }}" id="email" type="text" name="email"
                 {%- if account is defined %} value="{{ account.email }}"{% endif %}>
 
@@ -48,7 +48,7 @@
 
 
         <div>
-            <h3><label for="password">Password</label></h3>
+            <h3><label for="password">{{ "Password"|t }}</label></h3>
             <input class="{{ styles.input }}" id="password" type="password" name="password">
 
             {% if account is defined %}
@@ -59,7 +59,7 @@
         {% include "pages/social-accounts" %}
 
         <div>
-            <input class="{{ styles.button }}" type="submit" value="Register">
+            <input class="{{ styles.button }}" type="submit" value="{{ "Register"|t }}">
         </div>
     </form>
 

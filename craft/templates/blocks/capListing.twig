@@ -4,16 +4,16 @@
 {% paginate query as capsPageInfo, caps %}
 
 <div class="{{ styles.container }} {{ spacing.heading }}">
-    <h2 class="{{ styles.heading }}">All Community Action Projects</h2>
+    <h2 class="{{ styles.heading }}">{{ "All Community Action Projects"|t }}</h2>
     <form action="/api/caps" method="get" class="{{ spacing.small }}">
         {% include "components/sort" with {
             "links": [
-                {"name": "title", "label": "Name"},
+                {"name": "title", "label": "Name"|t},
             ],
             "filters": [
-                {"name": "topics", "label": "Topics", "objects": caps, "keys": ["topics"]},
-                {"name": "tactics", "label": "Tactics", "objects": caps, "keys": ["tactics"]},
-                {"name": "provinces", "label": "Provinces", "objects": caps, "keys": ["province"]},
+                {"name": "topics", "label": "Topic"|t, "objects": caps, "keys": ["topics"]},
+                {"name": "tactics", "label": "Tactic"|t, "objects": caps, "keys": ["tactics"]},
+                {"name": "provinces", "label": "Province"|t, "objects": caps, "keys": ["province"]},
             ],
             "sort": "title", "direction": "asc"} %}
         {% include "components/capList" with {"caps": caps, "pageInfo": capsPageInfo} only %}
