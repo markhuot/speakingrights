@@ -5,7 +5,7 @@
 {% set shortHero = true %}
 {% set heroLabel = "Past Events" %}
 {% set perPage = 6 %}
-{% paginate craft.entries.section('events').order('startDate desc').startDate('and, < ' ~ now|format('Y-m-d')).limit(perPage) as pageInfo, events %}
+{% paginate craft.entries.section('events').order('startDate desc').endDate('and, < ' ~ now|format('Y-m-d')).limit(perPage) as pageInfo, events %}
 
 {% use "cap/hero" %}
 

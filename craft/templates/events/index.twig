@@ -6,7 +6,7 @@
 {% set heroLabel = "Events" %}
 {% set heroButton = {"url": "/events/past", "title": "Past events"} %}
 {% set perPage = 6 %}
-{% paginate craft.entries.section('events').order('startDate asc').startDate('and, > ' ~ now|format('Y-m-d')).limit(perPage) as pageInfo, events %}
+{% paginate craft.entries.section('events').order('startDate asc').endDate('and, > ' ~ now|format('Y-m-d')).limit(perPage) as pageInfo, events %}
 
 {% use "cap/hero" %}
 
