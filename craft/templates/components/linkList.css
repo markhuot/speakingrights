@@ -1,25 +1,15 @@
-.table {
-    composes: table from '../global.css';
+.list {
+
 }
 
-.table td {
-    vertical-align: top;
+.item {
+    list-style: none;
 }
 
-.table tr.row {
-    margin-bottom: 0;
-}
-
-.table tr.row td {
-    padding-bottom: 0;
-}
-
-.table tr.rowMeta td {
-    padding-top: 0;
-}
-
-.table td:first-child {
-    width: 60%;
+.item + .item {
+    margin-top: 30px;
+    border-top: 2px solid #90278E;
+    padding-top: 30px;
 }
 
 .tags {

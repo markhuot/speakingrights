@@ -1,27 +1,22 @@
 {% set styles = styles("components/linkList.css.json") %}
+{% set spacing = styles("layouts/spacing.css.json") %}
 
 <div data-ajax-container>
     <input type="hidden" name="page" value="{{ pageInfo.currentPage }}">
-    <table class="{{ styles.table }}">
+    <ul class="{{ styles.list }}">
         {% for link in links %}
-            <tr class="{{ styles.row }}">
-                <td><strong><a href="{{ link.linkUrl }}" target="_blank">{{ link.title }}</a></strong></td>
-                <td>
-                    {{ localeField(link, 'description') }}
-                </td>
-            </tr>
-            <tr class="{{ styles.rowMeta }}">
-                <td colspan="2">
-                    <p class="{{ styles.tags }}">
-                        {% for tag in link.topics %}
-                            <a class="{{ styles.tag }}" href="/search?type=downloads&topic={{ tag.slug }}">{{ tag.title }}</a>
-                        {% endfor %}
-                        {% for tag in link.tactics %}
-                            <a class="{{ styles.tag }}" href="/search?type=downloads&tactic={{ tag.slug }}">{{ tag.title }}</a>
-                        {% endfor %}
-                    </p>
-                </td>
-            </tr>
+            <li class="{{ styles.item }} {{ spacing.tiny }}">
+                <p><strong><a href="{{ link.linkUrl }}" target="_blank">{{ link.title }}</a></strong></p>
+                {{ localeField(link, 'description') }}
+                <p class="{{ styles.tags }}">
+                    {% for tag in link.topics %}
+                        <a class="{{ styles.tag }}" href="/search?type=downloads&topic={{ tag.slug }}">{{ tag.title }}</a>
+                    {% endfor %}
+                    {% for tag in link.tactics %}
+                        <a class="{{ styles.tag }}" href="/search?type=downloads&tactic={{ tag.slug }}">{{ tag.title }}</a>
+                    {% endfor %}
+                </p>
+            </li>
         {% endfor %}
-    </table>
+    </ul>
 </div>

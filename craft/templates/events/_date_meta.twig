@@ -2,14 +2,24 @@
 {% set spacing = styles('layouts/spacing.css.json') %}
 
 <div class="{{ spacing.small }}">
+    {% if entry.communityActionProject|length %}
+    <div class="{{ styles.metaItem }}">
+        <i class="{{ styles.icon }} fa fa-bookmark" aria-hidden="true"></i>
+        <div class="{{ styles.location }}">
+            {{ localeField(entry.communityActionProject.first, 'title') }}
+        </div>
+    </div>
+    {% endif %}
     <p class="{{ styles.metaItem }}">
         <i class="{{ styles.icon }} fa fa-calendar" aria-hidden="true"></i>
         {% include "events/_day" %}
     </p>
+    {% if start and not entry.allDayEvent %}
     <p class="{{ styles.metaItem }}">
         <i class="{{ styles.icon }} fa fa-clock-o" aria-hidden="true"></i>
-        {% include "events/_time" %}
+        {{ start.format('g:iA') }} to {{ end.format('g:iA T') }}
     </p>
+    {% endif %}
     <div class="{{ styles.metaItem }}">
         <i class="{{ styles.icon }} fa fa-map-marker" aria-hidden="true"></i>
         <div class="{{ styles.location }}">

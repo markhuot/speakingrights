@@ -1,3 +1,5 @@
 {% if image.count %}
     <img src="{{ transform is defined ? image.first.url(transform) : image.first.url }}" alt="{{ image.first.alternativeText|default('') }}">
+{% else %}
+    <img src="/images/no-image.jpg" alt="">
 {% endif %}
