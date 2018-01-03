@@ -4,6 +4,7 @@
 
 .siteMap li {
     font-weight: bold;
+    list-style: none;
 }
 
 .siteMap li li {

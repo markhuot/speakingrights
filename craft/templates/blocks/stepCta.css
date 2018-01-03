@@ -1,7 +1,6 @@
 .container {
     composes: clearfix from '../global.css';
-    background: #FFDD15 url(/images/dots-step.svg) no-repeat left center;
-    background-size: 1015px 382px;
+    background: #FFDD15;
 }
 
 .container.three {
@@ -18,24 +17,31 @@
     composes: container from '../global.css';
     min-height: 395px;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
 }
 
 .number {
-    position: relative;
-    width: 350px;
-    height: 300px;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 25px 20px 0 20px;
 }
 
 @media screen and (width >= 700px) {
+    .container {
+        background: #FFDD15 url(/images/dots-step.svg) no-repeat left center;
+        background-size: 1015px 382px;
+    }
+
+    .content {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
     .number {
         position: absolute;
         left: 21%;
         top: 50%;
+        width: 350px;
+        height: 300px;
+        padding: 0;
         transform: translateX(-50%) translateY(-50%);
     }
 
@@ -58,57 +64,71 @@
     }
 }
 
-.numeral, .heading, .one .cta {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
-}
-
-.one .numeral {
-    width: 190px;
-    margin-left: 15px;
-    margin-top: -10px;
+.numeral {
+    display: none;
 }
 
 .heading {
     font-family: Oswald;
-    font-size: 70px;
+    font-size: 42px;
     color: #90278E;
     white-space: nowrap;
 }
 
-.one .cta {
-    top: calc(50% + 150px);
-    font-weight: bold;
-    color: #90278E;
-    text-transform: uppercase;
-    font-size: 20px;
-    width: 100%;
-    text-align: center;
-}
+@media screen and (width >= 700px) {
+    .numeral {
+        display: block;
+    }
 
-.two .numeral {
-    width: 250px
-}
+    .numeral, .heading, .one .cta {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
 
-.two .heading {
-    font-size: 74px;
-}
+    .heading {
+        font-size: 70px;
+    }
 
-.two .cta, .three .cta, .four .cta {
-    position: absolute;
-    top: 0px;
-    left: 0;
-    font-weight: bold;
-    font-size: 20px;
-    text-align: left;
-    font-family: Quicksand, sans-serif;
-    color: #4A4A4A;
-}
+    .one .numeral {
+        width: 190px;
+        margin-left: 15px;
+        margin-top: -10px;
+    }
 
-.three .numeral {
-    width: 330px;
+    .one .cta {
+        top: calc(50% + 150px);
+        font-weight: bold;
+        color: #90278E;
+        text-transform: uppercase;
+        font-size: 20px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .two .numeral {
+        width: 250px
+    }
+
+    .two .heading {
+        font-size: 74px;
+    }
+
+    .two .cta, .three .cta, .four .cta {
+        position: absolute;
+        top: 0px;
+        left: 0;
+        font-weight: bold;
+        font-size: 20px;
+        text-align: left;
+        font-family: Quicksand, sans-serif;
+        color: #4A4A4A;
+    }
+
+    .three .numeral {
+        width: 330px;
+    }
 }
 
 @media screen and (width < 700px) {

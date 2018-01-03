@@ -20,3 +20,27 @@
 .tag:before {
     content: "#";
 }
+
+.table {
+    composes: table from '../global.css';
+}
+
+.table td {
+    vertical-align: top;
+}
+
+.table tr.row {
+    margin-bottom: 0;
+}
+
+.table tr.row td {
+    padding-bottom: 0;
+}
+
+.table tr.rowMeta td {
+    padding-top: 0;
+}
+
+.table td:first-child {
+    width: 60%;
+}

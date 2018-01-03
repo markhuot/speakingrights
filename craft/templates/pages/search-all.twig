@@ -3,7 +3,7 @@
 {% set styles = styles("pages/search.css.json") %}
 {% set spacing = styles("layouts/spacing.css.json") %}
 {% set shortHero = true %}
-{% set heroLabel = "Search" %}
+{% set heroLabel = "Search"|t %}
 
 {% set criteria = craft.entries %}
 
@@ -15,14 +15,14 @@
 
 {% if craft.request.getParam('topic') %}
     {% set topic = craft.categories.slug(craft.request.getParam('topic')).first %}
-    {% set heroLabel = "Topic “" ~ topic.title ~ "”" %}
+    {% set heroLabel = ("Topic"|t) ~ " “" ~ localeField(topic, 'title') ~ "”" %}
 
     {% set criteria = criteria.relatedTo(topic) %}
 {% endif %}
 
 {% if craft.request.getParam('tactic') %}
     {% set tactic = craft.categories.slug(craft.request.getParam('tactic')).first %}
-    {% set heroLabel = "Tactic “" ~ tactic.title ~ "”" %}
+    {% set heroLabel = ("Tactic"|t) ~ " “" ~ localeField(tactic, 'title') ~ "”" %}
 
     {% set criteria = criteria.relatedTo(tactic) %}
 {% endif %}
@@ -57,5 +57,6 @@
 {% endblock %}
 
 {% block sidebar %}
+    {% include "blocks/topics" with {"blockTitle": "Search By"|t, "type": craft.request.getParam('type')} only %}
     {% include "components/mailingListSignup" %}
 {% endblock %}

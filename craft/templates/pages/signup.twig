@@ -27,7 +27,7 @@
 
         <div>
             <h3><label for="username">{{ "Username"|t }}</label></h3>
-            <input class="{{ styles.input }}" id="username" type="text" name="username"
+            <input class="{{ styles.input }}" id="username" type="text" name="username" placeholder="username"
                 {%- if account is defined %} value="{{ account.username }}"{% endif -%}>
         </div>
 
@@ -37,7 +37,7 @@
 
         <div>
             <h3><label for="email">{{ "Email"|t }}</label></h3>
-            <input class="{{ styles.input }}" id="email" type="text" name="email"
+            <input class="{{ styles.input }}" id="email" type="text" name="email" placeholder="user@example.com"
                 {%- if account is defined %} value="{{ account.email }}"{% endif %}>
 
             {% if account is defined %}

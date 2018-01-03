@@ -43,3 +43,13 @@
 .row + * {
     clear: both;
 }
+
+.links {
+    margin-left: 20px;
+}
+
+@media screen and (width >= 700px) {
+    .links {
+        margin-left: 0;
+    }
+}

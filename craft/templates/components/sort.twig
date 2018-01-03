@@ -35,7 +35,7 @@
                 <select name="{{ filter.name }}" data-sort>
                     <option value="">{{ filter.label }}</option>
                     {% for bar in foo %}
-                        <option value="{{ bar.bundle }}:{{ bar.id }}">{{ bar.label }}</option>
+                        <option value="{{ bar.id }}">{{ bar.label }}</option>
                     {% endfor %}
                 </select>
             </span>

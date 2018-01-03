@@ -5,10 +5,6 @@
 }
 
 @media screen and (width < 400px) {
-    .header {
-        margin-bottom: 30px;
-    }
-
     .header[data-open="1"] {
         margin-bottom: 0;
     }
@@ -185,7 +181,8 @@
         margin-right: -30px;
     }
 
-    [data-open="1"] .utilityNavigation {
+    [data-open="1"] .utilityNavigation,
+    .utilityNavigation.socialNavigation {
         display: block;
     }
 }
@@ -207,6 +204,7 @@
 
 @media screen and (width < 400px) {
     .socialNavigation {
+        margin-top: 30px;
         color: #90278E;
     }
 }
@@ -280,5 +278,21 @@
     .searchBox {
         display: none;
         width: 200px;
+    }
+}
+
+@media screen and (width >= 400px) {
+    li.atSmall {
+        display: none;
+    }
+}
+
+li.atLarge {
+    display: none;
+}
+
+@media screen and (width >= 400px) {
+    li.atLarge {
+        display: inline-block;
     }
 }

@@ -29,7 +29,15 @@ class LocaleFieldTwigExtension extends \Twig_Extension
                     return $entry->{$frFieldName};
                 }
 
+                if ($langcode == 'en' && in_array($enFieldName, ['excerpt', 'introduction', 'description', 'bio', 'title']) && empty($entry->{$enFieldName})) {
+                    return $entry->{$frFieldName};
+                }
+
                 if ($langcode == 'fr' && in_array($enFieldName, ['body', 'hero', 'bodyText']) && $entry->{$frFieldName}->count() > 0) {
+                    return $entry->{$frFieldName};
+                }
+
+                if ($langcode == 'en' && in_array($enFieldName, ['body', 'hero', 'bodyText']) && $entry->{$enFieldName}->count() == 0) {
                     return $entry->{$frFieldName};
                 }
 

@@ -19,7 +19,7 @@
         {% endif %}
     {% endif %}
 
-    {% set event = craft.entries.section('events').relatedTo(entry).where(['>', 'content.field_startDate', now|date('Y-m-d H:i:s')]).orderBy('startDate asc').limit(1) %}
+    {% set event = craft.entries.section('events').relatedTo(entry).where(['>', 'content.field_startDate', now|date('Y-m-d H:i:s')]).order('startDate asc').limit(1) %}
     {% if event.total > 0 %}
         {% include "events/_feature" with {"entry": event.first} only %}
     {% endif %}

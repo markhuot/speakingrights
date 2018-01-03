@@ -2,23 +2,33 @@
     font-size: 36px;
 }
 
-.detail {
-    display: flex;
-}
-
 .detail > * {
-    width: 50%;
     padding: 30px 20px;
 }
 
-.detail > *:first-child {
-    background-color: #90278E;
-    color: #fff;
+@media screen and (width >= 700px) {
+    .detail {
+        display: flex;
+    }
+
+    .detail > * {
+        width: 50%;
+    }
 }
 
-.detail > *:last-child {
+.detail > *:first-child {
+    color: #fff;
+    background-color: #90278E;
+}
+
+.detail > *:nth-child(2) {
     background-color: #FFDD15;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+}
+
+@media screen and (width >= 700px) {
+    .detail > *:nth-child(2) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }

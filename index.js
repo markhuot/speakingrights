@@ -1,3 +1,5 @@
+require('./craft/templates/global.js');
+
 require('./craft/templates/layouts/spacing.css');
 require('./craft/templates/layouts/default.css');
 

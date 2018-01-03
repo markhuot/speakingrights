@@ -1,5 +1,5 @@
 .container {
-    
+
 }
 
 .header a {
@@ -10,6 +10,9 @@
     text-align: center;
     font-size: 30px;
     padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .split {
@@ -19,11 +22,11 @@
     padding: 20px;
 }
 
-.split > *:first-child { 
+.split > *:first-child {
     background-color: #90278E;
     color: #fff;
 }
 
-.split > *:last-child { 
-    
+.split > *:last-child {
+
 }

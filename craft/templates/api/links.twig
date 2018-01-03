@@ -2,16 +2,17 @@
 {% set order = craft.request.getParam('sort') == 'tag' ? 'title' : 'title' %}
 {% set direction = craft.request.getParam('direction') == 'desc' ? 'desc' : 'asc' %}
 {% set query = craft.entries.section('links').limit(perPage).order(order ~ ' ' ~ direction) %}
+{% set filters = ['and'] %}
 {% for key in ['topics', 'tactics'] %}
     {% set tags = craft.request.query(key) %}
     {% if tags %}
-        {% set tagParts = tags|split(':') %}
-        {% if tagParts %}
-            {% set term = craft.categories.id(tagParts[1]) %}
-            {% set query = query.relatedTo(term) %}
-        {% endif %}
+        {% set term = craft.categories.id(tags) %}
+        {% set filters = filters|merge([{"element": term}]) %}
     {% endif %}
 {% endfor %}
+{% if filters|length > 1 %}
+    {% set query = query.relatedTo(filters) %}
+{% endif %}
 {% paginate query as pageInfo, links %}
 
 {% include "components/linkList" with {"links": links, "pageInfo": pageInfo} only %}

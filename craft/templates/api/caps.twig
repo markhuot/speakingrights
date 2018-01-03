@@ -2,16 +2,17 @@
 {% set order = craft.request.getParam('sort') == 'date' ? 'postDate' : 'title' %}
 {% set direction = craft.request.getParam('direction') == 'desc' ? 'desc' : 'asc' %}
 {% set query = craft.entries.section('communityActionProject').depth(1).order(order ~ ' ' ~ direction).limit(perPage) %}
+{% set filters = ['and'] %}
 {% for key in ['topics', 'tactics', 'provinces'] %}
     {% set tags = craft.request.query(key) %}
     {% if tags %}
-        {% set tagParts = tags|split(':') %}
-        {% if tagParts %}
-            {% set term = craft.categories.id(tagParts[1]) %}
-            {% set query = query.relatedTo(term) %}
-        {% endif %}
+        {% set term = craft.categories.id(tags) %}
+        {% set filters = filters|merge([{"element": term}]) %}
     {% endif %}
 {% endfor %}
+{% if filters|length > 1 %}
+    {% set query = query.relatedTo(filters) %}
+{% endif %}
 {% paginate query as pageInfo, caps %}
 
 {% include "components/capList" with {"caps": caps, "pageInfo": pageInfo} only %}

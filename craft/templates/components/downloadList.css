@@ -1,26 +1,6 @@
 .container {
     composes: clearfix from '../global.css';
-}
-
-.container > * {
-    width: calc(25% - 15px);
-    float: left;
-}
-
-.container > *:nth-child(1),
-.container > *:nth-child(2),
-.container > *:nth-child(3),
-.container > *:nth-child(4) {
-    margin-top: 0;
-}
-
-.container > *:nth-child(4n+1) {
-    clear: left;
-    margin-left: 0;
-}
-
-.container > * + * {
-    margin-left: 20px;
+    composes: splitInQuarter from '../global.css';
 }
 
 .item {
