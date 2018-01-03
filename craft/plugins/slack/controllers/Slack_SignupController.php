@@ -39,6 +39,8 @@ class Slack_SignupController extends BaseController
         $status = 0;
         $replyRaw = curl_exec($ch);
         $reply= json_decode($replyRaw, true);
+        // var_dump($reply);
+        // die;
         if($reply['ok'] === true) {
             $status = 1;
         }
