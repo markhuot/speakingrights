@@ -20,10 +20,6 @@
                         {% else %}
                             <li><a href="{{ logoutUrl }}">{{ "Sign Out"|t }}</a></li>
                         {% endif %}
-                        <li class="{{ styles.atSmall }}"><a href="/api/toggleLangcode?back={{ craft.request.path }}">{{ (langcode == 'en' ? 'fr' : 'en')|upper }}</a></li>
-                        {% if currentUser %}
-                            <li class="{{ styles.atSmall }}"><a href="/admin">{{ "Manage Content"|t }}</a></li>
-                        {% endif %}
                     </ul>
                 </nav>
                 <nav class="{{ styles.utilityNavigation }} {{ styles.socialNavigation }}">
@@ -37,9 +33,9 @@
                             <li class="{{ styles.searchIcon }}"><a href="/slack" aria-label="Slack"><i class="fa fa-slack" aria-hidden="true"></i></a></li>
                         {% endif %}
                         <li class="{{ styles.searchIcon }}" data-search-link><a href="#" aria-label="search"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                        <li class="{{ styles.atLarge }}"><a href="/api/toggleLangcode?back={{ craft.request.path }}">{{ (langcode == 'en' ? 'fr' : 'en')|upper }}</a></li>
+                        <li><a href="/api/toggleLangcode?back={{ craft.request.path }}">{{ (langcode == 'en' ? 'fr' : 'en')|upper }}</a></li>
                         {% if currentUser %}
-                            <li class="{{ styles.atLarge }}"><a href="/admin">{{ "Manage Content"|t }}</a></li>
+                            <li><a href="/admin">{{ "Manage Content"|t }}</a></li>
                         {% endif %}
                     </ul>
                 </nav>
