@@ -45,6 +45,7 @@ return [
     'Next' => 'Suivant',
     'Previous' => 'Précédent',
     'Events' => 'Évenements',
+    'Past events' => 'Événements passés',
     'Filter by' => 'Filtrer par',
     'Your Name' => 'Ton nom',
     'Your Email' => 'Ton adresse courriel',

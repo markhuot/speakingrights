@@ -3,7 +3,7 @@
 {% set styles = styles("resources/entry.css.json") %}
 {% set spacing = styles("layouts/spacing.css.json") %}
 {% set shortHero = true %}
-{% set heroLabel = "Past Events" %}
+{% set heroLabel = "Past events"|t %}
 {% set perPage = 6 %}
 {% paginate craft.entries.section('events').order('startDate desc').endDate('and, < ' ~ now|format('Y-m-d')).limit(perPage) as pageInfo, events %}
 

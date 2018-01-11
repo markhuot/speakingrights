@@ -1,4 +1,5 @@
-{% set perPage = 12 %}
+{% set pagination = craft.request.getParam('pagination', true) %}
+{% set perPage = craft.request.getParam('perPage', 12) %}
 {% set order = craft.request.getParam('sort') == 'date' ? 'postDate' : 'title' %}
 {% set direction = craft.request.getParam('direction') == 'desc' ? 'desc' : 'asc' %}
 {% set query = craft.entries.section('downloads').order(order ~ ' ' ~ direction).limit(perPage) %}
@@ -19,4 +20,7 @@
 {% paginate query as pageInfo, downloads %}
 
 {% include "components/downloadList" with {"items": downloads} only %}
-{% include "components/pagination" with {"pageInfo": pageInfo} only %}
+
+{% if pagination %}
+    {% include "components/pagination" with {"pageInfo": pageInfo} only %}
+{% endif %}

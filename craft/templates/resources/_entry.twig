@@ -20,10 +20,26 @@
     {% if downloads.total > 0 %}
         <div class="{{ spacing.heading }}">
             <h2 class="{{ styles.heading }}">{{ "Downloads"|t }}</h2>
-            {% include "components/downloadList" with {"items": downloads } %}
-            {% if downloads.total > 4 %}
-                {% include "components/readmore" with {"href": "/resources/downloads", "label": "See all"|t} %}
-            {% endif %}
+            <form action="/api/downloads?perPage=4&pagination=0" method="get" class="{{ spacing.small }}">
+                {% include "components/sort" with {
+                    "links": [
+                        {"name": "title", "label": "Title"|t},
+                        {"name": "date", "label": "Date"|t},
+                    ],
+                    "filters": [
+                        {"name": "topics", "label": "Topic"|t, "objects": downloads, "keys": ["topics"]},
+                        {"name": "tactics", "label": "Tactic"|t, "objects": downloads, "keys": ["tactics"]},
+                    ],
+                    "sort": "date",
+                    "direction": "desc"
+                } %}
+                <div data-ajax-container>
+                    {% include "components/downloadList" with {"items": downloads } %}
+                </div>
+                {% if downloads.total > 4 %}
+                    {% include "components/readmore" with {"href": "/resources/downloads", "label": "See all"|t} %}
+                {% endif %}
+            </form>
         </div>
     {% endif %}
 
