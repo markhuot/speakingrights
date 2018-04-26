@@ -58,5 +58,5 @@ return [
     'Register' => 'S\'enregistrer',
     'Username or email' => 'Nom d\'utilisateur ou adresse courriel',
     'New User' => 'Première connection',
-    '[reg]Register for an account[/reg] to leave comments, and share your CAP.' => '[reg]Ouvrez un compte[/reg] ici pour écrire des commentaires ou pour partager votre PAC.'
+    '[reg]Register for an account[/reg] to leave comments, and share your CAP.' => '[reg]Ouvrez un compte[/reg] ici pour écrire des commentaires ou pour partager votre PAC.',
 ];
