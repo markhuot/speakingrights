@@ -44,7 +44,7 @@ return [
     'Copyright' => 'Droits d’auteur',
     'Next' => 'Suivant',
     'Previous' => 'Précédent',
-    'Events' => 'Évenements',
+    'Events' => 'Évènements',
     'Past events' => 'Événements passés',
     'Filter by' => 'Filtrer par',
     'Your Name' => 'Ton nom',
