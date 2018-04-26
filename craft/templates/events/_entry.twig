@@ -10,7 +10,7 @@
     {% include "cap/_crumbs" with {
         "cap": entry.communityActionProject.first,
     } %}
-    <h1 class="{{ styles.heading }}">{{ entry.title }}</h1>
+    <h1 class="{{ styles.heading }}">{{ localeField(entry, 'title') }}</h1>
     {% include "blocks/blocks" with {"blocks": localeField(entry, 'body')} only %}
     <div class="{{ styles.detail }}">
         <div>
