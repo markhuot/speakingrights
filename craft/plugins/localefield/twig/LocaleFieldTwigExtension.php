@@ -56,6 +56,12 @@ class LocaleFieldTwigExtension extends \Twig_Extension
 //            't' => new \Twig_Filter_Function(function ($text, $opts=[]) use ($langcode) {
 //                return Craft::t($text, $opts, null, $langcode);
 //            }),
+            'frFormat' => new \Twig_Filter_Function(function ($date, $format) use ($langcode) {
+                setlocale(LC_TIME, 'fr_FR');
+                $output = strftime($format, $date->getTimestamp());
+                setlocale(LC_TIME, 'en_US');
+                return $output;
+            }),
         ];
     }
 }
