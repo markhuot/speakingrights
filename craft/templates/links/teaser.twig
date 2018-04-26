@@ -1,0 +1,17 @@
+{% set styles = styles("components/downloadTeaser.css.json") %}
+{% set spacing = styles("layouts/spacing.css.json") %}
+
+<div class="{{ spacing.tiny }}">
+    <a href="{{ entry.linkUrl }}">
+        <p><strong>{{ localeField(entry, 'title') }}</strong></p>
+    </a>
+    <p class="{{ styles.tags }}">
+        {% for tag in entry.topics %}
+            <a class="{{ styles.tag }}" href="/search?type=downloads&topic={{ tag.slug }}">{{ localeField(tag, 'title') }}</a>
+        {% endfor %}
+        {% for tag in entry.tactics %}
+            <a class="{{ styles.tag }}" href="/search?type=downloads&tactic={{ tag.slug }}">{{ localeField(tag, 'title') }}</a>
+        {% endfor %}
+    </p>
+    {{ localeField(entry, 'description') }}
+</div>

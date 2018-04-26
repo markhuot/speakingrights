@@ -8,7 +8,11 @@
 {% set criteria = craft.entries %}
 
 {% if craft.request.getParam('type') %}
-    {% set criteria = criteria.type(craft.request.getParam('type')) %}
+    {% set type = craft.request.getParam('type') %}
+    {% if type == 'downloads' %}
+        {% set type = ['downloads', 'links'] %}
+    {% endif %}
+    {% set criteria = criteria.type(type) %}
 {% else %}
     {# {% set criteria = criteria %} #}
 {% endif %}

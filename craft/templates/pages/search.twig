@@ -8,7 +8,7 @@
 {% set criteriaCap = craft.entries.section(['communityActionProject']) %}
 {% set criteriaNews = craft.entries.section(['news']) %}
 {% set criteriaEvents = craft.entries.section(['events']) %}
-{% set criteriaResources = craft.entries.section(['downloads']) %}
+{% set criteriaResources = craft.entries.section(['downloads','links']) %}
 
 {% set topicSlug = craft.request.getParam('topic') %}
 {% if topicSlug %}
