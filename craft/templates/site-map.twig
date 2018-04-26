@@ -52,7 +52,7 @@
                     <a href="/resources/links">Links</a>
                     <ul>
                         {% for entry in craft.entries.section(['links']).limit(null).order('title asc') %}
-                            <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+                            <li><a href="{{ entry.linkUrl }}">{{ entry.title }}</a></li>
                         {% endfor %}
                     </ul>
                 </li>
