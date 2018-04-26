@@ -26,6 +26,12 @@ class LocaleFieldPlugin extends BasePlugin
 
     public function addTwigExtension()
     {
+//        $langcode = craft()->cookies_utils->get('langcode', 'en');
+//        if (preg_match('/parlonsdroits\.ca$/', craft()->request->getHostName())) {
+//            $langcode = 'fr';
+//        }
+//        Craft::app()->language = $langcode;
+
         Craft::import('plugins.localefield.twig.LocaleFieldTwigExtension');
         return new LocaleFieldTwigExtension();
     }

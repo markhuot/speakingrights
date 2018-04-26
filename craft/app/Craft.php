@@ -354,6 +354,18 @@ class Craft extends \Yii
 		}
 	}
 
+	private static function speaking_rights_langcode() {
+        if ($langcode = craft()->cookies_utils->get('langcode')) {
+            return $langcode;
+        }
+
+        if (preg_match('/parlonsdroits\.ca$/', craft()->request->getHostName())) {
+            return 'fr';
+        }
+
+        return null;
+    }
+
 	/**
 	 * Translates a given message into the specified language. If the config setting 'translationDebugOutput' is set,
 	 * the the output will be wrapped in a pair of '@' to help diagnose any missing translations.
@@ -371,6 +383,8 @@ class Craft extends \Yii
 	 */
 	public static function t($message, $variables = array(), $source = null, $language = null, $category = 'craft')
 	{
+	    $language = $language ? $language : static::speaking_rights_langcode();
+
 		// Normalize the param keys
 		$normalizedVariables = array();
 		if (is_array($variables))

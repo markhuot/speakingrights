@@ -53,9 +53,9 @@ class LocaleFieldTwigExtension extends \Twig_Extension
         $langcode = $this->langcode();
 
         return [
-            't' => new \Twig_Filter_Function(function ($text, $opts=[]) use ($langcode) {
-                return Craft::t($text, $opts, null, $langcode);
-            }),
+//            't' => new \Twig_Filter_Function(function ($text, $opts=[]) use ($langcode) {
+//                return Craft::t($text, $opts, null, $langcode);
+//            }),
         ];
     }
 }
