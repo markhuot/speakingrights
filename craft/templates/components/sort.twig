@@ -26,7 +26,7 @@
             {% for key in filter.keys %}
                 {% for entry in filter.objects %}
                     {% for tag in entry[key] %}
-                        {% set foo = foo|merge([{"bundle": key, "id": tag.id, "label": tag.title}]) %}
+                        {% set foo = foo|merge([{"bundle": key, "id": tag.id, "label": localeField(tag, 'title')}]) %}
                     {% endfor %}
                 {% endfor %}
             {% endfor %}

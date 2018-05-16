@@ -5,6 +5,8 @@
     <a href="{{ entry.url }}">
         {% if entry.image.count %}
             <p><img src="{{ entry.image.first.url({"mode": "crop", "width": 145, "height": 202}) }}" alt="{{ entry.image.first.alternativeText|default('') }}"></p>
+        {% elseif locale() == 'fr' %}
+            <p><img src="/images/no-image-portrait-fr.jpg" alt=""></p>
         {% else %}
             <p><img src="/images/no-image-portrait.jpg" alt=""></p>
         {% endif %}
