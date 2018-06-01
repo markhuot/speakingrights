@@ -1,6 +1,6 @@
 {% if start and start.format('Y-m-d') == end.format('Y-m-d') %}
     {% if locale() == 'fr' %}
-        {{ start|frFormat('%e %B, %Y') }}
+        {{ start.format('j') }} {{ start.format('F')|t }}, {{ start.format('Y') }}
     {% else %}
         {{ start.format('l, F j, Y') }}
     {% endif %}

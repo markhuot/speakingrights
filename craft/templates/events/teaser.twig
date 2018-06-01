@@ -2,12 +2,12 @@
 
 <div class="{{ styles.container }}">
     <div class="{{ styles.header }}">
-        <h3><a href="{{ entry.url }}" data-header>{{ entry.title }}</a></h3>
+        <h3><a href="{{ entry.url }}" data-header>{{ localeField(entry, 'title') }}</a></h3>
     </div>
     <div class="{{ styles.split }}">
         {% include "events/_date_meta" with {"start": entry.startDate, "end": entry.endDate, "entry": entry} %}
-        <div>
+        <p style="line-height: 1.4">
             {{ localeField(entry, 'excerpt')|raw }}
-        </div>
+        </p>
     </div>
 </div>

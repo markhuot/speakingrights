@@ -10,9 +10,9 @@
                     {% include "components/tags" with {"entry": entry} only %}
                 </div>
                 {% if entry.communityActionProject.total %}
-                    <p class="{{ styles.projectName }}">{{ entry.communityActionProject.first.title }}</p>
+                    <p class="{{ styles.projectName }}" style="line-height: 1.4">{{ entry.communityActionProject.first.title }}</p>
                 {% else %}
-                    <p class="{{ styles.projectName }}">EQUITAS Blog</p>
+                    <p class="{{ styles.projectName }}" style="line-height: 1.4">EQUITAS Blog</p>
                 {% endif %}
             </div>
             <p class="{{ styles.heading }}"><strong>{{ localeField(entry, 'title') }}</strong></p>
