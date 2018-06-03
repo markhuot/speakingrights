@@ -14,13 +14,23 @@
             } %}
         </div>
         <h1 class="{{ styles.heading }}">{{ localeField(entry, 'title') }}</h1>
-        <p class="{{ styles.date }}">{{ entry.dateCreated.format("F j, Y") }}</p>
+        <p class="{{ styles.date }}">
+            {% if locale() == 'fr' %}
+                {{ entry.dateCreated.format('j') }} {{ entry.dateCreated.format('F')|t }}, {{ entry.dateCreated.format('Y') }}
+            {% else %}
+                {{ entry.dateCreated.format('F j, Y') }}
+            {% endif %}
+        </p>
         {% include "blocks/blocks" with {"blocks": localeField(entry, 'bodyText')} only %}
     </div>
     <div>
         <div id="disqus_thread"></div>
         <script>
-
+        {% if locale() == 'fr' %}
+            var disqus_config = function () {
+                this.language = "fr";
+            };
+        {% endif %}
         /**
         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/

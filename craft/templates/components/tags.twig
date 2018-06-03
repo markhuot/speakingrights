@@ -3,10 +3,10 @@
 {% if entry is defined %}
     <ul class="{{ styles.tags }}">
         {% for tag in entry.topics %}
-            <li class="{{ styles.tag }}">#{{ tag.title }}</li>
+            <li class="{{ styles.tag }}">#{{ localeField(tag, 'title') }}</li>
         {% endfor %}
         {% for tag in entry.tactics %}
-            <li class="{{ styles.tag }}">#{{ tag.title }}</li>
+            <li class="{{ styles.tag }}">#{{ localeField(tag, 'title') }}</li>
         {% endfor %}
     </ul>
 {% endif %}

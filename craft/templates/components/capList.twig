@@ -9,10 +9,10 @@
                 <td>
                     <p class="{{ styles.tags }}">
                         {% for tag in cap.topics %}
-                            <a class="{{ styles.tag }}" href="/search?type=downloads&topic={{ tag.slug }}">{{ tag.title }}</a>
+                            <a class="{{ styles.tag }}" href="/search?type=downloads&topic={{ tag.slug }}">{{ localeField(tag, 'title') }}</a>
                         {% endfor %}
                         {% for tag in cap.tactics %}
-                            <a class="{{ styles.tag }}" href="/search?type=downloads&tactic={{ tag.slug }}">{{ tag.title }}</a>
+                            <a class="{{ styles.tag }}" href="/search?type=downloads&tactic={{ tag.slug }}">{{ localeField(tag, 'title') }}</a>
                         {% endfor %}
                     </p>
                 </td>

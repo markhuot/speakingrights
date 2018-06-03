@@ -2,64 +2,64 @@
 
 {% set styles = styles("site-map.css.json") %}
 {% set spacing = styles("layouts/spacing.css.json") %}
-{% set heroLabel = 'Sitemap' %}
+{% set heroLabel = 'Site Map'|t %}
 {% set shortHero = true %}
 
 {% use "cap/hero" %}
 
 {% block main %}
     <ul class="{{ styles.siteMap }}">
-        <li><a href="/home">Home</a></li>
+        <li><a href="/home">{{ "Home"|t }}</a></li>
         <li>
-            <a href="/news">News</a>
+            <a href="/news">{{ "News"|t }}</a>
             <ul>
                 {% for entry in craft.entries.section(['news']).limit(null).order('title asc') %}
-                    <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+                    <li><a href="{{ entry.url }}">{{ localeField(entry, 'title') }}</a></li>
                 {% endfor %}
             </ul>
         </li>
         <li>
-            <a href="/events">Events</a>
+            <a href="/events">{{ "Events"|t }}</a>
             <ul>
                 {% for entry in craft.entries.section(['events']).limit(null).order('title asc') %}
-                    <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+                    <li><a href="{{ entry.url }}">{{ localeField(entry, 'title') }}</a></li>
                 {% endfor %}
             </ul>
         </li>
-        <li><a href="/motivate">Motivate</a></li>
-        <li><a href="/investigate">Investigate</a></li>
-        <li><a href="/take-action">Take Action</a></li>
+        <li><a href="/motivate">{{ "Motivate"|t }}</a></li>
+        <li><a href="/investigate">{{ "Investigate"|t }}</a></li>
+        <li><a href="/take-action">{{ "Take Action"|t }}</a></li>
         <li>
-            <a href="/community-action-projects">Projects</a>
+            <a href="/community-action-projects">{{ "Projects"|t }}</a>
             <ul>
                 {% for entry in craft.entries.section(['communityActionProject']).limit(null).order('title asc') %}
-                    <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+                    <li><a href="{{ entry.url }}">{{ localeField(entry, 'title') }}</a></li>
                 {% endfor %}
             </ul>
         </li>
         <li>
-            <a href="/resources">Resources</a>
+            <a href="/resources">{{ "Resources"|t }}</a>
             <ul>
                 <li>
-                    <a href="/resources/downloads">Downloads</a>
+                    <a href="/resources/downloads">{{ "Downloads"|t }}</a>
                     <ul>
                         {% for entry in craft.entries.section(['downloads']).limit(null).order('title asc') %}
-                            <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+                            <li><a href="{{ entry.url }}">{{ localeField(entry, 'title') }}</a></li>
                         {% endfor %}
                     </ul>
                 </li>
                 <li>
-                    <a href="/resources/links">Links</a>
+                    <a href="/resources/links">{{ "Links"|t }}</a>
                     <ul>
                         {% for entry in craft.entries.section(['links']).limit(null).order('title asc') %}
-                            <li><a href="{{ entry.linkUrl }}">{{ entry.title }}</a></li>
+                            <li><a href="{{ entry.linkUrl }}">{{ localeField(entry, 'title') }}</a></li>
                         {% endfor %}
                     </ul>
                 </li>
             </ul>
         </li>
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/contact">Contact Us</a></li>
-        <li><a href="/privacy">Privacy and Comment Policy</a></li>
+        <li><a href="/about">{{ "About Us"|t }}</a></li>
+        <li><a href="/contact">{{ "Contact Us"|t }}</a></li>
+        <li><a href="/privacy">{{ "Privacy and Comment Policy"|t }}</a></li>
     </ul>
 {% endblock %}
